@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "auth0-js": "^9.1.0",
+    "auth0-lock": "^11.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-materialize": "^1.1.2",
