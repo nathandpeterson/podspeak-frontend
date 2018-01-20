@@ -26,7 +26,6 @@ class Nav extends Component {
         this.getData()
     }
 
-    //function for setting token and profile data
   setData(accessToken, profile){
     localStorage.setItem('accessToken', accessToken)
     localStorage.setItem('profile', JSON.stringify(profile))
@@ -46,7 +45,6 @@ class Nav extends Component {
     }
   }
 
-  //delete token in state and local storage
   logout(){
     this.setState({
       accessToken: '',
@@ -55,7 +53,6 @@ class Nav extends Component {
       localStorage.removeItem('accessToken')
       localStorage.removeItem('profile')
     })
-
   }
 
     loginClick = (e) => {
