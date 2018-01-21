@@ -21,7 +21,7 @@ class Nav extends Component {
                   return
                 }
             this.setData(authResult.accessToken, profile)
-        })
+         })
         })
         this.getData()
     }
@@ -34,6 +34,7 @@ class Nav extends Component {
       profile: JSON.parse(localStorage.getItem('profile'))
     })
   }
+  
   getData(){
     if(localStorage.getItem('accessToken') != null){
       this.setState({
