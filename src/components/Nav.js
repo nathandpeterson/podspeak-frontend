@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Navbar, NavItem } from 'react-materialize'
 import Auth0Lock from 'auth0-lock'
 
+
 class Nav extends Component {
     constructor(){
         super()
@@ -9,9 +10,10 @@ class Nav extends Component {
     }
 
     static defaultProps = {
-        clientId: 'hXQR6COgtLrGmaV5NUJJdwufjZpmxQC5',
-        domain: 'natperson.auth0.com'
-      }
+          clientId: 'hXQR6COgtLrGmaV5NUJJdwufjZpmxQC5',
+          domain: 'natperson.auth0.com'
+        }
+
     componentDidMount(){
         this.lock = new Auth0Lock(this.props.clientId, this.props.domain)
         this.lock.on('authenticated', (authResult)=>{
@@ -24,9 +26,10 @@ class Nav extends Component {
          })
         })
         this.getData()
+    
     }
 
-  setData(accessToken, profile){
+  setData = (accessToken, profile) => {
     localStorage.setItem('accessToken', accessToken)
     localStorage.setItem('profile', JSON.stringify(profile))
     this.setState({
@@ -34,8 +37,8 @@ class Nav extends Component {
       profile: JSON.parse(localStorage.getItem('profile'))
     })
   }
-  
-  getData(){
+
+  getData = () => {
     if(localStorage.getItem('accessToken') != null){
       this.setState({
         accessToken: localStorage.getItem('accessToken'),
