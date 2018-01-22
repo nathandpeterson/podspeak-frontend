@@ -8,6 +8,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Homepage from './components/Homepage'
 import Userpage from './components/Userpage'
+import Login from './components/Login'
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
@@ -32,17 +33,16 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 })
 
-
 class App extends Component {
 
   render() {
     return ( <ApolloProvider client={ client } >
                 <div>
-              
                   <BrowserRouter>
                   <div>
-                  <Nav />
+                    <Nav />
                     <Switch>
+                      <Route exact path='/login' component={Login}/>
                       <Route exact path='/:id' component={Userpage}/>
                       <Route path='/' component={Homepage}/>
                     </Switch>
