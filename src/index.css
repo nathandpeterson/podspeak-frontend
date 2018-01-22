@@ -6,3 +6,12 @@ body {
   color: gray;
 }
 
+.main-container {
+  display: flex;
+  flex-flow: row;
+}
+
+.pod-card-container {
+  max-width: 250px;
+  height: 250px;
+}

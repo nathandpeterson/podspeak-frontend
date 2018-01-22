@@ -4,11 +4,12 @@ import { setContext } from 'apollo-link-context';
 
 
 class AuthService extends Component {
-    constructor(){
-        super()
-        this.state = {}
-    }
-      check = () => {
+
+    // static defaultProps = {
+    //     clientId: 'hXQR6COgtLrGmaV5NUJJdwufjZpmxQC5',
+    //     domain: 'natperson.auth0.com'
+    //   }
+      static check(){
         this.lock = new Auth0Lock('hXQR6COgtLrGmaV5NUJJdwufjZpmxQC5', 'natperson.auth0.com')
         this.lock.on('authenticated', (authResult)=>{
             this.lock.getUserInfo(authResult.accessToken, (error, profile)=>{
@@ -22,7 +23,7 @@ class AuthService extends Component {
         this.getData()
       }
 
-      getData = () => {
+      getData(){
         if(localStorage.getItem('accessToken') != null){
           this.setState({
             accessToken: localStorage.getItem('accessToken'),
@@ -33,7 +34,7 @@ class AuthService extends Component {
         }
       }
 
-      authLink = () => {
+      static authLink(){
         setContext((_, { headers }) => {
             // get the authentication token from local storage if it exists
             const token = localStorage.getItem('token')

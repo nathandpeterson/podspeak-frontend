@@ -9,6 +9,16 @@ class Nav extends Component {
         this.state = {}
     }
 
+    renderNavButtons(){
+      // seems to be buggy
+      if(this.state.accessToken){
+        console.log('access', this.state.accessToken)
+        return <NavItem onClick={this.logout}> log out </NavItem>
+      } else {
+        return <NavItem onClick={this.loginClick}> log in </NavItem>
+      }
+    }
+    
     static defaultProps = {
           clientId: 'hXQR6COgtLrGmaV5NUJJdwufjZpmxQC5',
           domain: 'natperson.auth0.com'
@@ -26,7 +36,6 @@ class Nav extends Component {
          })
         })
         this.getData()
-    
     }
 
   setData = (accessToken, profile) => {
@@ -44,7 +53,7 @@ class Nav extends Component {
         accessToken: localStorage.getItem('accessToken'),
         profile: JSON.parse(localStorage.getItem('profile'))
       }, ()=>{
-        console.log(this.state)
+        console.log('GETDATA',this.state)
       })
     }
   }
@@ -66,8 +75,8 @@ class Nav extends Component {
 
     render () {
         return (
-            <Navbar right brand="podspeak">
-                <NavItem onClick={this.loginClick}>log in</NavItem>
+            <Navbar className="light-blue lighten-2" right brand="podspeak">
+                {this.renderNavButtons()}
             </Navbar>
         )
     }
