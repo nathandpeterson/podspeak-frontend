@@ -10,31 +10,27 @@ class Nav extends Component {
     }
 
     renderNavButtons(){
-      // seems to be buggy
+      console.log('render navButtons state.accessToken', this.state.accessToken)
       if(this.state.accessToken){
-        console.log('access', this.state.accessToken)
         return <NavItem onClick={this.logout}> log out </NavItem>
       } else {
         return <NavItem onClick={this.loginClick}> log in </NavItem>
       }
     }
-    
-    static defaultProps = {
-          clientId: 'hXQR6COgtLrGmaV5NUJJdwufjZpmxQC5',
-          domain: 'natperson.auth0.com'
-        }
 
     componentDidMount(){
-        this.lock = new Auth0Lock(this.props.clientId, this.props.domain)
+        this.lock = new Auth0Lock('hXQR6COgtLrGmaV5NUJJdwufjZpmxQC5', 'natperson.auth0.com')
         this.lock.on('authenticated', (authResult)=>{
-            this.lock.getUserInfo(authResult.accessToken, (error, profile)=>{
-                if(error) {
-                  console.log(error)
-                  return
-                }
-            this.setData(authResult.accessToken, profile)
-         })
-        })
+          this.lock.getUserInfo(authResult.accessToken, (error, profile)=>{
+              if(error) {
+                console.log(error)
+                return
+              }
+          this.setData(authResult.accessToken, profile)
+       })
+      })
+      console.log('fired')
+      this.getData()
         this.getData()
     }
 
@@ -58,7 +54,8 @@ class Nav extends Component {
     }
   }
 
-  logout(){
+  logout = (e) => {
+    e.preventDefault()
     this.setState({
       accessToken: '',
       profile: ''
@@ -74,6 +71,7 @@ class Nav extends Component {
     }
 
     render () {
+      console.log('NAVRENDER',this.state)
         return (
             <Navbar className="light-blue lighten-2" right brand="podspeak">
                 {this.renderNavButtons()}

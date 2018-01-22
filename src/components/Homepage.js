@@ -21,7 +21,7 @@ class Homepage extends Component {
     render(){
         if(!this.props.data.podcasts) return <div />
         const { podcasts } = this.props.data
-        return <div className="main-container"> wtf
+        return <div className="main-container">
             {podcasts.map(podcast => {
                 return <div className="pod-card-container"> 
                             <Card key={podcast.id}
@@ -31,7 +31,7 @@ class Homepage extends Component {
                                     image={podcast.image_URL} 
                                     waves='light'/>}
                 title={podcast.title}
-                reveal={<p>Here is some more information about this product that is only revealed once clicked on.</p>}>
+                reveal={<p>{podcast.description}</p>}>
                 <p><a href="#">More...</a></p>
                 </Card>
                 </div>
