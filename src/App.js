@@ -5,7 +5,9 @@ import { ApolloProvider } from 'react-apollo'
 import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Homepage from './components/Homepage'
+import Userpage from './components/Userpage'
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
@@ -36,8 +38,16 @@ class App extends Component {
   render() {
     return ( <ApolloProvider client={ client } >
                 <div>
-                <Nav />
-                <Homepage />
+              
+                  <BrowserRouter>
+                  <div>
+                  <Nav />
+                    <Switch>
+                      <Route exact path='/:id' component={Userpage}/>
+                      <Route path='/' component={Homepage}/>
+                    </Switch>
+                    </div>
+                  </BrowserRouter>
                 </div>
               </ApolloProvider>
     )

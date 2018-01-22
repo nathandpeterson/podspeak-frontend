@@ -23,8 +23,8 @@ class Homepage extends Component {
         const { podcasts } = this.props.data
         return <div className="main-container">
             {podcasts.map(podcast => {
-                return <div className="pod-card-container"> 
-                            <Card key={podcast.id}
+                return <div key={podcast.id} className="pod-card-container"> 
+                            <Card 
                                     className="pod-card"
                                     header={<CardTitle 
                                     reveal 

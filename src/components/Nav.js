@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Navbar, NavItem } from 'react-materialize'
 import Auth0Lock from 'auth0-lock'
+import { withRouter } from 'react-router-dom'
 
 
 class Nav extends Component {
@@ -26,13 +27,13 @@ class Nav extends Component {
                 console.log(error)
                 return
               }
+              console.log("authResult", authResult)
           this.setData(authResult.accessToken, profile)
        })
       })
-      console.log('fired')
       this.getData()
-        this.getData()
     }
+
 
   setData = (accessToken, profile) => {
     localStorage.setItem('accessToken', accessToken)
@@ -65,13 +66,13 @@ class Nav extends Component {
     })
   }
 
-    loginClick = (e) => {
+  loginClick = (e) => {
         e.preventDefault()
         this.lock.show()
     }
 
     render () {
-      console.log('NAVRENDER',this.state)
+      console.log('NAV',this.props)
         return (
             <Navbar className="light-blue lighten-2" right brand="podspeak">
                 {this.renderNavButtons()}
@@ -80,4 +81,4 @@ class Nav extends Component {
     }
 }
 
-export default Nav
+export default withRouter(Nav)
