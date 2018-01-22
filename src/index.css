@@ -8,10 +8,15 @@ body {
 
 .main-container {
   display: flex;
-  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .pod-card-container {
-  max-width: 250px;
-  height: 250px;
+  width: 250px;
+}
+
+.pod-card {
+  background-color: gray;
+  width: 100%;
 }
