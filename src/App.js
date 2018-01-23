@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Homepage from './components/Homepage'
 import Userpage from './components/Userpage'
 import Login from './components/Login'
+import Signup from './components/Signup'
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
@@ -17,13 +18,13 @@ const httpLink = createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
-  const token = localStorage.getItem('accessToken')
-  console.log('headers access token in gql', token)
+  const token = localStorage.getItem('token')
+  // console.log('headers access token in gql', token)
   // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : null,
+      authorization: token ? `${token}` : null,
     }
   }
 })
@@ -34,15 +35,30 @@ const client = new ApolloClient({
 })
 
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {login: false}
+  }
+
+  toggleLogin = () => {
+    console.log('fired')
+    this.setState({login: !this.state.login})
+  }
 
   render() {
     return ( <ApolloProvider client={ client } >
                 <div>
                   <BrowserRouter>
                   <div>
-                    <Nav />
+                    <Nav login={this.state.login}/>
                     <Switch>
-                      <Route exact path='/login' component={Login}/>
+                      <Route exact path='/login' 
+                              component={(props)=> 
+                              <Login {...props}
+                                      login={this.state.login}
+                                      toggleLogin={this.toggleLogin} />}  
+                        />
+                      <Route exact path='/signup' component={Signup}/>
                       <Route exact path='/:id' component={Userpage}/>
                       <Route path='/' component={Homepage}/>
                     </Switch>

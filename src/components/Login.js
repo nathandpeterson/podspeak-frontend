@@ -1,5 +1,14 @@
 import React, { Component } from 'react'
 import { Row, Input, Button } from 'react-materialize'
+import gql from 'graphql-tag'
+import { graphql } from 'react-apollo'
+
+const mutation = gql` mutation login($email: String, $password: String) {
+    login(email: $email, password: $password){
+        email
+        token
+    }
+}`
 
 class Login extends Component {
     constructor(){
@@ -9,7 +18,26 @@ class Login extends Component {
 
     submitForm = (e) => {
         e.preventDefault()
-        console.log(this.state)
+        this.props.mutate({variables :{
+         email: this.state.email,
+         password: this.state.password   
+            }
+        }).then(result => {
+            if(result.data.login){
+                const { token }  = result.data.login
+                localStorage.setItem('token', token)
+                // redirect to custom homepage
+                // this.props.history.push('/:id')
+            } else {
+                console.log('handle err')
+            }
+           
+        })
+    }
+
+    signupForm = (e) => {
+        e.preventDefault()
+        this.props.history.push('/')
     }
 
     changeHandler = (e) => {
@@ -18,23 +46,32 @@ class Login extends Component {
     }
 
     render(){
+        console.log('login props',this.props)
         return  (<form>
-                    <Row>
-                        <Input  onChange={this.changeHandler} 
+                <Row>
+                        <Input  onChange={this.changeHandler}
+                                value={this.state.email} 
                                 type="email" 
                                 s={6} 
                                 label="email" />
-                    </Row>
-                    <Row>
+                </Row>
+                <Row>
                         <Input  onChange={this.changeHandler} 
+                                value={this.state.password}
                                 type="password" 
                                 s={6} 
                                 label="password" />
-                    </Row>
+                </Row>
+                <Row>
                     <Button     onClick={this.submitForm} 
                                 className="pink"> submit </Button>
+                </Row>
+                <Row>
+                    <Button     onClick={this.signupForm}
+                                className="pink"> signup </Button>
+                </Row>
                 </form>)
     }
 }
 
-export default Login
+export default graphql(mutation)(Login)

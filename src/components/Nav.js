@@ -6,54 +6,24 @@ import { withRouter , Link } from 'react-router-dom'
 class Nav extends Component {
     constructor(){
         super()
-        this.state = {}
     }
 
     renderNavButtons(){
-      console.log('render navButtons state.accessToken', this.state.accessToken)
-      if(this.state.accessToken){
+      if(this.props.login){
         return <NavItem onClick={this.logout}> log out </NavItem>
       } else {
         return (<Link to={'/login'}> 
-                <NavItem> 
-                log in </NavItem> 
+                log in 
                 </Link>)
       }
     }
 
-    componentDidMount(){
-       
-    }
-
-
-  // setData = (accessToken, profile) => {
-  //   localStorage.setItem('accessToken', accessToken)
-  //   localStorage.setItem('profile', JSON.stringify(profile))
-  //   this.setState({
-  //     accessToken: localStorage.getItem('accessToken'),
-  //     profile: JSON.parse(localStorage.getItem('profile'))
-  //   })
-  // }
-
-  // getData = () => {
-  //   if(localStorage.getItem('accessToken') != null){
-  //     this.setState({
-  //       accessToken: localStorage.getItem('accessToken'),
-  //       profile: JSON.parse(localStorage.getItem('profile'))
-  //     }, ()=>{
-  //       console.log('GETDATA',this.state)
-  //     })
-  //   }
-  // }
-
   logout = (e) => {
     e.preventDefault()
     this.setState({
-      accessToken: '',
-      profile: ''
+      token: ''
     }, () => {
-      localStorage.removeItem('accessToken')
-      localStorage.removeItem('profile')
+      localStorage.removeItem('token')
     })
   }
 
@@ -62,10 +32,10 @@ class Nav extends Component {
     }
 
     render () {
-      console.log('NAV',this.props)
+      console.log('nav props',this.props)
         return (
             <Navbar className="light-blue lighten-2" right brand="podspeak">
-                {this.renderNavButtons()}
+                {this.renderNavButtons(this.props.login)}
             </Navbar>
         )
     }
