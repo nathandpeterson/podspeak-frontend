@@ -37,7 +37,7 @@ class Login extends Component {
 
     signupForm = (e) => {
         e.preventDefault()
-        this.props.history.push('/')
+        this.props.history.push('/signup')
     }
 
     changeHandler = (e) => {

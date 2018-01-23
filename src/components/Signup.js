@@ -1,9 +1,10 @@
 import React, { Component} from 'react'
 import { Row, Input, Button } from 'react-materialize'
 import { graphql } from 'react-apollo'
-import AvatarSelect from './AvatarSelect'
 import SignupMutation from '../queries/SignupMutation'
 
+const avatars = ["😀","👻", "💩", "👽", "🤡", "🤖", "😀", "😺", "👾", "💋", "🐶", "🐸", "🦉", "🦄", "🦖", 
+"🐙","🐠", "🦍", "🐉"]
 
 class Signup extends Component {
     constructor(){
@@ -70,15 +71,15 @@ class Signup extends Component {
                                 label="last name" />
                     </Row>
                     <Row>
-                         {/* <Input onChange={this.avatarHandler} 
-                                value={this.state.avatar}
+                         <Input onChange={this.avatarHandler}
+                                value={`${this.state.avatar}`}
                                 type="select" 
                                 s={6} 
                                 label="avatar">
-                                <div>
-                                    <AvatarSelect />
-                                </div>
-                        </Input> */}
+                                {avatars.map((avatar, i) => {
+        return <option key={i} value={avatar} className="avatar-option">{avatar}</option>
+                                })}      
+                        </Input>
                             
                         <Input onChange={this.privacyHandler} 
                                 value={this.state.privacy}
