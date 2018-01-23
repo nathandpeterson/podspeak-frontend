@@ -42,7 +42,12 @@ class Signup extends Component {
                 avatar: this.state.avatar,
                 privacy: this.state.privacy
             }
-        }).then(result => console.log(result))
+        }).then(result => {
+            // get the id back and use it to push the user to custom page
+            // also should grant a token here?
+            console.log(result)
+            this.props.history.push('/')
+        })
     }
     render(){
         return  <form>
