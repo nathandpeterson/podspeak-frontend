@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Row, Input, Button } from 'react-materialize'
-import { graphql } from 'react-apollo'
+import { compose, graphql, withApollo } from 'react-apollo'
 import LoginMutation from '../queries/LoginMutation'
 import ErrorMessage from './ErrorMessage'
+import { withRouter } from 'react-router-dom'
 
 
 class Login extends Component {
@@ -22,11 +23,14 @@ class Login extends Component {
         })
         .then(result => {
             const { token, error, email, id } = result.data.login
-            token ? localStorage.setItem('token', token) : this.setState({errorMessage: error})
-                // this.props.history.push('/:id')
-            console.log(id)
-                // Just hard-coded an id for test
-            token ?  this.props.history.push(`/${id}`) : null
+            if(error){
+                this.setState({errorMessage: error})
+            } else {
+                localStorage.setItem('token', token)
+                console.log('in login',this.props)
+                this.props.updateNav()
+                this.props.history.push(`/${id}`)
+            }
         })
     }
 
@@ -75,4 +79,8 @@ class Login extends Component {
     }
 }
 
-export default graphql(LoginMutation)(Login)
+export default graphql(LoginMutation)(
+    compose(withApollo, withRouter)(Login)
+  ) 
+
+// export default graphql(LoginMutation)(Login)

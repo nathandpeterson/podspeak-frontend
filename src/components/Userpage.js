@@ -12,7 +12,7 @@ class Userpage extends Component {
             return <li key={i}> {pod}</li>
         })}
         </ul>
-        <Button floating large className='red' waves='light' icon='add' />
+       
         </div>
     }
 }

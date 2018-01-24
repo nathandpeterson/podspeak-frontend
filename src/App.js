@@ -36,15 +36,24 @@ const client = new ApolloClient({
 })
 
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {login: false}
+  }
+
+  toggleLoginState = () => {
+    this.setState({login: !this.state.login})
+  }
 
   render() {
     return ( <ApolloProvider client={ client } >
                 <div>
                   <BrowserRouter>
                   <div>
-                    <Nav login={this.state}/>
+                    <Nav login={this.state.login}/>
                     <Switch>
-                      <Route exact path='/login' component={Login}/>
+                      <Route exact path='/login' 
+                            component={()=> <Login updateNav={()=> this.updateNav} />}/>
                       <Route exact path='/signup' component={Signup}/>
                       <Route exact path='/:id' component={Userpage}/>
                       <Route path='/' component={Homepage}/>

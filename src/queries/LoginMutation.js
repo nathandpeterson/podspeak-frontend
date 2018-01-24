@@ -4,7 +4,9 @@ export default gql` mutation login($email: String, $password: String) {
     login(email: $email, password: $password){
         token
         id
-       error
+        first_name
+        avatar
+        error
     }
 }`
 
