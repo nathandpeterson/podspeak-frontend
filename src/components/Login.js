@@ -21,11 +21,12 @@ class Login extends Component {
             console.log('in the catch', err)
         })
         .then(result => {
-            const { token, error, email } = result.data.login
+            const { token, error, email, id } = result.data.login
             token ? localStorage.setItem('token', token) : this.setState({errorMessage: error})
-                // redirect to custom homepage
                 // this.props.history.push('/:id')
-            
+            console.log(id)
+                // Just hard-coded an id for test
+            token ?  this.props.history.push(`/${id}`) : null
         })
     }
 

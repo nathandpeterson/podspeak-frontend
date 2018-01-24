@@ -21,12 +21,11 @@ const httpLink = createHttpLink({
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem('token')
-  // console.log('headers access token in gql', token)
   // return the headers to the context so httpLink can read them
-  return {
+  return !token ? null : {
     headers: {
       ...headers,
-      authorization: token ? `${token}` : null,
+      authorization: `${token}`,
     }
   }
 })
@@ -37,29 +36,15 @@ const client = new ApolloClient({
 })
 
 class App extends Component {
-  constructor(){
-    super()
-    this.state = {login: false}
-  }
-
-  toggleLogin = () => {
-    console.log('fired')
-    this.setState({login: !this.state.login})
-  }
 
   render() {
     return ( <ApolloProvider client={ client } >
                 <div>
                   <BrowserRouter>
                   <div>
-                    <Nav login={this.state.login}/>
+                    <Nav login={this.state}/>
                     <Switch>
-                      <Route exact path='/login' 
-                              component={(props)=> 
-                              <Login {...props}
-                                      login={this.state.login}
-                                      toggleLogin={this.toggleLogin} />}  
-                        />
+                      <Route exact path='/login' component={Login}/>
                       <Route exact path='/signup' component={Signup}/>
                       <Route exact path='/:id' component={Userpage}/>
                       <Route path='/' component={Homepage}/>
