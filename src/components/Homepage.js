@@ -32,7 +32,7 @@ class Homepage extends Component {
                                     waves='light'/>}
                 title={podcast.title}
                 reveal={<p>{podcast.description}</p>}>
-                <p><a href="#">More...</a></p>
+                <p>>More...</p>
                 </Card>
                 </div>
             })}

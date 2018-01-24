@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Navbar, NavItem } from 'react-materialize'
 import { withRouter , Link } from 'react-router-dom'
-
+import { compose, withApollo } from 'react-apollo'
 
 class Nav extends Component {
     constructor(){
@@ -27,12 +27,7 @@ class Nav extends Component {
     })
   }
 
-  loginClick = (e) => {
-        e.preventDefault()
-    }
-
     render () {
-      console.log('nav props',this.props)
         return (
             <Navbar className="light-blue lighten-2" right brand="podspeak">
                 {this.renderNavButtons(this.props.login)}
@@ -41,4 +36,4 @@ class Nav extends Component {
     }
 }
 
-export default withRouter(Nav)
+export default compose(withApollo, withRouter)(Nav)

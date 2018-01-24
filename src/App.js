@@ -10,6 +10,8 @@ import Homepage from './components/Homepage'
 import Userpage from './components/Userpage'
 import Login from './components/Login'
 import Signup from './components/Signup'
+import { Button } from 'react-materialize'
+import ErrorMessage from './components/ErrorMessage';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
