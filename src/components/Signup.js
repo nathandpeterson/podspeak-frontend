@@ -45,8 +45,9 @@ class Signup extends Component {
         }).then(result => {
             // get the id back and use it to push the user to custom page
             // also should grant a token here?
-            console.log(result)
-            this.props.history.push('/')
+            console.log('in signup component',result)
+            const { id } = result.data.signup
+            this.props.history.push(`/${id}`)
         })
     }
     render(){

@@ -13,6 +13,7 @@ export default gql` mutation signup($email: String,
                                             avatar: $avatar,
                                             privacy: $privacy
                                                                 ){
-                                                            email
+                                                            id
+                                                            first_name
                                                             }
 }`
