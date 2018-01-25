@@ -10,6 +10,7 @@ import Homepage from './components/Homepage'
 import Userpage from './components/Userpage'
 import Login from './components/Login'
 import Podcast from './components/Podcast'
+import EpisodeContainer from './components/EpisodeContainer'
 import Signup from './components/Signup'
 import { Button } from 'react-materialize'
 import ErrorMessage from './components/ErrorMessage';
@@ -57,7 +58,8 @@ class App extends Component {
                             component={()=> <Login updateNav={()=> this.updateNav} />}/>
                       <Route exact path='/signup' component={Signup}/>
                       <Route exact path='/:id' component={Userpage}/>
-                      <Route exact path='/podcast/:id' component={Podcast}/>
+                      <Route exact path='/podcasts/:id' component={Podcast}/>
+                      <Route exact path='/episodes/:id' component={EpisodeContainer}/>
                       <Route path='/' component={Homepage}/>
                     </Switch>
                     </div>

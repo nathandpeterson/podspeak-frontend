@@ -21,7 +21,7 @@ class Homepage extends Component {
     episodeButtonHandler = (e) => {
         e.preventDefault()
         console.log(e.target)
-        this.props.history.push(`/podcast/${e.target.id}`)
+        this.props.history.push(`/podcasts/${e.target.id}`)
     }
     
     render(){

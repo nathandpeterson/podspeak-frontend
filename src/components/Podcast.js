@@ -33,7 +33,7 @@ class Podcast extends Component{
                             <Collection>
                                 {episodes.map(episode =>{
                                     return <CollectionItem 
-                                                href={`/play/${episode.id}`} 
+                                                href={`/episodes/${episode.id}`} 
                                                 key={episode.id}>
                                             <h6>{episode.title}</h6>
                                             <p>{episode.pub_date}</p>
