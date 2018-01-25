@@ -2,6 +2,7 @@ import React, { Component} from 'react'
 import { Row, Input, Button } from 'react-materialize'
 import { graphql } from 'react-apollo'
 import SignupMutation from '../queries/SignupMutation'
+import Nav from './Nav'
 
 const avatars = ["😀","👻", "💩", "👽", "🤡", "🤖", "😀", "😺", "👾", "💋", "🐶", "🐸", "🦉", "🦄", "🦖", 
 "🐙","🐠", "🦍", "🐉"]
@@ -51,7 +52,9 @@ class Signup extends Component {
         })
     }
     render(){
-        return  <form>
+        return <div> 
+                 <Nav /> 
+                    <form>
                     <Row>
                         <Input  onChange={this.emailHandler}
                                 value={this.state.email} 
@@ -102,6 +105,7 @@ class Signup extends Component {
                                 className="pink"> submit </Button>
                     </Row>
                  </form>
+                 </div>
     }
 }
 

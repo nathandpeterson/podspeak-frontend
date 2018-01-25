@@ -1,64 +1,35 @@
 import React, { Component } from 'react'
-import { Navbar, NavItem } from 'react-materialize'
-import { withRouter , Link } from 'react-router-dom'
-import { compose, withApollo } from 'react-apollo'
-import jwtDecode from 'jwt-decode'
-import { Button } from 'react-materialize'
-import gql from 'graphql-tag'
-import LoginMutation from '../queries/LoginMutation'
-import { graphql } from 'react-apollo'
+import { Navbar, NavItem, Icon, Button } from 'react-materialize'
+import { Link, withRouter } from 'react-router-dom'
+import UserQuery from '../queries/UserQuery'
+import { graphql, withApollo, compose } from 'react-apollo'
+
 
 class Nav extends Component {
-    constructor(){
-        super()
-        this.state = {login: false, avatar: '', firstName: ''}
-    }
-
-    renderNavButtons(){
-      if(this.state.login){
-        return <NavItem onClick={this.logout}> log out </NavItem>
-      } else {
-        return (<Link to={'/login'}> 
-                log in 
-                </Link>)
-      }
-    }
-
-  logout = (e) => {
-    e.preventDefault()
-    localStorage.removeItem('token')
-    this.setState({login: false})
-    this.props.history.push('/')
+  componentWillReceiveProps(nextProps){
+    console.log('LIFECYCLE', nextProps)
+    // check for token and render user-specific content if logged in
   }
-  componentDidMount(){
-    const decodeToken = this.checkForToken()
-    decodeToken ? this.setState({login: true}) : this.setState({login: false})
-  }
-  checkForToken(){
-    if(!localStorage.getItem('token')) return null
-    const token = localStorage.getItem('token').slice(8)
-    const decoded = jwtDecode(token)
-    return decoded
-  }
-  testCacheMethod = () => {
-    // const { client } = this.props
-    // client.readFragment({id: 1, fragment: gql` user{ first_name}`
-    //  }).then(res => console.log(res))
-  }
-
-    render () {
-    
-        return (
-          <div>
-            <Navbar className="light-blue lighten-2" right brand="podspeak">
-                {this.renderNavButtons()}
-            </Navbar>
-            {/* <Button onClick={this.testCacheMethod} floating large className='red' waves='light' icon='add' /> */}
-            </div>
-        )
-    }
+handleLogin = (e) => {
+  e.preventDefault()
+  this.props.history.push('/login')
 }
 
-export default graphql(LoginMutation)(
-  compose(withApollo, withRouter)(Nav)
-) 
+  render(){
+    console.log('RENDER NAV', this.props)
+    if(this.props.data.loading) return <div></div>
+    const { first_name, avatar } = this.props.data.user
+    return <div>
+              <Navbar className="teal" right > 
+                  <Link to="/" className="brand-logo center" >  <Icon>headset</Icon>podspeak</Link>
+                  <NavItem>{first_name}{avatar}</NavItem>
+                  <Button onClick={this.handleLogin}> log in </Button> 
+              </Navbar>
+              </div>   }
+}
+
+ 
+
+export default graphql(UserQuery, {
+  options: (props) => { return { variables: {id: 1 } } }
+})(compose(withApollo, withRouter)(Nav)) 

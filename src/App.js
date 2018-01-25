@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Nav from './components/Nav'
 import ApolloClient from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
 import { createHttpLink } from 'apollo-link-http';
@@ -12,8 +11,6 @@ import Login from './components/Login'
 import Podcast from './components/Podcast'
 import EpisodeContainer from './components/EpisodeContainer'
 import Signup from './components/Signup'
-import { Button } from 'react-materialize'
-import ErrorMessage from './components/ErrorMessage';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
@@ -51,11 +48,9 @@ class App extends Component {
     return ( <ApolloProvider client={ client } >
                 <div>
                   <BrowserRouter>
-                  <div>
-                    <Nav login={this.state.login}/>
+                  <div>             
                     <Switch>
-                      <Route exact path='/login' 
-                            component={()=> <Login updateNav={()=> this.updateNav} />}/>
+                      <Route exact path='/login' component={Login}/>
                       <Route exact path='/signup' component={Signup}/>
                       <Route exact path='/:id' component={Userpage}/>
                       <Route exact path='/podcasts/:id' component={Podcast}/>

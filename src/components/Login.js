@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import { Row, Input, Button } from 'react-materialize'
 import { compose, graphql, withApollo } from 'react-apollo'
 import LoginMutation from '../queries/LoginMutation'
-import ErrorMessage from './ErrorMessage'
 import { withRouter } from 'react-router-dom'
-
+import Nav from './Nav'
 
 class Login extends Component {
     constructor(){
@@ -22,12 +21,11 @@ class Login extends Component {
             console.log('in the catch', err)
         })
         .then(result => {
-            const { token, error, email, id } = result.data.login
+            const { token, error, id } = result.data.login
             if(error){
                 this.setState({errorMessage: error})
             } else {
                 localStorage.setItem('token', token)
-                console.log('in login',this.props)
                 this.props.updateNav()
                 this.props.history.push(`/${id}`)
             }
@@ -50,6 +48,7 @@ class Login extends Component {
 
     render(){
         return  (<div>
+                <Nav />
                 {this.state.errorMessage && this.displayErrorMessage(this.state.errorMessage)}
                     <form>
                     <Row>
@@ -82,5 +81,3 @@ class Login extends Component {
 export default graphql(LoginMutation)(
     compose(withApollo, withRouter)(Login)
   ) 
-
-// export default graphql(LoginMutation)(Login)

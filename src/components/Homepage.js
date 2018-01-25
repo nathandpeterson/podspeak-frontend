@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Card, CardTitle, Button } from 'react-materialize'
+import Nav from './Nav'
 
 const query = gql`
 query{
@@ -27,7 +28,8 @@ class Homepage extends Component {
     render(){
         if(!this.props.data.podcasts) return <div />
         const { podcasts } = this.props.data
-        return <div className="main-container">
+        return  <div><Nav loginButton={true} />
+        <div className="main-container">
             {podcasts.map(podcast => {
                 return <div key={podcast.id} className="pod-card-container"> 
                             <Card 
@@ -44,6 +46,7 @@ class Homepage extends Component {
                             </Card>
                 </div>
             })}
+        </div>
         </div>
     }
 }
