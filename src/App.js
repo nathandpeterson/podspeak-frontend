@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Homepage from './components/Homepage'
 import Userpage from './components/Userpage'
 import Login from './components/Login'
+import Podcast from './components/Podcast'
 import Signup from './components/Signup'
 import { Button } from 'react-materialize'
 import ErrorMessage from './components/ErrorMessage';
@@ -56,6 +57,7 @@ class App extends Component {
                             component={()=> <Login updateNav={()=> this.updateNav} />}/>
                       <Route exact path='/signup' component={Signup}/>
                       <Route exact path='/:id' component={Userpage}/>
+                      <Route exact path='/podcast/:id' component={Podcast}/>
                       <Route path='/' component={Homepage}/>
                     </Switch>
                     </div>

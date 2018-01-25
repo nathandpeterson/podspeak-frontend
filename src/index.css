@@ -14,9 +14,12 @@ body {
 
 .pod-card-container {
   width: 250px;
+  display: flex;
+  justify-content: center;
 }
 
 .pod-card {
   background-color: gray;
   width: 100%;
 }
+

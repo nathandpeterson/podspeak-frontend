@@ -53,7 +53,7 @@ class Nav extends Component {
             <Navbar className="light-blue lighten-2" right brand="podspeak">
                 {this.renderNavButtons()}
             </Navbar>
-            <Button onClick={this.testCacheMethod} floating large className='red' waves='light' icon='add' />
+            {/* <Button onClick={this.testCacheMethod} floating large className='red' waves='light' icon='add' /> */}
             </div>
         )
     }

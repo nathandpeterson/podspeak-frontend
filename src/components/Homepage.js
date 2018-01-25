@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import { Card, CardTitle } from 'react-materialize'
+import { Card, CardTitle, Button } from 'react-materialize'
 
 const query = gql`
 query{
@@ -17,6 +17,12 @@ query{
 }`
 
 class Homepage extends Component {
+
+    episodeButtonHandler = (e) => {
+        e.preventDefault()
+        console.log(e.target)
+        this.props.history.push(`/podcast/${e.target.id}`)
+    }
     
     render(){
         if(!this.props.data.podcasts) return <div />
@@ -25,15 +31,17 @@ class Homepage extends Component {
             {podcasts.map(podcast => {
                 return <div key={podcast.id} className="pod-card-container"> 
                             <Card 
-                                    className="pod-card"
-                                    header={<CardTitle 
-                                    reveal 
-                                    image={podcast.image_URL} 
-                                    waves='light'/>}
-                title={podcast.title}
-                reveal={<p>{podcast.description}</p>}>
-                <p>>More...</p>
-                </Card>
+                                        className="pod-card"
+                                        header={<CardTitle 
+                                        reveal 
+                                        image={podcast.image_URL} 
+                                        waves='light'/>}
+                                title={podcast.title}
+                                reveal={<p>{podcast.description}</p>}>
+                                <Button id={`${podcast.id}`} 
+                                        onClick={this.episodeButtonHandler}
+                                >EPISODES</Button>
+                            </Card>
                 </div>
             })}
         </div>
