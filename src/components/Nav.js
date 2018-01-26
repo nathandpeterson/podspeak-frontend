@@ -13,7 +13,7 @@ class Nav extends Component {
   }
 
 componentWillReceiveProps(nextProps){
-    console.log('LIFECYCLE', nextProps)
+    // console.log('LIFECYCLE', nextProps)
     // check for token and render user-specific content if logged in
   }
 handleLogout = (e) => {
@@ -25,7 +25,6 @@ handleLogout = (e) => {
 
 
   render(){
-    console.log('RENDER NAV', this.props)
     if(this.props.data.loading) return <div></div>
     const { first_name, avatar } = this.props.data.user
     return <div>

@@ -26,8 +26,9 @@ class Podcast extends Component{
                             header={<CardTitle 
                             image={image_URL}
                             waves='light'>
-                            {title}</CardTitle>}
-                             actions={[<a href={website}>Website</a>]}>
+                            <a href={website}>{title}</a>
+                            </CardTitle>}
+                             actions={[<a href={website}>LEARN MORE</a>]}>
                             {description}
                         </Card>
                     </Col>

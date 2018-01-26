@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import EpisodeQuery from '../queries/EpisodeQuery'
 import { Link } from 'react-router-dom'
-import { Button, CardPanel, Row, Col, Input } from 'react-materialize'
+import { Button, CardPanel, Row, Col, Input, Chip } from 'react-materialize'
 import Player from './Player'
 import Nav from './Nav'
 import ReactionButtons from './ReactionButtons'
@@ -19,9 +19,9 @@ class EpisodeContainer extends Component {
             <Row>
                 <Col s={1}></Col>
                 <Col s={10}>
-                <CardPanel>
-                    <h4>{title}</h4>
-                </CardPanel>
+                    <CardPanel>
+                        <h4>{title}</h4>
+                    </CardPanel>
                 </Col>
                 <Col s={1}></Col>
             </Row>
@@ -34,6 +34,7 @@ class EpisodeContainer extends Component {
                                         key={reaction.id}>
                                     <CardPanel className="teal lighten-4 black-text">
                                     <p>{reaction.content}</p>
+                                    <Chip> 🦁 Nathan</Chip>
                                     </CardPanel>
                                     </Col>
                                 })
