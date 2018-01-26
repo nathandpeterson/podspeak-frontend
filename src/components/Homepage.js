@@ -21,14 +21,13 @@ class Homepage extends Component {
 
     episodeButtonHandler = (e) => {
         e.preventDefault()
-        console.log(e.target)
         this.props.history.push(`/podcasts/${e.target.id}`)
     }
     
     render(){
         if(!this.props.data.podcasts) return <div />
         const { podcasts } = this.props.data
-        return  <div><Nav loginButton={true} />
+        return  <div>
         <div className="main-container">
             {podcasts.map(podcast => {
                 return <div key={podcast.id} className="pod-card-container"> 
@@ -41,8 +40,9 @@ class Homepage extends Component {
                                 title={podcast.title}
                                 reveal={<p>{podcast.description}</p>}>
                                 <Button id={`${podcast.id}`} 
-                                        onClick={this.episodeButtonHandler}
-                                >EPISODES</Button>
+                                        onClick={this.episodeButtonHandler}>
+                                    EPISODES
+                                </Button>
                             </Card>
                 </div>
             })}

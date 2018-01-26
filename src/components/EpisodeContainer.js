@@ -15,7 +15,6 @@ class EpisodeContainer extends Component {
         const { id, title, description, audio_URL, reactions} = this.props.data.episode
 
         return <div>
-            <Nav />
             <Row>
                 <Col s={1}></Col>
                 <Col s={10}>

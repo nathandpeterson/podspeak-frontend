@@ -47,7 +47,6 @@ class Login extends Component {
 
     render(){
         return  (<div>
-                <Nav />
                 {this.state.errorMessage && this.displayErrorMessage(this.state.errorMessage)}
                     <form>
                     <Row>

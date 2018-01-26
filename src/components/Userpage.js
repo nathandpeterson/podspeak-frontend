@@ -7,7 +7,7 @@ class Userpage extends Component {
 
     render(){
        return <div>
-            <Nav logoutButton={true} />
+           
                 <ul>
         {pods.map((pod, i) => {
             return <li key={i}> {pod}</li>

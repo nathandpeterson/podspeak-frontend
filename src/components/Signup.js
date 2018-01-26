@@ -53,7 +53,6 @@ class Signup extends Component {
     }
     render(){
         return <div> 
-                 <Nav /> 
                     <form>
                     <Row>
                         <Input  onChange={this.emailHandler}

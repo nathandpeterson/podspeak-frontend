@@ -5,6 +5,7 @@ import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Nav from './components/Nav'
 import Homepage from './components/Homepage'
 import Userpage from './components/Userpage'
 import Login from './components/Login'
@@ -50,7 +51,8 @@ class App extends Component {
     return ( <ApolloProvider client={ client } >
                 <div>
                   <BrowserRouter>
-                  <div>             
+                  <div>
+                    <Nav />           
                     <Switch>
                       <Route exact path='/login' component={Login}/>
                       <Route exact path='/signup' component={Signup}/>
