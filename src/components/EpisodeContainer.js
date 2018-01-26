@@ -28,7 +28,7 @@ class EpisodeContainer extends Component {
                 <Col s={1}></Col>
                 <Col s={10}>
                 <Row>
-                        {reactions.map(reaction =>{
+                        {/* {reactions.map(reaction =>{
                             return <Col
                                         key={reaction.id}>
                                     <CardPanel className="teal lighten-4 black-text">
@@ -37,13 +37,13 @@ class EpisodeContainer extends Component {
                                     </CardPanel>
                                     </Col>
                                 })
-                            }
+                            } */}
                 </Row>
                 </Col>
                 <Col s={1}></Col>
             </Row>
-            <Player />
-            <ReactionButtons />
+            <Player audioSource={audio_URL}/>
+            {/* <ReactionButtons /> */}
             <Input type="text" />
         </div>
     }

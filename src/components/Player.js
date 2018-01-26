@@ -1,46 +1,97 @@
 import React, { Component } from 'react'
-import { Row, Col, Icon, ProgressBar, Button } from 'react-materialize'
+import PlayerButtons from './PlayerButtons'
+import PlayerClock from './PlayerClock'
+import ReactPlayer from 'react-player'
+import { Button, Row, Col, CardPanel } from 'react-materialize'
+
 
 class Player extends Component {
+    constructor(props){
+        super(props)
+        this.state = {playing: false,
+            currentEpisode: '',
+            playing: false,
+            muted: false,
+            played: 0,
+            playedSeconds: 0
+            }
+    }
+    togglePlay = () => {
+        this.setState({playing: !this.state.playing})
+    }
+
+    toggleMute = () => {
+        this.setState({muted: !this.state.muted})
+    }
+
+    renderPlayStatus = () => {
+        return this.state.playing ? "playing" : null
+    }
+
+    onSeekMouseDown = e => {
+        this.setState({ seeking: true })
+      }
+
+    onSeekChange = e => {
+        this.setState({ played: parseFloat(e.target.value) })
+        }
+
+    onSeekMouseUp = e => {
+        this.setState({ seeking: false })
+        this.player.seekTo(parseFloat(e.target.value))
+      }
+
+    onProgress = state => {
+        console.log('onProgress', state)
+        // We only want to update time slider if we are not currently seeking
+        if (!this.state.seeking) {
+          this.setState(state)
+        }
+      }
+
+    ref = player => {
+        this.player = player
+      }
+    seek = (val) => {
+        const diff = this.state.playedSeconds + val
+        this.player.seekTo(parseFloat(diff))
+    }
+
     
-    render(){
-        return <div>
-                    <Row>
-                        <Col s={1}></Col>
-                        <Col s={10}>
-                            <ProgressBar progress={25}/>
-                        </Col>
-                        <Col s={1}></Col>
-                    </Row>
-                    <Row>
-                        <Col s={1}></Col>
-                        <Col s={2}>
-                            <Button className="player-btn">
-                                <Icon large>replay_10</Icon>
-                            </Button>
-                        </Col>
-                        <Col s={2}>
-                            <Button className="player-btn">
-                                <Icon large>replay_30</Icon>
-                            </Button>
-                        </Col>
-                        <Col s={2}>
-                            <Button className="player-btn">
-                                <Icon large>play_arrow</Icon>
-                            </Button>
-                        </Col>
-                        <Col s={2}>
-                            <Button className="player-btn">
-                                <Icon large>forward_10</Icon>
-                            </Button>
-                        </Col>
-                        <Col s={2}>
-                            <Button className="player-btn">
-                                <Icon >forward_30</Icon>
-                            </Button>
-                        </Col>
-                        <Col s={1}></Col>
-                     </Row>
+    render(){ 
+        if(!this.props.audioSource) return <div />
+        const { audioSource } = this.props
+         return  <div>
+              <Row>
+                  <Col s={1}></Col>
+                  <Col s={3}>
+                 
+                        <PlayerClock time={this.state.playedSeconds}/>
+                  </Col>
+                  <Col s={3}>
+                  <input
+                    type='range' min={0} max={1} step='any'
+                    value={this.state.played}
+                    onMouseDown={this.onSeekMouseDown}
+                    onChange={this.onSeekChange}
+                    onMouseUp={this.onSeekMouseUp}
+                    />
+                </Col>
+                </Row>
+                <Row>
+                     <PlayerButtons 
+                        togglePlay={ this.togglePlay }
+                        playing={ this.state.playing }
+                        seek={this.seek}/>
+                </Row>
+                    <ReactPlayer    url={audioSource} 
+                                    type="audio/mp3"
+                                    ref={this.ref}
+                                    playing={this.state.playing}
+                                    seekTo={15}
+                                    volume={0.8}
+                                    muted={this.state.muted}
+                                    onProgress={this.onProgress} />
                 </div>
     }
 }

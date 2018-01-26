@@ -4,6 +4,7 @@ import UserQuery from '../queries/UserQuery'
 import { graphql } from 'react-apollo'
 import PodcastBrowser from './PodcastBrowser'
 import { withRouter } from 'react-router-dom'
+import { Button } from 'react-materialize'
 
 class Userpage extends Component {
 
@@ -11,7 +12,10 @@ class Userpage extends Component {
         if(!this.props.data.user) return <div />
         const { podcasts } = this.props.data.user
         return <div>
-                    <PodcastBrowser podcasts={ podcasts }/>   
+                    <PodcastBrowser podcasts={ podcasts }/>
+                    <div className="center">
+                        <Button floating large className='red' waves='light' icon='add' />
+                    </div>   
                 </div>
     }
 }

@@ -12,6 +12,11 @@ body {
   justify-content: space-around;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 .pod-card-container {
   width: 250px;
   display: flex;
