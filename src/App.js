@@ -11,6 +11,7 @@ import Login from './components/Login'
 import Podcast from './components/Podcast'
 import EpisodeContainer from './components/EpisodeContainer'
 import Signup from './components/Signup'
+import authService from './components/authService'
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
@@ -44,6 +45,7 @@ class App extends Component {
     this.setState({login: !this.state.login})
   }
 
+
   render() {
     return ( <ApolloProvider client={ client } >
                 <div>
@@ -52,7 +54,7 @@ class App extends Component {
                     <Switch>
                       <Route exact path='/login' component={Login}/>
                       <Route exact path='/signup' component={Signup}/>
-                      <Route exact path='/:id' component={Userpage}/>
+                      <Route exact path='/:id' component={authService(Userpage)}/>
                       <Route exact path='/podcasts/:id' component={Podcast}/>
                       <Route exact path='/episodes/:id' component={EpisodeContainer}/>
                       <Route path='/' component={Homepage}/>

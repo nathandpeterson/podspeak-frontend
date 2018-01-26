@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Card, CardTitle, Collection, CollectionItem, Row, Col } from 'react-materialize'
+import { Button, Card, CardTitle, Row, Col, Link } from 'react-materialize'
 import { graphql } from 'react-apollo'
 import PodcastQuery from '../queries/PodcastQuery'
+import Nav from './Nav'
 
 class Podcast extends Component{
 
@@ -15,38 +16,47 @@ class Podcast extends Component{
                 latest_pub_date, 
                 episodes,
                 website} = this.props.data.podcast
-        return <Row>
-                    <Col s={6}>
+        return  <div>
+                <Nav />
+                <Row>
+                    <Col s={2}></Col>
+                    <Col s={8}>
                         <Card
-                            className="one-pod-card"
+                            className="small"
                             header={<CardTitle 
-                            reveal 
                             image={image_URL}
-                            waves='light'/>}
-                            title={title}
-                            reveal={<p>{description}</p>}>
-                            <p>More...</p>
+                            waves='light'>
+                            {title}</CardTitle>}
+                             actions={[<a href={website}>Website</a>]}>
+                            {description}
                         </Card>
                     </Col>
-                    <Col s={6}>    
+                    <Col s={2}></Col>
+                </Row>
+                <Row>
+                    <Col s={2}></Col>
+                    <Col s={8}>    
                         <Card className="one-pod-card">
-                            <Collection>
+                            <div>
                                 {episodes.map(episode =>{
-                                    return <CollectionItem 
-                                                href={`/episodes/${episode.id}`} 
+                                    return <Card className='blue-grey darken-1 episode-list' 
+                                                textClassName='white-text'
                                                 key={episode.id}>
-                                            <h6>{episode.title}</h6>
-                                            <p>{episode.pub_date}</p>
+                                            <h5>{episode.title}</h5>
+                                            <p>{episode.pub_date.slice(0,16)}</p>
                                             <p>{episode.description}</p>
-                                            <p>{episode.duration}</p>
-                                            </CollectionItem>
+                                            <a href={`/episodes/${episode.id}`}>
+                                                <Button>LISTEN</Button>
+                                            </a>
+                                            </Card>
                                         })
                                     }
-                            </Collection>
+                            </div>
                         </Card>
                     </Col>
+                    <Col s={2}></Col>
                 </Row>
-
+                </div>
     }
 }
 

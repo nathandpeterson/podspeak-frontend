@@ -26,7 +26,6 @@ class Login extends Component {
                 this.setState({errorMessage: error})
             } else {
                 localStorage.setItem('token', token)
-                this.props.updateNav()
                 this.props.history.push(`/${id}`)
             }
         })
