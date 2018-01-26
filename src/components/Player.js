@@ -56,19 +56,15 @@ class Player extends Component {
         const diff = this.state.playedSeconds + val
         this.player.seekTo(parseFloat(diff))
     }
-
     
     render(){ 
         if(!this.props.audioSource) return <div />
         const { audioSource } = this.props
          return  <div>
               <Row>
-                  <Col s={1}></Col>
+                  <Col s={4}></Col>
                   <Col s={3}>
-                 
-                        <PlayerClock time={this.state.playedSeconds}/>
-                  </Col>
-                  <Col s={3}>
+                  <PlayerClock time={this.state.playedSeconds}/>
                   <input
                     type='range' min={0} max={1} step='any'
                     value={this.state.played}
