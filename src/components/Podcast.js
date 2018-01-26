@@ -17,7 +17,6 @@ class Podcast extends Component{
                 episodes,
                 website} = this.props.data.podcast
         return  <div>
-                <Nav />
                 <Row>
                     <Col s={2}></Col>
                     <Col s={8}>

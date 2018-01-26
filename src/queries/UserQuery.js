@@ -7,5 +7,11 @@ export default gql`query UserQuery($id: ID!) {
         first_name
         avatar
         active
+        podcasts {
+            id
+            title
+            image_URL
+            description
+        }
     }
   }`

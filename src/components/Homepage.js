@@ -3,6 +3,7 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Card, CardTitle, Button } from 'react-materialize'
 import Nav from './Nav'
+import PodcastBrowser from './PodcastBrowser'
 
 const query = gql`
 query{
@@ -19,34 +20,13 @@ query{
 
 class Homepage extends Component {
 
-    episodeButtonHandler = (e) => {
-        e.preventDefault()
-        this.props.history.push(`/podcasts/${e.target.id}`)
-    }
+   
     
     render(){
         if(!this.props.data.podcasts) return <div />
         const { podcasts } = this.props.data
         return  <div>
-        <div className="main-container">
-            {podcasts.map(podcast => {
-                return <div key={podcast.id} className="pod-card-container"> 
-                            <Card 
-                                        className="pod-card"
-                                        header={<CardTitle 
-                                        reveal 
-                                        image={podcast.image_URL} 
-                                        waves='light'/>}
-                                title={podcast.title}
-                                reveal={<p>{podcast.description}</p>}>
-                                <Button id={`${podcast.id}`} 
-                                        onClick={this.episodeButtonHandler}>
-                                    EPISODES
-                                </Button>
-                            </Card>
-                </div>
-            })}
-        </div>
+            <PodcastBrowser podcasts={podcasts}/>
         </div>
     }
 }
