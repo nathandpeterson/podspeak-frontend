@@ -3,7 +3,6 @@ import { Row, Input, Button } from 'react-materialize'
 import { compose, graphql, withApollo } from 'react-apollo'
 import LoginMutation from '../queries/LoginMutation'
 import { withRouter } from 'react-router-dom'
-import Nav from './Nav'
 
 class Login extends Component {
     constructor(){

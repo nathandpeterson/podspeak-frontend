@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PlayerButtons from './PlayerButtons'
 import PlayerClock from './PlayerClock'
 import ReactPlayer from 'react-player'
-import { Button, Row, Col, CardPanel } from 'react-materialize'
+import { Row, Col } from 'react-materialize'
 
 
 class Player extends Component {
@@ -10,7 +10,6 @@ class Player extends Component {
         super(props)
         this.state = {playing: false,
             currentEpisode: '',
-            playing: false,
             muted: false,
             played: 0,
             playedSeconds: 0
@@ -53,6 +52,7 @@ class Player extends Component {
         this.player = player
       }
     seek = (val) => {
+        // Seeks a new time by figuring diff between current and input value
         const diff = this.state.playedSeconds + val
         this.player.seekTo(parseFloat(diff))
     }
@@ -62,19 +62,21 @@ class Player extends Component {
         const { audioSource } = this.props
          return  <div>
               <Row>
-                  <Col s={4}></Col>
-                  <Col s={3}>
-                  <PlayerClock time={this.state.playedSeconds}/>
-                  <input
-                    type='range' min={0} max={1} step='any'
-                    value={this.state.played}
-                    onMouseDown={this.onSeekMouseDown}
-                    onChange={this.onSeekChange}
-                    onMouseUp={this.onSeekMouseUp}
-                    />
+                  <Col s={3}></Col>
+                  <Col s={6}>
+                    <input
+                        type='range' min={0} max={1} step='any'
+                        value={this.state.played}
+                        onMouseDown={this.onSeekMouseDown}
+                        onChange={this.onSeekChange}
+                        onMouseUp={this.onSeekMouseUp}/>
                 </Col>
-                </Row>
-                <Row>
+                <Col s={3}></Col>
+            </Row>
+                <div className="center">
+                    <PlayerClock time={this.state.playedSeconds}/>
+                </div>
+            <Row>
                      <PlayerButtons 
                         togglePlay={ this.togglePlay }
                         playing={ this.state.playing }

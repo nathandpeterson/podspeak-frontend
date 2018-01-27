@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import { Card, CardTitle, Button } from 'react-materialize'
-import Nav from './Nav'
 import PodcastBrowser from './PodcastBrowser'
 
 const query = gql`

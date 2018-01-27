@@ -11,13 +11,8 @@ class Nav extends Component {
     this.state = {login: 'false'}
   }
 
-componentWillReceiveProps(nextProps){
-    // console.log('LIFECYCLE', nextProps)
-    // check for token and render user-specific content if logged in
-  }
 handleLogin = (e) => {
   e.preventDefault()
-  console.log(this.props)
   this.setState({login: true})
   }
 renderLoginButton = () => {
@@ -38,13 +33,15 @@ logout = (e) => {
 }
 
   render(){
-    console.log(this.props)
     return <div>
-              <Navbar className="teal" right > 
-                  <Link to="/" className="brand-logo center" >  
-                    <Icon>headset</Icon>podspeak
-                  </Link>
-                  {this.renderLoginButton()}
+              <Navbar className="teal" right >
+                 
+                    <Link to="/" className="brand-logo center" >  
+                      <Icon>headset</Icon>podspeak
+                    </Link>
+    
+                    {this.renderLoginButton()}
+          
               </Navbar>
               </div>   
   }

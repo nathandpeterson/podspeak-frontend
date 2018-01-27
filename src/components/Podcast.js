@@ -1,19 +1,26 @@
 import React, { Component } from 'react'
-import { Button, Card, CardTitle, Row, Col, Link } from 'react-materialize'
+import { Button, Card, CardTitle, Row, Col, } from 'react-materialize'
 import { graphql } from 'react-apollo'
 import PodcastQuery from '../queries/PodcastQuery'
-import Nav from './Nav'
+import RssReader from './RssReader'
 
 class Podcast extends Component{
 
+    fetchRecentEpisodes = async (feed) => {
+        const episode = await RssReader(feed)
+        await console.log('after async?', episode)
+    }
+
+    componentWillReceiveProps = async (nextProps) => {
+        const { rss_feed } = nextProps.data.podcast
+        this.fetchRecentEpisodes(rss_feed)
+    }
+
     render(){
         if(this.props.data.loading) return <div/>
-        const { image_url, 
-                title, 
+        const { title, 
                 description, 
-                rss_feed, 
                 image_URL, 
-                latest_pub_date, 
                 episodes,
                 website} = this.props.data.podcast
         return  <div>

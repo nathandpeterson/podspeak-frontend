@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import Nav from './Nav';
 import UserQuery from '../queries/UserQuery'
 import { graphql } from 'react-apollo'
 import PodcastBrowser from './PodcastBrowser'
-import { withRouter } from 'react-router-dom'
 import { Button } from 'react-materialize'
 
 class Userpage extends Component {
