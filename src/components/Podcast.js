@@ -1,24 +1,28 @@
 import React, { Component } from 'react'
-import { Button, Card, CardTitle, Row, Col, } from 'react-materialize'
+import { Button, Badge, Card, CardTitle, Row, Col, } from 'react-materialize'
 import { graphql } from 'react-apollo'
 import PodcastQuery from '../queries/PodcastQuery'
-import RssReader from './RssReader'
+import PodcastBrowser from './PodcastBrowser';
+import PodcastEpisodeBrowser from './PodcastEpisodeBrowser';
 
 class Podcast extends Component{
+    constructor(){
+        super()
 
-    fetchRecentEpisodes = async (feed) => {
-        const episode = await RssReader(feed)
-        await console.log('after async?', episode)
+        this.state = {page: 1}
     }
-
-    componentWillReceiveProps = async (nextProps) => {
-        const { rss_feed } = nextProps.data.podcast
-        this.fetchRecentEpisodes(rss_feed)
+    loadOlderEpisodes = () => {
+        this.setState({page: this.state.page + 1})
+    }
+    loadNewerEpisodes = () => {
+        this.setState({page: this.state.page - 1})
     }
 
     render(){
+        console.log('in podcast render',this.props)
         if(this.props.data.loading) return <div/>
-        const { title, 
+        const { id,
+                title, 
                 description, 
                 image_URL, 
                 episodes,
@@ -44,21 +48,12 @@ class Podcast extends Component{
                     <Col s={2}></Col>
                     <Col s={8}>    
                         <Card className="one-pod-card">
-                            <div>
-                                {episodes.map(episode =>{
-                                    return <Card className='blue-grey darken-1 episode-list' 
-                                                textClassName='white-text'
-                                                key={episode.id}>
-                                            <h5>{episode.title}</h5>
-                                            <p>{episode.pub_date.slice(0,16)}</p>
-                                            <p>{episode.description}</p>
-                                            <a href={`/episodes/${episode.id}`}>
-                                                <Button>LISTEN</Button>
-                                            </a>
-                                            </Card>
-                                        })
-                                    }
-                            </div>
+                            <PodcastEpisodeBrowser  episodeId={ id } 
+                                                    page={ this.state.page }
+                                                    episodes={ episodes } />
+                            <Button onClick={this.loadOlderEpisodes}> OLDER </Button>
+                            {this.state.page > 1 && <Button onClick={this.loadNewerEpisodes}> NEWER</Button>}
+                            <Badge> {this.state.page} </Badge>
                         </Card>
                     </Col>
                     <Col s={2}></Col>
@@ -68,6 +63,6 @@ class Podcast extends Component{
 }
 
 export default graphql(PodcastQuery, {
-    options: (props) => { return { variables: {id:  props.match.params.id } } }
+     options: (props) => { return { variables: {id:  props.match.params.id, page: 1 }, } }
 })(Podcast)
 
