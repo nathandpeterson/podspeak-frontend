@@ -19,8 +19,10 @@ class Podcast extends Component{
     }
 
     render(){
-        console.log('in podcast render',this.props)
-        if(this.props.data.loading) return <div/>
+        if(!this.props.data.podcast) {
+            console.log(this.props)
+            return <div/>
+        }
         const { id,
                 title, 
                 description, 
@@ -33,12 +35,12 @@ class Podcast extends Component{
                     <Col s={8}>
                         <Card
                             className="small"
-                            header={<CardTitle 
+                            header={<CardTitle
                             image={image_URL}
                             waves='light'>
                             <a href={website}>{title}</a>
                             </CardTitle>}
-                             actions={[<a href={website}>LEARN MORE</a>]}>
+                             actions={[<a key={id} href={website}>LEARN MORE</a>]}>
                             {description}
                         </Card>
                     </Col>
@@ -63,6 +65,6 @@ class Podcast extends Component{
 }
 
 export default graphql(PodcastQuery, {
-     options: (props) => { return { variables: {id:  props.match.params.id, page: 1 }, } }
+     options: (props) => { return { variables: {id:  1, page: 1 }, } }
 })(Podcast)
 

@@ -13,6 +13,7 @@ import Podcast from './components/Podcast'
 import EpisodeContainer from './components/EpisodeContainer'
 import Signup from './components/Signup'
 import requireAuth from './components/requireAuth';
+import DiscoverPodcast from './components/DiscoverPodcast';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
@@ -57,6 +58,7 @@ class App extends Component {
                       <Route exact path='/login' component={Login}/>
                       <Route exact path='/signup' component={Signup}/>
                       <Route exact path='/:id' component={requireAuth(Userpage)}/>
+                      <Route exact path='/:id/discover' component ={requireAuth(DiscoverPodcast)}/>
                       <Route exact path='/podcasts/:id' component={Podcast}/>
                       <Route exact path='/episodes/:id' component={EpisodeContainer}/>
                       <Route path='/' component={Homepage}/>

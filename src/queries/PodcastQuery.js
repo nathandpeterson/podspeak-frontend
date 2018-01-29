@@ -7,7 +7,6 @@ export default gql`query PodcastQuery($id: ID!, $page: Int!){
       description
       rss_feed
       image_URL
-      latest_pub_date
       website
       episodes{
         id
