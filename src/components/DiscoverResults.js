@@ -1,16 +1,33 @@
 import React, { Component } from 'react'
-import { Row, Col, Card, Button } from 'react-materialize'
+import { Row, Col, Card, Button, Icon } from 'react-materialize'
 import Parser from 'html-react-parser'
 import { graphql } from 'react-apollo'
+import { withRouter } from 'react-router-dom'
+import NewPodcastMutation from '../queries/NewPodcastMutation'
+import gql from 'graphql-tag'
 
 class DiscoverResults extends Component {
+   
     addPodcastClick = (e) => {
         e.preventDefault()
-        console.log('Add podcast to user collection', e.target)
+        let user_id = localStorage.getItem('data')
+        const { title, 
+                description, 
+                rss_feed, 
+                image_URL } = this.props.results.data.newPod.results[e.target.id]
+        this.props.mutate({variables : {
+            user_id,
+            title,
+            description,
+            rss_feed,
+            image_URL 
+                }
+           }).then(response => {
+               this.props.history.push(`/${user_id}`)
+           })
     }
 
     render(){
-        console.log('in the results', this.props)
         if(!this.props.results) return <div />
         const { results } = this.props.results.data.newPod
         return <div>
@@ -27,7 +44,9 @@ class DiscoverResults extends Component {
                             </Col>
                         </Row>
                             <div className="center">
-                                <Button id={i} onClick={this.addPodcastClick} floating large className='red' waves='light' icon='add' />
+                                <div style={{height:'3rem'}} onClick={this.addPodcastClick} >
+                                    <i id={i} className="medium material-icons add-new-podcast">add_circle</i>
+                                </div>
                             </div>
                         </Card>
             })}
@@ -35,5 +54,5 @@ class DiscoverResults extends Component {
     }
 }
 
-export default DiscoverResults
+export default graphql(NewPodcastMutation)(withRouter(DiscoverResults))
 

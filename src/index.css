@@ -73,3 +73,15 @@ body {
   align-items: center;
   margin-top: 1rem;
 }
+
+.add-new-podcast {
+  color: #136F63;
+  padding: .25rem;
+}
+
+.add-new-podcast:hover {
+  color: yellow;
+  background-color: #136F63;
+  border-radius: 100%;
+  transition: 1.5s;
+}

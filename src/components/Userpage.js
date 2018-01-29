@@ -5,10 +5,13 @@ import PodcastBrowser from './PodcastBrowser'
 import { Button } from 'react-materialize'
 
 class Userpage extends Component {
+
+    componentDidMount = () => {
+        this.props.data.refetch()
+    }
     
     clickNewPod = (e) =>{
         e.preventDefault()
-        console.log('redirect me', this.props)
         this.props.history.push(`/${this.props.match.params.id}/discover`)
     }
     render(){

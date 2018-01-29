@@ -24,7 +24,8 @@ class Login extends Component {
             if(error){
                 this.setState({errorMessage: error})
             } else {
-                localStorage.setItem('token', token)
+                localStorage.setItem('token', token,)
+                localStorage.setItem('data', id)
                 this.props.history.push(`/${id}`)
             }
         })
