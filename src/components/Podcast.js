@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Button, Badge, Card, CardTitle, Row, Col, } from 'react-materialize'
 import { graphql } from 'react-apollo'
 import PodcastQuery from '../queries/PodcastQuery'
-import PodcastBrowser from './PodcastBrowser';
 import PodcastEpisodeBrowser from './PodcastEpisodeBrowser';
 
 class Podcast extends Component{
@@ -19,10 +18,7 @@ class Podcast extends Component{
     }
 
     render(){
-        if(!this.props.data.podcast) {
-            console.log(this.props)
-            return <div/>
-        }
+        if(!this.props.data.podcast) return <div/>
         const { id,
                 title, 
                 description, 
@@ -31,10 +27,10 @@ class Podcast extends Component{
                 website} = this.props.data.podcast
         return  <div>
                 <Row>
-                    <Col s={2}></Col>
-                    <Col s={8}>
+                    <Col s={1}></Col>
+                    <Col s={10}>
                         <Card
-                            className="small"
+                            className="large"
                             header={<CardTitle
                             image={image_URL}
                             waves='light'>
@@ -44,11 +40,11 @@ class Podcast extends Component{
                             {description}
                         </Card>
                     </Col>
-                    <Col s={2}></Col>
+                    <Col s={1}></Col>
                 </Row>
                 <Row>
-                    <Col s={2}></Col>
-                    <Col s={8}>    
+                    <Col s={1}></Col>
+                    <Col s={10}>    
                         <Card className="one-pod-card">
                             <PodcastEpisodeBrowser  episodeId={ id } 
                                                     page={ this.state.page }
@@ -58,13 +54,13 @@ class Podcast extends Component{
                             <Badge> {this.state.page} </Badge>
                         </Card>
                     </Col>
-                    <Col s={2}></Col>
+                    <Col s={1}></Col>
                 </Row>
                 </div>
     }
 }
 
 export default graphql(PodcastQuery, {
-     options: (props) => { return { variables: {id:  1, page: 1 }, } }
+     options: (props) => { return { variables: {id: props.match.params.id, page: 1 }, } }
 })(Podcast)
 

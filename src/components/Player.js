@@ -41,7 +41,6 @@ class Player extends Component {
       }
 
     onProgress = state => {
-        console.log('onProgress', state)
         // We only want to update time slider if we are not currently seeking
         if (!this.state.seeking) {
           this.setState(state)
@@ -64,6 +63,7 @@ class Player extends Component {
               <Row>
                   <Col s={3}></Col>
                   <Col s={6}>
+                  <PlayerClock time={this.state.playedSeconds}/>
                     <input
                         type='range' min={0} max={1} step='any'
                         value={this.state.played}
@@ -74,7 +74,7 @@ class Player extends Component {
                 <Col s={3}></Col>
             </Row>
                 <div className="center">
-                    <PlayerClock time={this.state.playedSeconds}/>
+                   
                 </div>
             <Row>
                      <PlayerButtons 

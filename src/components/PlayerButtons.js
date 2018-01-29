@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Col, Button, Icon } from 'react-materialize'
+import { Row, Col, Icon } from 'react-materialize'
 
 
 
@@ -20,34 +20,33 @@ class PlayerButtons extends Component {
         this.props.seek(30)
     }
     render(){
-        console.log('button props',this.props)
         return <div>
                     <Row>
                         <Col s={1}></Col>
                         <Col s={2}>
-                            <Button onClick={this.backTen} className="player-btn">
+                            <div onClick={this.backTen} className="player-btn">
                                 <Icon large>replay_10</Icon>
-                            </Button>
+                            </div>
                         </Col>
                         <Col s={2}>
-                            <Button onClick={this.backThirty} className="player-btn">
+                            <div onClick={this.backThirty} className="player-btn">
                                 <Icon large>replay_30</Icon>
-                            </Button>
+                            </div>
                         </Col>
                         <Col s={2}>
-                            <Button onClick={this.props.togglePlay} className="player-btn">
+                            <div onClick={this.props.togglePlay} className="player-btn">
                                 <Icon large>{`${this.renderPlayPause()}`}</Icon>
-                            </Button>
+                            </div>
                         </Col>
                         <Col s={2}>
-                            <Button onClick={this.forwardTen} className="player-btn">
+                            <div onClick={this.forwardTen} className="player-btn">
                                 <Icon large>forward_10</Icon>
-                            </Button>
+                            </div>
                         </Col>
                         <Col s={2}>
-                            <Button onClick={this.forwardThirty} className="player-btn">
-                                <Icon >forward_30</Icon>
-                            </Button>
+                            <div onClick={this.forwardThirty} className="player-btn">
+                                <Icon large>forward_30</Icon>
+                            </div>
                         </Col>
                         <Col s={1}></Col>
                      </Row>

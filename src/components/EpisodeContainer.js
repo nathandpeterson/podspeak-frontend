@@ -11,6 +11,7 @@ class EpisodeContainer extends Component {
         // The back button should go back to podcast, not back to homepage
         if(this.props.data.loading) return <div />
         const { title, audio_URL, reactions} = this.props.data.episode
+        console.log(this.props.data.episode)
 
         return <div>
             <Row>

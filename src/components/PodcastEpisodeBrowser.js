@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-import { graphql, compose, withApollo } from 'react-apollo'
+import { graphql } from 'react-apollo'
 import PodcastQuery from '../queries/PodcastQuery'
 import { Card, Button } from 'react-materialize'
-import { withRouter } from 'react-router-dom'
 
 class PodcastEpisodeBrowser extends Component {
 
     render(){
-        console.log('in podcastEPISODEBROWSER', this.props)
         if(!this.props.episodes) return null
         const { episodes } = this.props
         return <div>

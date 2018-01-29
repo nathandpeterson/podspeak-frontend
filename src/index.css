@@ -29,5 +29,28 @@ body {
 }
 
 .player-btn, .reaction-btn {
-  width:5rem;
+  width: 6.25rem;
+  height: 6.25rem;
+  border-radius: 90%;
+  background-color: #136F63;
+  color: #FFAD05
+}
+
+.player-btn:hover{
+  color: #C44536;
+  background-color: white;
+  transition: 1s;
+}
+
+.discover-result {
+  background-color: rgba(199,190,190, .5);
+  border-radius: 2.5%;
+  color: black;
+  padding: 2.5%;
+}
+
+.discover-info {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
 }

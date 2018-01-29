@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Navbar, NavItem, Icon, Button } from 'react-materialize'
+import { Navbar, Icon, Button } from 'react-materialize'
 import { Link, withRouter } from 'react-router-dom'
 // import UserQuery from '../queries/UserQuery'
 // import { graphql, withApollo, compose } from 'react-apollo'
