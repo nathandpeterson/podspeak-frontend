@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import { Button, Badge, Card, CardTitle, Row, Col, } from 'react-materialize'
+import { Button, Badge, Card, Row, Col, } from 'react-materialize'
 import { graphql } from 'react-apollo'
 import PodcastQuery from '../queries/PodcastQuery'
-import PodcastEpisodeBrowser from './PodcastEpisodeBrowser';
+import PodcastEpisodeBrowser from './PodcastEpisodeBrowser'
+import Parser from 'html-react-parser'
+
 
 class Podcast extends Component{
     constructor(){
         super()
 
-        this.state = {page: 1}
+        this.state = {page: 1 }
     }
     loadOlderEpisodes = () => {
         this.setState({page: this.state.page + 1})
@@ -23,39 +25,29 @@ class Podcast extends Component{
                 title, 
                 description, 
                 image_URL, 
-                episodes,
-                website} = this.props.data.podcast
-        return  <div>
+                episodes } = this.props.data.podcast
+        return  <div >
                 <Row>
                     <Col s={1}></Col>
                     <Col s={10}>
-                        <Card
-                            className="large"
-                            header={<CardTitle
-                            image={image_URL}
-                            waves='light'>
-                            <a href={website}>{title}</a>
-                            </CardTitle>}
-                             actions={[<a key={id} href={website}>LEARN MORE</a>]}>
-                            {description}
+                        <Card style={{backgroundImage: `url(${image_URL})`, backgroundSize: 'contain'}} className="podcast-container"> 
+                            <Card>
+                                <div className="center">
+                                    <h4>{Parser(title)}</h4>
+                                </div>
+                                {Parser(description)}
+                            </Card>
+                                <PodcastEpisodeBrowser  episodeId={ id } 
+                                                        page={ this.state.page }
+                                                        episodes={ episodes } />
+                                <Button onClick={this.loadOlderEpisodes}> OLDER </Button>
+                                {this.state.page > 1 && <Button on onClick={this.loadNewerEpisodes}> NEWER</Button>}
+                                <Badge> {this.state.page} </Badge>
                         </Card>
                     </Col>
                     <Col s={1}></Col>
                 </Row>
-                <Row>
-                    <Col s={1}></Col>
-                    <Col s={10}>    
-                        <Card className="one-pod-card">
-                            <PodcastEpisodeBrowser  episodeId={ id } 
-                                                    page={ this.state.page }
-                                                    episodes={ episodes } />
-                            <Button onClick={this.loadOlderEpisodes}> OLDER </Button>
-                            {this.state.page > 1 && <Button onClick={this.loadNewerEpisodes}> NEWER</Button>}
-                            <Badge> {this.state.page} </Badge>
-                        </Card>
-                    </Col>
-                    <Col s={1}></Col>
-                </Row>
+
                 </div>
     }
 }

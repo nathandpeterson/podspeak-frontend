@@ -22,7 +22,8 @@ class EpisodeContainer extends Component {
                     </CardPanel>
                 </Col>
                 <Col s={1}></Col>
-            </Row>
+            </Row> 
+            <Player audioSource={audio_URL}/>
             <Row>
                 <Col s={1}></Col>
                 <Col s={10}>
@@ -30,7 +31,7 @@ class EpisodeContainer extends Component {
                         {reactions.map(reaction =>{
                             return <Col
                                         key={reaction.id}>
-                                    <CardPanel className="teal lighten-4 black-text">
+                                    <CardPanel>
                                     <p>{reaction.content}</p>
                                     <Chip> <span role="img" aria-label="emoji">🦁</span> Nathan</Chip>
                                     </CardPanel>
@@ -41,7 +42,7 @@ class EpisodeContainer extends Component {
                 </Col>
                 <Col s={1}></Col>
             </Row>
-            <Player audioSource={audio_URL}/>
+           
             <ReactionButtons />
             <Input type="text" />
         </div>

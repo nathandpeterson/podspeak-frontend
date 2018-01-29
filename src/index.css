@@ -17,10 +17,29 @@ body {
   justify-content: center;
 }
 
+.podcast-container {
+  background: pink;
+}
+
 .pod-card-container {
   width: 250px;
   display: flex;
   justify-content: center;
+}
+
+.one-pod-card {
+  opacity: .1;
+}
+
+.episode-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.episode-list {
+  width: 45%;
+  opacity: .85;
 }
 
 .pod-card {
