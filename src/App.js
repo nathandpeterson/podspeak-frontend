@@ -13,6 +13,7 @@ import Podcast from './components/Podcast'
 import EpisodeContainer from './components/EpisodeContainer'
 import Signup from './components/Signup'
 import requireAuth from './components/requireAuth';
+import DiscoverPodcast from './components/DiscoverPodcast'
 
 const httpLink = createHttpLink({
   uri: 'https://podspeak.herokuapp.com/graphql',
