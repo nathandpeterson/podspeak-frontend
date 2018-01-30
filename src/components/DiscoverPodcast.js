@@ -46,7 +46,6 @@ class DiscoverPodcast extends Component {
                             <Col s={6}>
                                 <Input onChange={this.handleChange} value={this.state.query} />
                             </Col>
-                       
                             <Col s={6}>
                                 <Input onChange={this.selectHandler} 
                                     value={this.state.genre}
