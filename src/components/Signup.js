@@ -43,7 +43,7 @@ class Signup extends Component {
     }
     verifyFields = () => {
         let errors = []
-        !this.state.email ? errors = [...errors, 'You must enter an email'] : null
+        !this.state.email ? [...errors, 'You must enter an email'] : null
         !this.state.first_name ? errors = [...errors, 'You must enter your first name'] : null
         !this.state.last_name ? errors = [...errors, 'You must enter your last name'] : null
         !this.state.password ? errors = [...errors, 'You must choose a password'] : null
@@ -56,8 +56,7 @@ class Signup extends Component {
     submitForm = (e) => {
         e.preventDefault()
         // if the return is truthy, do nothing, else send the form
-        this.verifyFields() ? null :
-        this.props.mutate({
+        this.verifyFields() ? null : this.props.mutate({
             variables: {
                 email: this.state.email,
                 password: this.state.password,
