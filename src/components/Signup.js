@@ -9,7 +9,13 @@ const avatars = ["😀","👻", "💩", "👽", "🤡", "🤖", "😀", "😺", 
 class Signup extends Component {
     constructor(){
         super()
-        this.state = {email: '', password: '', first_name: '', last_name: '', avatar: '😀', privacy: '0'}
+        this.state = {  email: '', 
+                        password: '', 
+                        first_name: '', 
+                        last_name: '', 
+                        avatar: '😀', 
+                        privacy: '0',
+                        errorMessage: ''}
     }
 
     emailHandler = (e) => {
@@ -30,9 +36,27 @@ class Signup extends Component {
     privacyHandler = (e) => {
         this.setState({privacy: e.target.value})
     }
+    displayErrorMessage = () => {
+        return this.state.errorMessage.map((error, i) => {
+            return <h4 key={i}>{error}</h4>
+        }) 
+    }
+    verifyFields = () => {
+        let errors = []
+        !this.state.email ? errors = [...errors, 'You must enter an email'] : null
+        !this.state.first_name ? errors = [...errors, 'You must enter your first name'] : null
+        !this.state.last_name ? errors = [...errors, 'You must enter your last name'] : null
+        !this.state.password ? errors = [...errors, 'You must choose a password'] : null
+        console.log(errors)
+        this.setState({errorMessage: errors})
+        // returns truthy with error string if errors
+        return errors.length ? 'Error' : null
+    }
+
     submitForm = (e) => {
         e.preventDefault()
-        console.log(this.state)
+        // if the return is truthy, do nothing, else send the form
+        this.verifyFields() ? null :
         this.props.mutate({
             variables: {
                 email: this.state.email,
@@ -43,15 +67,19 @@ class Signup extends Component {
                 privacy: this.state.privacy
             }
         }).then(result => {
-            // get the id back and use it to push the user to custom page
+            console.log(result)
             // also should grant a token here?
-            console.log('in signup component',result)
-            const { id } = result.data.signup
-            this.props.history.push(`/${id}`)
-        })
+            if (result.data.signup.error ) {
+                this.setState({errorMessage: result.data.signup.error})
+                } else {
+                    const { id } = result.data.signup
+                    this.props.history.push(`/${id}`)
+                }
+        }).catch(err => console.log('catch error: ', err))
     }
     render(){
-        return <div> 
+        return <div>
+                  {this.state.errorMessage && this.displayErrorMessage(this.state.errorMessage)}
                     <form>
                     <Row>
                         <Input  onChange={this.emailHandler}
@@ -84,7 +112,10 @@ class Signup extends Component {
                                 s={6} 
                                 label="avatar">
                                 {avatars.map((avatar, i) => {
-        return <option key={i} value={avatar} className="avatar-option">{avatar}</option>
+                                    return  <option key={i} 
+                                                    value={avatar} 
+                                                    className="avatar-option">{avatar}
+                                            </option>
                                 })}      
                         </Input>
                             

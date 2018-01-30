@@ -15,5 +15,6 @@ export default gql` mutation signup($email: String,
                                                                 ){
                                                             id
                                                             first_name
+                                                            error
                                                             }
 }`
