@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Input, Button } from 'react-materialize'
+import { Col, Row, Input, Button } from 'react-materialize'
 import { compose, graphql, withApollo } from 'react-apollo'
 import LoginMutation from '../queries/LoginMutation'
 import { withRouter } from 'react-router-dom'
@@ -49,28 +49,35 @@ class Login extends Component {
         return  (<div>
                 {this.state.errorMessage && this.displayErrorMessage(this.state.errorMessage)}
                     <form>
-                    <Row>
-                            <Input  onChange={this.changeHandler}
-                                    value={this.state.email} 
-                                    type="email" 
-                                    s={6} 
-                                    label="email" />
-                    </Row>
-                    <Row>
-                            <Input  onChange={this.changeHandler} 
-                                    value={this.state.password}
-                                    type="password" 
-                                    s={6} 
-                                    label="password" />
-                    </Row>
-                    <Row>
-                        <Button     onClick={this.submitForm} 
-                                    className="pink"> submit </Button>
-                    </Row>
-                    <Row>
-                        <Button     onClick={this.signupForm}
-                                    className="pink"> signup </Button>
-                    </Row>
+                    <div className="center">
+                        <Row>
+                                <Input  onChange={this.changeHandler}
+                                        value={this.state.email} 
+                                        type="email" 
+                                        s={6} 
+                                        label="email"
+                                        style={{minWidth:'20rem'}} />
+                        </Row>
+                        </div>
+                    <div className="center">
+                        <Row>
+                                <Input  onChange={this.changeHandler} 
+                                        value={this.state.password}
+                                        type="password" 
+                                        s={6} 
+                                        label="password"
+                                        style={{minWidth:'20rem'}} />
+                        </Row>
+                    </div>
+                    <div className="center">
+                        <Row>
+                            <Button     onClick={this.submitForm} 
+                                        className="pink"> submit </Button>
+                    
+                            <Button     onClick={this.signupForm}
+                                        className="pink"> signup </Button>
+                        </Row>
+                    </div>
                     </form>
                 </div>)
     }

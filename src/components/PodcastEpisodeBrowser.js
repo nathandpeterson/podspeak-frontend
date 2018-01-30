@@ -12,7 +12,7 @@ class PodcastEpisodeBrowser extends Component {
         const { episodes } = this.props
         return <div className="episode-container">
         {episodes.map(episode =>{
-            return <Card key={episode.id} className=' indigo episode-list' 
+            return <Card key={episode.id} className=' blue episode-list' 
                         textClassName='white-text'>
                     <h5>{episode.title}</h5>
                     <p>{episode.pub_date.slice(0,16)}</p>

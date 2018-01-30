@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import EpisodeQuery from '../queries/EpisodeQuery'
-import { CardPanel, Row, Col, Input, Chip } from 'react-materialize'
+import { Button, CardPanel, Row, Col, Input, Chip } from 'react-materialize'
 import Player from './Player'
 import ReactionButtons from './ReactionButtons'
 import ReactionFeed from './ReactionFeed'
@@ -26,10 +26,14 @@ class EpisodeContainer extends Component {
             </Row>
             <ReactionFeed reactions={ reactions } />
             <Player audioSource={audio_URL}/>
+            <Button floating fab='horizontal' icon='mode_edit' className='red' large style={{bottom: '45px', right: '24px'}}>
+                <Button floating icon='insert_comment' className='red'/>
+                <Button floating icon='face' className='yellow darken-1'/>
+                <Button floating icon='insert_link' className='green'/>
+                <Button floating icon='photo' className='blue'/>
+            </Button>
            
-           
-            <ReactionButtons />
-            <Input type="text" />
+            {/* <ReactionButtons /> */}
         </div>
     }
 }

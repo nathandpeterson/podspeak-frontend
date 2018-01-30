@@ -5,7 +5,7 @@ const ReactionButtons = () => {
     return <Row>
                 <Col s={1}></Col>
                 <Col s={2}>
-                    <Button waves="light" className="pink reaction-btn" >
+                    <Button waves="light" className="reaction-btn" >
                         <Icon>insert_comment</Icon>
                     </Button>
                 </Col>

@@ -25,7 +25,7 @@ class PodcastBrowser extends Component {
                                         waves='light'/>}
                                         title={Parser(title)}
                                 reveal={<p>{Parser(description)}</p>}>
-                                <Button id={`${id}`} 
+                                <Button className="blue" id={`${id}`} 
                                         onClick={this.episodeButtonHandler}>
                                     EPISODES
                                 </Button>

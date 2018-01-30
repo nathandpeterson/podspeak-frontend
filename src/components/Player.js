@@ -86,7 +86,8 @@ class Player extends Component {
                                     seekTo={15}
                                     volume={0.8}
                                     muted={this.state.muted}
-                                    onProgress={this.onProgress} />
+                                    onProgress={this.onProgress}
+                                    style={{display: 'none'}} />
                 </div>
     }
 }

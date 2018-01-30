@@ -32,7 +32,7 @@ logout = (e) => {
 
   render(){
     return <nav>
-              <div className="teal nav-wrapper">
+              <div className="blue nav-wrapper">
               <a href="/" className="brand-logo center"><i className="material-icons">headset</i>podspeak</a>              
       
               <ul id="nav-mobile" className="right hide-on-med-and-down">
