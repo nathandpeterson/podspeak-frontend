@@ -16,7 +16,7 @@ import requireAuth from './components/requireAuth';
 import DiscoverPodcast from './components/DiscoverPodcast';
 
 const httpLink = createHttpLink({
-  uri: 'https://podspeak.herokuapp.com/graphql',
+  uri: 'http://localhost:4000/graphql',
 })
 
 

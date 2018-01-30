@@ -31,6 +31,10 @@ body {
   opacity: .1;
 }
 
+.podcast-description {
+  display: none;
+}
+
 .episode-container {
   display: flex;
   flex-wrap: wrap;
@@ -38,8 +42,8 @@ body {
 }
 
 .episode-list {
-  width: 45%;
-  opacity: .85;
+  width: 100%;
+  
 }
 
 .pod-card {
@@ -84,4 +88,13 @@ body {
   background-color: #136F63;
   border-radius: 100%;
   transition: 1.5s;
+}
+
+@media(min-width:800px) {
+  .episode-list {
+    width: 45%;
+  }
+  .podcast-description {
+    display: block;
+  }
 }

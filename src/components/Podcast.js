@@ -30,12 +30,12 @@ class Podcast extends Component{
                 <Row>
                     <Col s={1}></Col>
                     <Col s={10}>
-                        <Card style={{backgroundImage: `url(${image_URL})`, backgroundSize: 'contain'}} className="podcast-container"> 
+                        <Card style={{backgroundImage: `url(${image_URL})`, backgroundSize: 'contain', opacity: '.9'}} className="podcast-container"> 
                             <Card>
                                 <div className="center">
                                     <h4>{Parser(title)}</h4>
                                 </div>
-                                {Parser(description)}
+                               <div className="podcast-description"> {Parser(description)} </div>
                             </Card>
                                 <PodcastEpisodeBrowser  episodeId={ id } 
                                                         page={ this.state.page }
