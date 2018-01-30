@@ -43,7 +43,6 @@ body {
 
 .episode-list {
   width: 100%;
-  
 }
 
 .pod-card {
@@ -88,6 +87,7 @@ body {
   background-color: #136F63;
   border-radius: 100%;
   transition: 1.5s;
+  cursor: pointer;
 }
 
 @media(min-width:800px) {

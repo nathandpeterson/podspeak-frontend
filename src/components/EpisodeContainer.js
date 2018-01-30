@@ -4,6 +4,7 @@ import EpisodeQuery from '../queries/EpisodeQuery'
 import { CardPanel, Row, Col, Input, Chip } from 'react-materialize'
 import Player from './Player'
 import ReactionButtons from './ReactionButtons'
+import ReactionFeed from './ReactionFeed'
 
 class EpisodeContainer extends Component {
 
@@ -22,26 +23,10 @@ class EpisodeContainer extends Component {
                     </CardPanel>
                 </Col>
                 <Col s={1}></Col>
-            </Row> 
-            <Player audioSource={audio_URL}/>
-            <Row>
-                <Col s={1}></Col>
-                <Col s={10}>
-                <Row>
-                        {reactions.map(reaction =>{
-                            return <Col
-                                        key={reaction.id}>
-                                    <CardPanel>
-                                    <p>{reaction.content}</p>
-                                    <Chip> <span role="img" aria-label="emoji">🦁</span> Nathan</Chip>
-                                    </CardPanel>
-                                    </Col>
-                                })
-                            }
-                </Row>
-                </Col>
-                <Col s={1}></Col>
             </Row>
+            <ReactionFeed reactions={ reactions } />
+            <Player audioSource={audio_URL}/>
+           
            
             <ReactionButtons />
             <Input type="text" />
