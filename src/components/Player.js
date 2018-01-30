@@ -73,9 +73,6 @@ class Player extends Component {
                 </Col>
                 <Col s={3}></Col>
             </Row>
-                <div className="center">
-                   
-                </div>
             <Row>
                      <PlayerButtons 
                         togglePlay={ this.togglePlay }

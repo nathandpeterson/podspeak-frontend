@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import { Row, Col, Card, Button, Icon } from 'react-materialize'
+import { Row, Col, Card } from 'react-materialize'
 import Parser from 'html-react-parser'
 import { graphql } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import NewPodcastMutation from '../queries/NewPodcastMutation'
-import gql from 'graphql-tag'
 
 class DiscoverResults extends Component {
    
@@ -37,7 +36,7 @@ class DiscoverResults extends Component {
                     <p className="discover-result">{Parser(title)}</p>   
                         <Row className="discover-info">    
                             <Col s={3}>
-                                    <img src={image_URL} />
+                                    <img alt={title} src={image_URL} />
                             </Col>
                             <Col s={9}>
                             {Parser(description)}

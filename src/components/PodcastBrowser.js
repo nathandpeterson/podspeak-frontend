@@ -16,16 +16,16 @@ class PodcastBrowser extends Component {
         return  <div>
         <div className="main-container">
             {podcasts.map(podcast => {
-                return <div key={podcast.id} className="pod-card-container"> 
-                            <Card        
-                                        className="pod-card"
+                const { id, title, description, image_URL } = podcast
+                return <div key={id} className="pod-card-container"> 
+                            <Card       className="pod-card"
                                         header={<CardTitle 
                                         reveal 
-                                        image={podcast.image_URL} 
+                                        image={image_URL} 
                                         waves='light'/>}
-                                title={podcast.title}
-                                reveal={<p>{Parser(podcast.description)}</p>}>
-                                <Button id={`${podcast.id}`} 
+                                        title={Parser(title)}
+                                reveal={<p>{Parser(description)}</p>}>
+                                <Button id={`${id}`} 
                                         onClick={this.episodeButtonHandler}>
                                     EPISODES
                                 </Button>

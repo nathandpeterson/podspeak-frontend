@@ -4,6 +4,10 @@ import { graphql } from 'react-apollo'
 import DiscoverQuery from '../queries/DiscoverQuery'
 import DiscoverResults from './DiscoverResults'
 
+const genres = ["Technology", "Music", "Sports & Recreation", "News & Politics", "Comedy", "Philosophy",
+"Video Games", "Fitness & Nutrition", "Business", "Literature", "Investing", "TV & Film", 
+"Religion & Spirituality", "Food", "Software How-To"]
+
 class DiscoverPodcast extends Component {
     constructor(){
         super()
@@ -14,10 +18,15 @@ class DiscoverPodcast extends Component {
     handleChange = (e) => {
         this.setState({query: e.target.value})
     }
+    selectHandler = (e) => {
+        this.setState({genre: e.target.value})
+    }
+
     submitQuery = (e) => {
         e.preventDefault()
         this.props.mutate({
-            variables: { query: this.state.query }
+            variables: {    query: this.state.query, 
+                            genre: this.state.genre }
         }).catch(err => {
             console.log('in the catch', err)
         })
@@ -34,30 +43,18 @@ class DiscoverPodcast extends Component {
                     </div>
                     <div className="center">
                         <Row>
-                            <Col>
+                            <Col s={6}>
                                 <Input onChange={this.handleChange} value={this.state.query} />
                             </Col>
-                        </Row>
-                    </div>
-                    <div className="center">
-                        <Row>
-                            <Col>
+                       
+                            <Col s={6}>
                                 <Input onChange={this.selectHandler} 
                                     value={this.state.genre}
                                     type="select" 
                                     label="genre">
-                                    <option value="Technology">Technology</option>
-                                    <option value="Music">Music</option>
-                                    <option value="Sports & Recreation">Sports & Recreation</option>
-                                    <option value="News">News</option>
-                                    <option value="Comedy">Comedy</option>
-                                    <option value="Philosophy">Philosophy</option>
-                                    <option value="Video Games">Video Games</option>
-                                    <option value="Fitness & Nutrition">Fitness & Nutrition</option>
-                                    <option value="Business">Business</option>
-                                    <option value="Literature">Literature</option>
-                                    <option value="Investing">Investing</option>
-                                    <option value="TV & Film">TV & Film</option>
+                                    {genres.map((genre, i) => {
+                                        return <option key={i} value={genre}>{genre}</option>
+                                    })}
                                 </Input>
                             </Col>
                         </Row>

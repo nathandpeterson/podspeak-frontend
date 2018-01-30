@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Navbar, Icon, Button } from 'react-materialize'
-import { Link, withRouter } from 'react-router-dom'
+import { Button } from 'react-materialize'
+import { withRouter } from 'react-router-dom'
 // import UserQuery from '../queries/UserQuery'
 // import { graphql, withApollo, compose } from 'react-apollo'
 
@@ -19,9 +19,7 @@ renderLoginButton = () => {
   return localStorage.getItem('token') ? this.logoutButton() : this.loginButton()
 }
 loginButton = () => {
-  return <Link to="/login">
-      <Button> log in </Button>
-    </Link>
+  return  <li><a href='/login'>log in</a></li>
 }
 logoutButton = () => {
   return <Button onClick={this.logout}> log out</Button>
@@ -33,17 +31,19 @@ logout = (e) => {
 }
 
   render(){
-    return <div>
-              <Navbar className="teal" right >
-                 
-                    <Link to="/" className="brand-logo center" >  
-                      <Icon>headset</Icon>podspeak
-                    </Link>
-    
-                    {this.renderLoginButton()}
-          
-              </Navbar>
-              </div>   
+    return <nav>
+              <div className="teal nav-wrapper">
+              <a href="/" className="brand-logo center"><i className="material-icons">headset</i>podspeak</a>              
+      
+              <ul id="nav-mobile" className="right hide-on-med-and-down">
+                {/* <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">JavaScript</a></li> */}
+                {this.renderLoginButton()}
+              </ul>
+      
+              </div>
+              </nav>   
   }
 
 }
