@@ -3,7 +3,7 @@ import { Button, Row, Col, Input } from 'react-materialize'
 import { graphql } from 'react-apollo'
 import DiscoverQuery from '../queries/DiscoverQuery'
 import DiscoverResults from './DiscoverResults'
-import DiscoverStyle from '../styles/DiscoverStyle.css'
+import '../styles/DiscoverStyle.css'
 
 const genres = ["Technology", "Music", "Sports & Recreation", "News & Politics", "Comedy", "Philosophy",
 "Video Games", "Fitness & Nutrition", "Business", "Literature", "Investing", "TV & Film", 

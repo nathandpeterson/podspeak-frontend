@@ -14,6 +14,7 @@ export default gql`query EpisodeQuery($id: ID!){
                         episode_timestamp
                         category
                         content
+                        userInfo
                     }
                     }
                 }`

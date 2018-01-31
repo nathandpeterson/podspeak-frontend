@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Button } from 'react-materialize'
 import { withRouter, Link } from 'react-router-dom'
 
 class Nav extends Component {
@@ -32,7 +31,6 @@ logout = (e) => {
     return <nav>
               <div className="blue nav-wrapper">
               <a href="/" className="brand-logo center"><i className="material-icons">headset</i>podspeak</a>              
-      
               <ul id="nav-mobile" className="right hide-on-med-and-down">
                 {/* <li><a href="sass.html">Sass</a></li>
                 <li><a href="badges.html">Components</a></li>

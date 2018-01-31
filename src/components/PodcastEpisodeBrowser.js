@@ -4,7 +4,7 @@ import PodcastQuery from '../queries/PodcastQuery'
 import { Card, Icon } from 'react-materialize'
 import Parser from 'html-react-parser'
 import { Link } from 'react-router-dom'
-import EpisodeBrowserStyle from '../styles/EpisodeBrowseStyle.css'
+import '../styles/EpisodeBrowseStyle.css'
 
 class PodcastEpisodeBrowser extends Component {
 

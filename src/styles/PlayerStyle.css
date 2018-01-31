@@ -1,3 +1,8 @@
+.player-dash {
+    display: flex;
+    justify-content: space-between;
+}
+
 .player-btn, .reaction-btn {
     width: 6.25rem;
     height: 6.25rem;

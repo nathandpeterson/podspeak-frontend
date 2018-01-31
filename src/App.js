@@ -10,11 +10,11 @@ import Homepage from './components/Homepage'
 import Userpage from './components/Userpage'
 import Login from './components/Login'
 import Podcast from './components/Podcast'
-import EpisodeContainer from './components/EpisodeContainer'
+import PlayerContainer from './components/PlayerContainer'
 import Signup from './components/Signup'
 import requireAuth from './components/requireAuth';
 import DiscoverPodcast from './components/DiscoverPodcast'
-const API = `https://podspeak.herokuapp.com/graphql`
+// const API = `https://podspeak.herokuapp.com/graphql`
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
@@ -61,7 +61,7 @@ class App extends Component {
                       <Route exact path='/:id' component={requireAuth(Userpage)}/>
                       <Route exact path='/:id/discover' component ={requireAuth(DiscoverPodcast)}/>
                       <Route exact path='/podcasts/:id' component={Podcast}/>
-                      <Route exact path='/episodes/:id' component={EpisodeContainer}/>
+                      <Route exact path='/episodes/:id' component={PlayerContainer}/>
                       <Route path='/' component={Homepage}/>
                     </Switch>
                     </div>
