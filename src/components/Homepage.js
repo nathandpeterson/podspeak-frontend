@@ -18,8 +18,6 @@ query{
 
 class Homepage extends Component {
 
-   
-    
     render(){
         if(!this.props.data.podcasts) return <div />
         const { podcasts } = this.props.data

@@ -1,0 +1,25 @@
+.discover-result {
+    background-color: rgba(199,190,190, .5);
+    border-radius: 2.5%;
+    color: black;
+    padding: 2.5%;
+  }
+  
+  .discover-info {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .add-new-podcast {
+    color: #136F63;
+    padding: .25rem;
+  }
+  
+  .add-new-podcast:hover {
+    color: yellow;
+    background-color: #136F63;
+    border-radius: 100%;
+    transition: 1.5s;
+    cursor: pointer;
+  }

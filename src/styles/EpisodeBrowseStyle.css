@@ -1,0 +1,9 @@
+.episode-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .episode-list {
+    width: 45%;
+  }

@@ -9,7 +9,6 @@ import ReactionFeed from './ReactionFeed'
 class EpisodeContainer extends Component {
 
     render(){
-        // The back button should go back to podcast, not back to homepage
         if(this.props.data.loading) return <div />
         const { title, audio_URL, reactions} = this.props.data.episode
         console.log(this.props.data.episode)
@@ -24,14 +23,8 @@ class EpisodeContainer extends Component {
                 </Col>
                 <Col s={1}></Col>
             </Row>
-            <ReactionFeed reactions={ reactions } />
+            <ReactionFeed episode={ this.props.data.episode } reactions={ reactions } />
             <Player audioSource={audio_URL}/>
-            <Button floating fab='horizontal' icon='mode_edit' className='red' large style={{bottom: '45px', right: '24px'}}>
-                <Button floating icon='insert_comment' className='red'/>
-                <Button floating icon='face' className='yellow darken-1'/>
-                <Button floating icon='insert_link' className='green'/>
-                <Button floating icon='photo' className='blue'/>
-            </Button>
            
             {/* <ReactionButtons /> */}
         </div>

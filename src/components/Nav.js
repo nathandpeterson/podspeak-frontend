@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Button } from 'react-materialize'
-import { withRouter } from 'react-router-dom'
-// import UserQuery from '../queries/UserQuery'
-// import { graphql, withApollo, compose } from 'react-apollo'
+import { withRouter, Link } from 'react-router-dom'
 
 class Nav extends Component {
 
@@ -19,10 +17,10 @@ renderLoginButton = () => {
   return localStorage.getItem('token') ? this.logoutButton() : this.loginButton()
 }
 loginButton = () => {
-  return  <li><a href='/login'>log in</a></li>
+  return  <li><Link to='/login'>log in</Link></li>
 }
 logoutButton = () => {
-  return <Button onClick={this.logout}> log out</Button>
+  return <li onClick={this.logout}> log out</li>
 }
 logout = (e) => {
   localStorage.clear()

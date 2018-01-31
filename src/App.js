@@ -14,9 +14,10 @@ import EpisodeContainer from './components/EpisodeContainer'
 import Signup from './components/Signup'
 import requireAuth from './components/requireAuth';
 import DiscoverPodcast from './components/DiscoverPodcast'
+const API = `https://podspeak.herokuapp.com/graphql`
 
 const httpLink = createHttpLink({
-  uri: 'https://podspeak.herokuapp.com/graphql',
+  uri: 'http://localhost:4000/graphql',
 })
 
 

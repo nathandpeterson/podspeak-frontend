@@ -1,0 +1,38 @@
+.reaction-feed-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.image-container-style {
+    vertical-align: center;
+    display: inline-block;
+    text-align: center;
+}
+
+.text-card-style {
+    height: '100%'; 
+    color:'black';
+}
+
+.text-style {
+    background-color: white;
+    margin: 3%;
+    border-radius: 5%;
+    padding: 2.5%;
+    box-shadow: '10px 10px 20px 0px rgba(0,0,0,0.36)'
+}
+
+.reaction-image {
+    max-height: 10rem;
+    box-shadow: '10px 10px 20px 0px rgba(0,0,0,0.36)'
+}
+
+.reaction-emoji {
+    background-color: 'grey';
+    border-radius: '5%';
+    padding: '3%';
+    margin: '5%';
+    box-shadow: '10px 10px 20px 0px rgba(0,0,0,0.36)'
+}

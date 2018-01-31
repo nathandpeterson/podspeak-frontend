@@ -3,6 +3,7 @@ import PlayerButtons from './PlayerButtons'
 import PlayerClock from './PlayerClock'
 import ReactPlayer from 'react-player'
 import { Row, Col } from 'react-materialize'
+import PlayerStyle from '../styles/PlayerStyle.css'
 
 
 class Player extends Component {

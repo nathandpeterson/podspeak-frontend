@@ -21,11 +21,7 @@ class Podcast extends Component{
 
     render(){
         if(!this.props.data.podcast) return <div/>
-        const { id,
-                title, 
-                description, 
-                image_URL, 
-                episodes } = this.props.data.podcast
+        const { id, title, description, image_URL, episodes } = this.props.data.podcast
         return  <div >
                 <Row>
                     <Col s={1}></Col>
@@ -35,13 +31,16 @@ class Podcast extends Component{
                                 <div className="center">
                                     <h4>{Parser(title)}</h4>
                                 </div>
-                               <div className="podcast-description"> {Parser(description)} </div>
+                               <div> {Parser(description)} </div>
                             </Card>
                                 <PodcastEpisodeBrowser  episodeId={ id } 
                                                         page={ this.state.page }
                                                         episodes={ episodes } />
-                                <Button onClick={this.loadOlderEpisodes}> OLDER </Button>
-                                {this.state.page > 1 && <Button on onClick={this.loadNewerEpisodes}> NEWER</Button>}
+                                <div className="center">
+                                    <Button className="blue" onClick={this.loadOlderEpisodes}> OLDER </Button>
+                                    {this.state.page > 1 && <Button className="blue" 
+                                                                    onClick={this.loadNewerEpisodes}> NEWER</Button>}
+                                </div>
                                 <Badge> {this.state.page} </Badge>
                         </Card>
                     </Col>

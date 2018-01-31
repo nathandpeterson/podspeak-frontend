@@ -1,0 +1,15 @@
+.player-btn, .reaction-btn {
+    width: 6.25rem;
+    height: 6.25rem;
+    border-radius: 90%;
+    background-color: #F4FFFD;
+    color: black;
+    cursor: pointer;
+  }
+  
+  .player-btn:hover{
+    color: #C44536;
+    background-color: white;
+    transition: 1s;
+    cursor: pointer;
+  }
