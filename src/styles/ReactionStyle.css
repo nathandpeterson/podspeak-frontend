@@ -1,7 +1,17 @@
 .reaction-feed-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    width: 800px;
+}
+
+.reaction-feed {
+    margin: 0 auto;
+    height: 300px;
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.reaction-item {
+    display: block;
 }
 
 .image-container-style {

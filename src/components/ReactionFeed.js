@@ -19,7 +19,7 @@ class ReactionFeed extends Component {
 
     renderText = (data) => {
         const userInfo = this.formatUserInfo(data)
-        return <div key={data.id} className='grey lighten-3 text-card-style'>
+        return <div key={data.id} className='grey lighten-3 reaction-item text-card-style'>
                 <Chip>{data.episode_timestamp}</Chip>
                 <div className="text-style">
                     <p>{data.content}</p>
@@ -30,7 +30,7 @@ class ReactionFeed extends Component {
 
     renderEmoji = (data) => {
         const userInfo = this.formatUserInfo(data)
-        return <CardPanel key={data.id} className="image-container-style grey lighten-3" >
+        return <CardPanel key={data.id} className="image-container-style reaction-item grey lighten-3" >
                     <Chip>{userInfo.avatar} {userInfo.first_name}</Chip>
                     <div className="reaction-emoji"><span style={{fontSize: '3rem' }}>{data.content}</span></div>
                     <Chip>{data.episode_timestamp}</Chip>
@@ -39,7 +39,7 @@ class ReactionFeed extends Component {
 
     renderImage = (data) => {
         const userInfo = this.formatUserInfo(data)
-        return <CardPanel key={data.id} className="grey lighten-3 image-container-style"  > 
+        return <CardPanel key={data.id} className="grey lighten-3 reaction-item image-container-style"  > 
                     <img alt={data.content} className="reaction-image" src={data.content}/>
                     <span style={{display:'block'}}>
                     <Chip>{userInfo.avatar} {userInfo.first_name}</Chip>
@@ -74,8 +74,7 @@ class ReactionFeed extends Component {
             content: this.state.textComment,
             user_id,
             episode_id: this.props.episode.id,
-            episode_timestamp: '00:10',
-            category: 1}
+            episode_timestamp: '00:10'}
         }).then(res => {
             // Need to refetch here!!!!!
             return res
@@ -89,28 +88,23 @@ class ReactionFeed extends Component {
         if(!this.props.reactions) return <div />
         const { reactions } = this.props
         return <div> 
-                    <Row>
-                        <Col s={1}></Col>
-                        <Col s={10}>
-                        <div className=" center reaction-feed-container">
-                                {reactions.map(reaction => {
-                                    const { category } = reaction
-                                    if(category === 1) return this.renderText(reaction)
-                                    if(category === 2) return this.renderEmoji(reaction)
-                                    return this.renderImage(reaction)
-                                        })
-                                    }
-                        </div>
-                        </Col>
-                        <Col s={1}></Col>
-                    </Row>
+                  <div className="center">
+                        <div className="reaction-feed-container">
+                            <div className="reaction-feed">
+                                    {reactions.map(reaction => {
+                                        return this.renderText(reaction)
+                                            })
+                                        }
+                                </div>
+                            </div>
+                    </div>
                     <div className="center">
                      <Button onClick={this.openCommentForm} className='blue'>+ COMMENT +</Button>
-                     </div>
+               
                     {this.state.commentForm && this.renderTextCommentForm()}
-                    
                     </div>
-  
+                
+                        </div>
     }
 }
 
