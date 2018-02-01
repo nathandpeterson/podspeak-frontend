@@ -7,7 +7,6 @@ class PlayerButtons extends Component {
     constructor() {
         super()
 
-        this.state = {width: ''}
     }
     renderPlayPause(){
         return this.props.playing ? 'pause' : 'play_arrow'
@@ -23,15 +22,6 @@ class PlayerButtons extends Component {
     }
     forwardThirty = () => {
         this.props.seek(30)
-    }
-    componentWillMount(){
-        // Set the state to true if the screen width is larger than 800px
-        const mediaQuery = window.matchMedia("(min-width: 800px)").matches
-        this.setState({width: mediaQuery})
-    }
-    renderButtons = () => {
-        // render large icons on the buttons if it is a full-sized screen
-        return this.state.width ? "large" : "medium"
     }
 
     render(){
