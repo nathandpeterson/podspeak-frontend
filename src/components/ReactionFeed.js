@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Row, Col, CardPanel, Chip, Input } from 'react-materialize'
+import { Button, Row, Col, Chip, Input } from 'react-materialize'
 import { graphql, withApollo } from 'react-apollo'
 import CreateReaction from '../queries/CreateReaction'
 import '../styles/ReactionStyle.css'

@@ -38,11 +38,10 @@ class PlayerContainer extends Component {
         PubSub.unsubscribe('UPDATE_REACTIONS', this.subscriber)
     }
 
-
     render(){
         if(this.props.data.loading) return <div />
 
-        const { title, audio_URL, reactions } = this.props.data.episode
+        const { title, audio_URL } = this.props.data.episode
     
         return <div>
             <PlayerReactionUpdater  id={ this.props.match.params.id } 

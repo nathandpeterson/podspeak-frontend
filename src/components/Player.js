@@ -21,7 +21,6 @@ class Player extends Component {
             }
     }
     componentWillUpdate(nextProps){
-        let seconds = this.state.playedSeconds.toFixed(0)
         let currentSeconds = Math.floor(this.state.playedSeconds % 60)
         let currentMinute = Math.floor(this.state.playedSeconds/ 60) % 60
         let currentHour = Math.floor(this.state.playedSeconds / 3600)
