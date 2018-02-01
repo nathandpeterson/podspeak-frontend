@@ -5,6 +5,9 @@ import ReactPlayer from 'react-player'
 import { Row, Col } from 'react-materialize'
 import '../styles/PlayerStyle.css'
 
+const pad = (unit) => unit < 10 ? `0${unit.toString()}` : unit.toString()
+
+const timeFormat = (hour, minute, sec) => `${pad(hour)}:${pad(minute)}:${pad(sec)}`
 
 class Player extends Component {
     constructor(props){
@@ -21,8 +24,10 @@ class Player extends Component {
         let currentSeconds = Math.floor(this.state.playedSeconds % 60)
         let currentMinute = Math.floor(this.state.playedSeconds/ 60) % 60
         let currentHour = Math.floor(this.state.playedSeconds / 3600)
-        console.log(currentHour, currentMinute, currentSeconds)
-        // this.props.updateTime(currentHour,currentMinute,currentSeconds)
+        console.log(timeFormat(currentHour, currentMinute, currentSeconds))
+
+        // this.props.setTimeStamp(timeFormat(currentHour, currentMinute, currentSeconds))
+        
         if(currentMinute !== nextProps.currentMinute) this.props.updateMinutes(currentMinute)
     }
 

@@ -11,23 +11,22 @@ class PlayerContainer extends Component {
         super()
 
         this.state = {  currentMinute: 0,
-                        currentSecond: 0,
-                        currentHour: 0, 
+                        timeStamp: '', 
                         currentReactions: []}
     }
 
     updateMinutes = (val) => {
         this.setState({currentMinute: val})
     }
-    updateTime = (hour, minute, second) => {
-        this.setState({hour, minute, second})
-    }
-    getTimeStamp = () => {
-        let timeArray = [this.state.currentHour, this.state.currentMinute, this.state.currentSecond]
-        return timeArray.join(':')
+    setTimeStamp = (timeStamp) => {
+        this.setState({timeStamp})
     }
     updateCurrentReactions = (reactions) => {
         this.setState({currentReactions: reactions})
+    }
+    getTimeStamp = () => {
+        console.log('in the playercontainer',this.state.timeStamp)
+        return this.state.timeStamp
     }
 
 
@@ -57,7 +56,7 @@ class PlayerContainer extends Component {
                             />
             <Player audioSource={audio_URL} 
                     updateMinutes = { this.updateMinutes }
-                    updateTime = { this.updateTime }
+                    setTimeStamp = { this.setTimeStamp }
                     currentMinute = {this.state.currentMinute }/>
         </div>
     }

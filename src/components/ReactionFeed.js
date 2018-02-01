@@ -3,6 +3,8 @@ import { Button, Row, Col, CardPanel, Chip, Input } from 'react-materialize'
 import { graphql, withApollo } from 'react-apollo'
 import CreateReaction from '../queries/CreateReaction'
 import '../styles/ReactionStyle.css'
+import ReactTransitions from 'react-transitions'
+import 'react-transitions/dist/animations.css'
 
 class ReactionFeed extends Component {
     constructor(){
@@ -19,7 +21,7 @@ class ReactionFeed extends Component {
 
     renderText = (data) => {
         const userInfo = this.formatUserInfo(data)
-        return <div key={data.id} className='grey lighten-3 reaction-item text-card-style'>
+        return   <div key={data.id} className='grey lighten-3 reaction-item text-card-style'>
                 <Chip>{data.episode_timestamp}</Chip>
                 <div className="text-style">
                     <p>{data.content}</p>
@@ -28,26 +30,6 @@ class ReactionFeed extends Component {
                 </div>
     }
 
-    renderEmoji = (data) => {
-        const userInfo = this.formatUserInfo(data)
-        return <CardPanel key={data.id} className="image-container-style reaction-item grey lighten-3" >
-                    <Chip>{userInfo.avatar} {userInfo.first_name}</Chip>
-                    <div className="reaction-emoji"><span style={{fontSize: '3rem' }}>{data.content}</span></div>
-                    <Chip>{data.episode_timestamp}</Chip>
-                </CardPanel>
-    }
-
-    renderImage = (data) => {
-        const userInfo = this.formatUserInfo(data)
-        return <CardPanel key={data.id} className="grey lighten-3 reaction-item image-container-style"  > 
-                    <img alt={data.content} className="reaction-image" src={data.content}/>
-                    <span style={{display:'block'}}>
-                    <Chip>{userInfo.avatar} {userInfo.first_name}</Chip>
-                        <Chip>{data.episode_timestamp}</Chip>
-                       
-                    </span>
-                </CardPanel>
-    }
     renderTextCommentForm = () => {
         return <div > 
                     <form>
@@ -68,7 +50,7 @@ class ReactionFeed extends Component {
     submitText = (e) => {
         e.preventDefault()
         let time = this.props.getTimeStamp()
-        console.log(time)
+        console.log('in the mutation',time)
         // I need content, user_id, episode_id, podcast_id, episode_timestamp, category, ?reaction_id
         let user_id = localStorage.getItem('data')
         if(!user_id) console.log('handle err, you are not logged in')
@@ -76,10 +58,10 @@ class ReactionFeed extends Component {
             content: this.state.textComment,
             user_id,
             episode_id: this.props.episode.id,
-            episode_timestamp: '00:10'}
+            episode_timestamp: '00:00:10'}
         }).then(res => {
             // Need to refetch here!!!!!
-            console.log(this.props)
+            console.log('find method for refetching in here',this.props)
             return res
         })
     }
@@ -94,7 +76,14 @@ class ReactionFeed extends Component {
     render(){
         if(!this.props.reactions) return <div />
         const { reactions } = this.props
-        return <div> 
+        return <div>
+            <ReactTransitions
+                    transition="move-to-left-move-from-right"
+                    width={ 600 }
+                    height={ 300 }
+                    >
+                <h1>hello world</h1>
+            </ReactTransitions>
                   <div className="center">
                     <Row>
                         <Col s={1}></Col>
@@ -113,6 +102,7 @@ class ReactionFeed extends Component {
                     </div>
                     <div className="center">
                         <Button onClick={this.openCommentForm} className='blue'>+ COMMENT +</Button>
+                                        
                     </div>
                     <div className="center">
                         {this.state.commentForm && this.renderTextCommentForm()}

@@ -20,7 +20,9 @@
     "react-materialize": "^1.1.2",
     "react-player": "^1.1.1",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.0"
+    "react-scripts": "1.1.0",
+    "react-transition-group": "^2.2.1",
+    "react-transitions": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
