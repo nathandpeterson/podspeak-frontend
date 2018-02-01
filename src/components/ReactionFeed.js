@@ -67,6 +67,8 @@ class ReactionFeed extends Component {
     }
     submitText = (e) => {
         e.preventDefault()
+        let time = this.props.getTimeStamp()
+        console.log(time)
         // I need content, user_id, episode_id, podcast_id, episode_timestamp, category, ?reaction_id
         let user_id = localStorage.getItem('data')
         if(!user_id) console.log('handle err, you are not logged in')
@@ -77,8 +79,13 @@ class ReactionFeed extends Component {
             episode_timestamp: '00:10'}
         }).then(res => {
             // Need to refetch here!!!!!
+            console.log(this.props)
             return res
         })
+    }
+
+    getTimeStamp = () => {
+
     }
     openCommentForm = () => {
         this.setState({commentForm: !this.state.commentForm})
@@ -89,6 +96,9 @@ class ReactionFeed extends Component {
         const { reactions } = this.props
         return <div> 
                   <div className="center">
+                    <Row>
+                        <Col s={1}></Col>
+                        <Col s={10}>
                         <div className="reaction-feed-container">
                             <div className="reaction-feed">
                                     {reactions.map(reaction => {
@@ -97,11 +107,15 @@ class ReactionFeed extends Component {
                                         }
                                 </div>
                             </div>
+                        </Col>
+                        <Col s={1}></Col>
+                    </Row>
                     </div>
                     <div className="center">
-                     <Button onClick={this.openCommentForm} className='blue'>+ COMMENT +</Button>
-               
-                    {this.state.commentForm && this.renderTextCommentForm()}
+                        <Button onClick={this.openCommentForm} className='blue'>+ COMMENT +</Button>
+                    </div>
+                    <div className="center">
+                        {this.state.commentForm && this.renderTextCommentForm()}
                     </div>
                 
                         </div>

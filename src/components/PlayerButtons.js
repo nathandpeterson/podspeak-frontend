@@ -50,7 +50,7 @@ class PlayerButtons extends Component {
                         </Col>
                         <Col s={2}>
                             <div onClick={this.props.togglePlay} className="player-btn">
-                                <i className={`material-icons ${this.renderButtons()}`}>{`${this.renderPlayPause()}`}</i>
+                                <i className={`material-icons large`}>{`${this.renderPlayPause()}`}</i>
                             </div>
                         </Col>
                         <Col s={2}>

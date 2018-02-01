@@ -1,5 +1,5 @@
 .reaction-feed-container {
-    width: 800px;
+    width: 100%;
 }
 
 .reaction-feed {
@@ -7,7 +7,6 @@
     height: 300px;
     width: 100%;
     overflow: auto;
-    white-space: nowrap;
 }
 
 .reaction-item {
@@ -25,6 +24,7 @@
     font-size: 2rem;
     margin: .5rem 0;
     border-radius: 6px;
+    word-wrap: break-word;
 }
 
 .text-style {
@@ -32,6 +32,7 @@
     border-radius: 5%;
     box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.36);
 }
+
 
 .reaction-image {
     max-height: 20rem;
