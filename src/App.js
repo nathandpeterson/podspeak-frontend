@@ -14,10 +14,10 @@ import PlayerContainer from './components/PlayerContainer'
 import Signup from './components/Signup'
 import requireAuth from './components/requireAuth';
 import DiscoverPodcast from './components/DiscoverPodcast'
-// const API = `https://podspeak.herokuapp.com/graphql`
+const API = `https://podspeak.herokuapp.com/graphql`
 
 const httpLink = createHttpLink({
-  uri: 'API',
+  uri: API,
 })
 
 
