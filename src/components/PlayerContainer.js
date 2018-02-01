@@ -5,14 +5,15 @@ import { Button, CardPanel, Row, Col } from 'react-materialize'
 import Player from './Player'
 import ReactionFeed from './ReactionFeed'
 import PlayerReactionUpdater from './PlayerReactionUpdater'
+import PubSub from 'pubsub-js'
 
 class PlayerContainer extends Component {
     constructor(){
         super()
 
         this.state = {  currentMinute: 0,
-                        timeStamp: '', 
-                        currentReactions: []}
+                        currentReactions: [],
+                        updateReactions: ''}
     }
 
     updateMinutes = (val) => {
@@ -24,9 +25,17 @@ class PlayerContainer extends Component {
     updateCurrentReactions = (reactions) => {
         this.setState({currentReactions: reactions})
     }
-    getTimeStamp = () => {
-        console.log('in the playercontainer',this.state.timeStamp)
-        return this.state.timeStamp
+    subscriber = (msg, data) => {
+        // This function passes a random number to state as a way of triggering the reaction updater to refetch.
+        // I call this in ReactionFeed mutation, after a new comment is submitted.
+        this.setState({updateReactions: Math.random()})
+    }
+    componentDidMount(){
+        this.token = PubSub.subscribe('UPDATE_REACTIONS', this.subscriber)
+    }
+    
+    componentWillUnmount(){
+        PubSub.unsubscribe('UPDATE_REACTIONS', this.subscriber)
     }
 
 
@@ -36,9 +45,10 @@ class PlayerContainer extends Component {
         const { title, audio_URL, reactions } = this.props.data.episode
     
         return <div>
-            <PlayerReactionUpdater  id={this.props.match.params.id} 
-                                    timestamp={this.state.currentMinute}
-                                    updateCurrentReactions={this.updateCurrentReactions} />
+            <PlayerReactionUpdater  id={ this.props.match.params.id } 
+                                    timestamp={ this.state.currentMinute }
+                                    updateCurrentReactions={ this.updateCurrentReactions }
+                                    updateReactions = {this.state.updateReactions} />
             <Row>
                 <Col s={1}></Col>
                 <Col s={10}>
@@ -51,13 +61,11 @@ class PlayerContainer extends Component {
                 <Col s={1}></Col>
             </Row>
             <ReactionFeed   episode={ this.props.data.episode } 
-                            reactions={ this.state.currentReactions }
-                            getTimeStamp={ this.getTimeStamp }
-                            />
+                            reactions={ this.state.currentReactions } />
             <Player audioSource={audio_URL} 
                     updateMinutes = { this.updateMinutes }
                     setTimeStamp = { this.setTimeStamp }
-                    currentMinute = {this.state.currentMinute }/>
+                    currentMinute = {this.state.currentMinute } />
         </div>
     }
 }

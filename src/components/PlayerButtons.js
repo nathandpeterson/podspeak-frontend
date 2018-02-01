@@ -55,12 +55,12 @@ class PlayerButtons extends Component {
                         </Col>
                         <Col s={2}>
                             <div onClick={this.forwardTen} className="player-btn">
-                                <i className={`material-icons ${this.renderButtons()}`} large>forward_10</i>
+                                <i className={`material-icons ${this.renderButtons()}`}>forward_10</i>
                             </div>
                         </Col>
                         <Col s={2}>
                             <div onClick={this.forwardThirty} className="player-btn">
-                                <i className={`material-icons ${this.renderButtons()}`} large>forward_30</i>
+                                <i className={`material-icons ${this.renderButtons()}`}>forward_30</i>
                             </div>
                         </Col>
                         <Col s={1}></Col>

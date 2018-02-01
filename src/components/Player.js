@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PlayerButtons from './PlayerButtons'
 import PlayerClock from './PlayerClock'
 import ReactPlayer from 'react-player'
+import PubSub from 'pubsub-js'
 import { Row, Col } from 'react-materialize'
 import '../styles/PlayerStyle.css'
 
@@ -24,10 +25,8 @@ class Player extends Component {
         let currentSeconds = Math.floor(this.state.playedSeconds % 60)
         let currentMinute = Math.floor(this.state.playedSeconds/ 60) % 60
         let currentHour = Math.floor(this.state.playedSeconds / 3600)
-        console.log(timeFormat(currentHour, currentMinute, currentSeconds))
-
-        // this.props.setTimeStamp(timeFormat(currentHour, currentMinute, currentSeconds))
-        
+        let timeStamp = timeFormat(currentHour, currentMinute, currentSeconds)
+        PubSub.publish('TIMESTAMP', timeStamp)
         if(currentMinute !== nextProps.currentMinute) this.props.updateMinutes(currentMinute)
     }
 
@@ -99,7 +98,7 @@ class Player extends Component {
                                     type="audio/mp3"
                                     ref={this.ref}
                                     playing={this.state.playing}
-                                    seekTo={15}
+                                    seekto={15}
                                     volume={0.8}
                                     muted={this.state.muted}
                                     onProgress={this.onProgress}
