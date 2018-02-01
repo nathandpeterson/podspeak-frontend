@@ -13,7 +13,7 @@ class DiscoverPodcast extends Component {
     constructor(){
         super()
         // this.offset can increment with each repetition of a search to produce new results
-        this.state = {query: '', genre: '', offset: 0, results: ''}
+        this.state = {query: '', genre: 'Technology', offset: 0, results: ''}
     }
 
     handleChange = (e) => {
@@ -25,6 +25,7 @@ class DiscoverPodcast extends Component {
 
     submitQuery = (e) => {
         e.preventDefault()
+        console.log(this.state)
         this.props.mutate({
             variables: {    query: this.state.query, 
                             genre: this.state.genre }

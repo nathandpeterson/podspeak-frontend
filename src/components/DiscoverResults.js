@@ -10,6 +10,7 @@ class DiscoverResults extends Component {
     addPodcastClick = (e) => {
         e.preventDefault()
         let user_id = localStorage.getItem('data')
+        console.log(user_id)
         const { title, 
                 description, 
                 rss_feed, 
