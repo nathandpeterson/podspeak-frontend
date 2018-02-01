@@ -4,18 +4,22 @@ Podspeak makes listening to podcasts into an interactive experience by allowing 
 
 See demo at: 
 http://podspeak.surge.sh
+Frontend repo:
+https://github.com/nathandpeterson/podspeak-frontend
+Backend repo:
+https://github.com/nathandpeterson/podspeak-api
 
 * Browse podcasts.
 * Search for and discover new podcasts.
 * Read and leave comments on episodes.
 
-![](screen-shots/homepage.png)
+![](homepage.png)
 
 * Comments are linked to timestamp and they only load within the current minute that a podcast is being played.
 
 * This feature allows users to engage in 'async' conversations.
 
-![](screen-shots/player.png)
+![](episode-browser.png)
 
 # Frontend features:
 * React
@@ -28,8 +32,8 @@ http://podspeak.surge.sh
 * Auth: JWT/bcrypt
 * graphQL
 * postgreSQL / Knex.js
-* API for podcast search: Simplecast(?)
-* Rss feedparser(?)
+* API for podcast search: ListenNotes
+* Rss feedparser
 
 # Instructions for use
 
