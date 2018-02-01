@@ -14,7 +14,6 @@ class Signup extends Component {
                         first_name: '', 
                         last_name: '', 
                         avatar: '😀', 
-                        privacy: '0',
                         errorMessage: ''}
     }
 
@@ -32,9 +31,6 @@ class Signup extends Component {
     }
     avatarHandler = (e) => {
         this.setState({avatar: e.target.value})
-    }
-    privacyHandler = (e) => {
-        this.setState({privacy: e.target.value})
     }
     displayErrorMessage = () => {
         return this.state.errorMessage.map((error, i) => {
@@ -62,7 +58,6 @@ class Signup extends Component {
                 first_name: this.state.first_name,
                 last_name: this.state.last_name,
                 avatar: this.state.avatar,
-                privacy: this.state.privacy
             }
         }).then(result => {
             console.log(result)
@@ -117,15 +112,6 @@ class Signup extends Component {
                                 })}      
                         </Input>
                             
-                        <Input onChange={this.privacyHandler} 
-                                value={this.state.privacy}
-                                type="select" 
-                                s={6} 
-                                label="privacy">
-                                    <option value="0">Share all my activity</option>
-                                    <option value="1">Only share my activity with other users</option>
-                                    <option value="2">Keep my activity private</option>
-                        </Input>
                     </Row>
                     <Row>
                     <Button     onClick={this.submitForm} 

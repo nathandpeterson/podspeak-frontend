@@ -6,7 +6,6 @@ export default gql`query UserQuery($id: ID!) {
         id
         first_name
         avatar
-        active
         podcasts {
             id
             title
