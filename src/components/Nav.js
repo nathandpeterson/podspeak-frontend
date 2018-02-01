@@ -32,9 +32,6 @@ logout = (e) => {
               <div className="blue nav-wrapper">
               <a href="/" className="brand-logo center"><i className="material-icons">headset</i>podspeak</a>              
               <ul id="nav-mobile" className="right hide-on-med-and-down">
-                {/* <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">JavaScript</a></li> */}
                 {this.renderLoginButton()}
               </ul>
       

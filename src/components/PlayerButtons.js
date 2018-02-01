@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Col } from 'react-materialize'
+import { Row, Col, Button } from 'react-materialize'
 
 
 
@@ -39,29 +39,29 @@ class PlayerButtons extends Component {
                     <Row>
                         <Col s={1}></Col>
                         <Col s={2}>
-                            <div onClick={this.backTen} className="player-btn">
-                                <i className={`material-icons ${this.renderButtons()}`}>replay_10</i>
-                            </div>
+                            <a onClick={this.backTen} className="btn-floating btn-large waves-effect waves-light green">
+                                <i className="material-icons large">replay_10</i>
+                            </a>
                         </Col>
                         <Col s={2}>
-                            <div onClick={this.backThirty} className="player-btn">
-                                <i className={`material-icons ${this.renderButtons()}`}>replay_30</i>
-                            </div>
+                            <a onClick={this.backThirty} className="btn-floating btn-large waves-effect waves-light green">
+                                <i className="material-icons large">replay_30</i>
+                            </a>
                         </Col>
                         <Col s={2}>
-                            <div onClick={this.props.togglePlay} className="player-btn">
-                                <i className={`material-icons large`}>{`${this.renderPlayPause()}`}</i>
-                            </div>
+                            <a onClick={this.props.togglePlay} className="btn-floating btn-large waves-effect waves-light green">
+                                <i className="material-icons large">{`${this.renderPlayPause()}`}</i>
+                            </a>
                         </Col>
                         <Col s={2}>
-                            <div onClick={this.forwardTen} className="player-btn">
-                                <i className={`material-icons ${this.renderButtons()}`}>forward_10</i>
-                            </div>
+                            <a onClick={this.forwardTen} className="btn-floating btn-large waves-effect waves-light green">
+                                <i className="material-icons large">forward_10</i>
+                            </a>
                         </Col>
                         <Col s={2}>
-                            <div onClick={this.forwardThirty} className="player-btn">
-                                <i className={`material-icons ${this.renderButtons()}`}>forward_30</i>
-                            </div>
+                            <a onClick={this.forwardThirty} className="btn-floating btn-large waves-effect waves-light green">
+                                <i className="material-icons large">forward_30</i>
+                            </a>
                         </Col>
                         <Col s={1}></Col>
                      </Row>
