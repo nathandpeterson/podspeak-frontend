@@ -16,19 +16,22 @@ class ReactionFeed extends Component {
     }
     componentDidMount(){
         this.token = PubSub.subscribe('TIMESTAMP', this.subscriber)
+        this.token = PubSub.subscribe('ADD_COMMENT', this.subscriber)
     }
 
     componentWillUnmount(){
         PubSub.unsubscribe('TIMESTAMP', this.subscriber)
+        PubSub.unsubscribe('ADD_COMMENT', this.subscriber)
     }
 
     componentWillReceiveProps(nextProps){
-        console.log('LIFECTLY', nextProps)
         nextProps.reactions.length === 0 ? this.setState({reactions: false}) : this.setState({reactions:true})
     }
 
     subscriber = (msg, data) => {
-        this.setState({timeStamp: data})
+        console.log(msg,data)
+        msg === 'TIMESTAMP' ? this.setState({timeStamp: data}) : null
+        msg === 'ADD_COMMENT' ? this.setState({commentForm: !this.state.commentForm}) : null
     }
 
     renderTextCommentForm = () => {
@@ -62,13 +65,6 @@ class ReactionFeed extends Component {
             return res
         })
     }
-
-    getTimeStamp = () => {
-
-    }
-    openCommentForm = () => {
-        this.setState({commentForm: !this.state.commentForm})
-    }
     
     render(){
         if(!this.props.reactions) return <div />
@@ -83,9 +79,6 @@ class ReactionFeed extends Component {
                         </Col>
                         <Col s={1}></Col>
                     </Row>
-                    </div>
-                    <div className="center">
-                        <Button onClick={this.openCommentForm} floating large className='blue' waves='light' icon='add' />               
                     </div>
                     <div className="center">
                         {this.state.commentForm && this.renderTextCommentForm()}

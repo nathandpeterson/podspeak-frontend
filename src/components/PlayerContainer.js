@@ -40,7 +40,6 @@ class PlayerContainer extends Component {
 
     render(){
         if(this.props.data.loading) return <div />
-        console.log('in PLAYER CONTAINER',this.props)
 
         const { title, audio_URL } = this.props.data.episode
     

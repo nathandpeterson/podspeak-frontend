@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'react-materialize'
+import PubSub from 'pubsub-js'
 
 
 
@@ -20,11 +21,13 @@ class PlayerButtons extends Component {
     forwardThirty = () => {
         this.props.seek(30)
     }
+    comment = () => {
+        PubSub.publish('ADD_COMMENT', 'add_comment')
+    }
 
     render(){
-        return <div>
+        return <div className="player-buttons-container">
                     <Row>
-                        <Col s={1}></Col>
                         <Col s={2}>
                             <a onClick={this.backTen} className="btn-floating btn-large waves-effect waves-light green">
                                 <i className="material-icons large">replay_10</i>
@@ -41,6 +44,11 @@ class PlayerButtons extends Component {
                             </a>
                         </Col>
                         <Col s={2}>
+                        <a onClick={this.comment} className="btn-floating btn-large waves-effect waves-light blue">
+                                <i className="material-icons large">add</i>
+                            </a>
+                        </Col>
+                        <Col s={2}>
                             <a onClick={this.forwardTen} className="btn-floating btn-large waves-effect waves-light green">
                                 <i className="material-icons large">forward_10</i>
                             </a>
@@ -49,8 +57,7 @@ class PlayerButtons extends Component {
                             <a onClick={this.forwardThirty} className="btn-floating btn-large waves-effect waves-light green">
                                 <i className="material-icons large">forward_30</i>
                             </a>
-                        </Col>
-                        <Col s={1}></Col>
+                        </Col>                   
                      </Row>
                 </div>
     }

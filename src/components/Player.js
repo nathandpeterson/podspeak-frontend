@@ -87,12 +87,12 @@ class Player extends Component {
                 </Col>
                 <Col s={3}></Col>
             </Row>
-            <Row>
-                     <PlayerButtons 
-                        togglePlay={ this.togglePlay }
-                        playing={ this.state.playing }
-                        seek={this.seek}/>
-                </Row>
+           
+            <PlayerButtons 
+            togglePlay={ this.togglePlay }
+            playing={ this.state.playing }
+            seek={this.seek}/>
+              
                     <ReactPlayer    url={audioSource} 
                                     type="audio/mp3"
                                     ref={this.ref}
