@@ -53,7 +53,8 @@ class PlayerContainer extends Component {
                 <Col s={10}>
                     <CardPanel className="player-dash">
                         <Button onClick={this.props.history.goBack}
-                                className="blue">back to podcast</Button>
+                                className="blue"><i className="material-icons medium">arrow_back</i>
+                                </Button>
                         <h5>{title}</h5>
                     </CardPanel>
                 </Col>

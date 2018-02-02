@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import PodcastQuery from '../queries/PodcastQuery'
-import { Card, Icon } from 'react-materialize'
+import { Button, Card } from 'react-materialize'
 import Parser from 'html-react-parser'
 import { Link } from 'react-router-dom'
 import '../styles/EpisodeBrowseStyle.css'
@@ -23,10 +23,8 @@ class PodcastEpisodeBrowser extends Component {
                     <p>{episode.pub_date.slice(0,16)}</p>
                     {Parser(episode.description)}
                     <Link to={`/episodes/${episode.id}`}>
-                        <div className="center">
-                            <div style={{marginTop: '5%'}} className="player-btn">
-                                <Icon large>play_arrow</Icon>
-                            </div>
+                        <div className="center"> 
+                                <Button floating large className='green' waves='light' icon='play_arrow' />
                         </div>
                     </Link>
                     </Card>

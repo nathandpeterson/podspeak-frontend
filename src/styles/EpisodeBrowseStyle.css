@@ -5,5 +5,14 @@
   }
   
   .episode-list {
-    width: 45%;
+    width: 100%;
+  }
+
+  @media(min-width:800px) {
+    .episode-list {
+      width: 45%;
+    }
+    .podcast-description {
+      display: block;
+    }
   }

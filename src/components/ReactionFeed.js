@@ -67,9 +67,7 @@ class ReactionFeed extends Component {
             episode_id: this.props.episode.id,
             episode_timestamp: this.state.timeStamp}
         }).then(res => {
-            // Need to refetch here!!!!!
             PubSub.publish('UPDATE_REACTIONS', 'now')
-            console.log('find method for refetching in here',this.props)
             return res
         })
     }
@@ -102,8 +100,7 @@ class ReactionFeed extends Component {
                     </Row>
                     </div>
                     <div className="center">
-                        <Button onClick={this.openCommentForm} className='blue'>+ COMMENT +</Button>
-                                        
+                        <Button onClick={this.openCommentForm} floating large className='blue' waves='light' icon='add' />               
                     </div>
                     <div className="center">
                         {this.state.commentForm && this.renderTextCommentForm()}
