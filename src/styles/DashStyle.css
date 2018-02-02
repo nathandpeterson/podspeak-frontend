@@ -1,0 +1,13 @@
+.dash-podcast {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dash-trash {
+    color: black;
+}
+
+.dash-trash:hover {
+    color: red;
+    transition: 1s;
+}

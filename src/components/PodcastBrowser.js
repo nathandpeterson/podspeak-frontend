@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Card, CardTitle, Button } from 'react-materialize'
 import { withRouter } from 'react-router-dom'
-import Parser from 'html-react-parser'
+import PodcastCard from './PodcastCard'
 
 class PodcastBrowser extends Component {
     
@@ -15,22 +14,12 @@ class PodcastBrowser extends Component {
         const { podcasts } = this.props
         return  <div>
         <div className="main-container">
-            {podcasts.map(podcast => {
-                const { id, title, description, image_URL } = podcast
-                return <div key={id} className="pod-card-container"> 
-                            <Card       className="pod-card"
-                                        header={<CardTitle 
-                                        reveal 
-                                        image={image_URL} 
-                                        waves='light'/>}
-                                        title={Parser(title)}
-                                reveal={<p>{Parser(description)}</p>}>
-                                <Button className="blue" id={`${id}`} 
-                                        onClick={this.episodeButtonHandler}>
-                                    EPISODES
-                                </Button>
-                            </Card>
-                </div>
+            {podcasts.map((podcast, i) => {
+               return  <PodcastCard key={i}
+                                    episodeButtonHandler={ this.episodeButtonHandler} 
+                                    podcast ={ podcast }
+                                    // Incude the episodeButton attribute to include the episode button, falsey for no btn
+                                    episodeButton={true} />
             })}
         </div>
         </div>

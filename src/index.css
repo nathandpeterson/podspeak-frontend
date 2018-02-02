@@ -32,47 +32,41 @@ body {
   width: 100%;
 }
 
-.anim-appear {
-  opacity: 0.01;
+.slide-enter {
+  width: .1%;
 }
 
-.anim-appear.anim-appear-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.anim-leave {
-  opacity: 1;
-}
-
-.anim-leave.anim-leave-active {
-  opacity: 0.1;
-  transition: opacity 500ms ease-in;
-}
-
-
-/* .fade-enter {
-  opacity: 0.01;
-}
-
-.fade-enter.fade-enter-active {
-  opacity : 1;
-  transition : opacity 0.8s ease-in;
+.slide-enter.slide-enter-active {
+  width: 100%;
+  transition: width 800ms ease-in;
 }
 
 .fade-leave {
   opacity: 1;
 }
 
+.fade-leave.fade-leave-active {
+  opacity: 0.1;
+  transition: opacity 500ms ease-in;
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
 .fade-appear {
-  opacity: 0;
+  opacity: 0.01;
 }
 
 .fade-appear.fade-appear-active {
   opacity: 1;
-  transition: opacity 0.8s ease-in;
-} */
-
+  transition: opacity 500ms ease-in;
+}
 
 
 @media(min-width:800px) {

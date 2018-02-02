@@ -3,11 +3,6 @@ import { withRouter, Link } from 'react-router-dom'
 
 class Nav extends Component {
 
-  constructor(){
-    super()
-
-  }
-
 renderLoginButton = () => {
   return localStorage.getItem('token') ? this.logoutButton() : this.loginButton()
 }

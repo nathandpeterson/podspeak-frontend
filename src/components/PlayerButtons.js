@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
-import { Row, Col, Button } from 'react-materialize'
+import { Row, Col } from 'react-materialize'
 
 
 
 class PlayerButtons extends Component {
-    constructor() {
-        super()
-
-    }
+  
     renderPlayPause(){
         return this.props.playing ? 'pause' : 'play_arrow'
     }

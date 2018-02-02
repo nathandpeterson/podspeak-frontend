@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
-import { Button, Row, Col, Chip, Input } from 'react-materialize'
+import { Button, Row, Col, Input } from 'react-materialize'
 import { graphql, withApollo } from 'react-apollo'
 import CreateReaction from '../queries/CreateReaction'
 import '../styles/ReactionStyle.css'
 import PubSub from 'pubsub-js'
+import Reactions from './Reactions.js'
+import ReactionPlaceholder from './ReactionPlaceholder'
+
 
 class ReactionFeed extends Component {
     constructor(){
         super()
 
-        this.state = {textComment: '', commentForm: false, timeStamp: ''}
+        this.state = {textComment: '', commentForm: false, timeStamp: '', reactions: false}
     }
     componentDidMount(){
         this.token = PubSub.subscribe('TIMESTAMP', this.subscriber)
@@ -19,25 +22,13 @@ class ReactionFeed extends Component {
         PubSub.unsubscribe('TIMESTAMP', this.subscriber)
     }
 
+    componentWillReceiveProps(nextProps){
+        console.log('LIFECTLY', nextProps)
+        nextProps.reactions.length === 0 ? this.setState({reactions: false}) : this.setState({reactions:true})
+    }
+
     subscriber = (msg, data) => {
         this.setState({timeStamp: data})
-    }
-
-    formatUserInfo = (data) => {
-        const { userInfo } = data
-        const [ id, avatar , first_name, last_name ] = userInfo.split(',')
-        return { id, avatar, first_name, last_name }
-    }
-
-    renderText = (data) => {
-        const userInfo = this.formatUserInfo(data)
-        return   <div key={data.id} className='grey lighten-3 reaction-item text-card-style'>
-                <Chip>{data.episode_timestamp}</Chip>
-                <div className="text-style">
-                    <p>{data.content}</p>
-                </div>
-                <Chip>{userInfo.avatar} {userInfo.first_name}</Chip>
-                </div>
     }
 
     renderTextCommentForm = () => {
@@ -81,20 +72,14 @@ class ReactionFeed extends Component {
     
     render(){
         if(!this.props.reactions) return <div />
-        const { reactions } = this.props
+        const { reactions, episode } = this.props
         return <div>
                   <div className="center">
                     <Row>
                         <Col s={1}></Col>
                         <Col s={10}>
-                        <div className="reaction-feed-container">
-                            <div className="reaction-feed">
-                                    {reactions.map(reaction => {
-                                        return this.renderText(reaction)
-                                            })
-                                        }
-                                </div>
-                            </div>
+                           {this.state.reactions && <Reactions reactions={ reactions }/>}
+                           {!this.state.reactions && <ReactionPlaceholder episode={ episode }/>}
                         </Col>
                         <Col s={1}></Col>
                     </Row>

@@ -18,7 +18,7 @@ import DiscoverPodcast from './components/DiscoverPodcast'
 const API = `https://podspeak.herokuapp.com/graphql`
 
 const httpLink = createHttpLink({
-  uri: API,
+  uri: 'http://localhost:4000/graphql',
 })
 
 
@@ -54,9 +54,13 @@ class App extends Component {
     return ( <ApolloProvider client={ client } >
                 <div>
                   <BrowserRouter>
+                  
                   <div>
                     <Nav />           
                     <Switch>
+                      
+        
+                     
                       <Route exact path='/login' component={Login}/>
                       <Route exact path='/signup' component={Signup}/>
                       <Route exact path='/:id' component={requireAuth(Userpage)}/>
@@ -65,6 +69,8 @@ class App extends Component {
                       <Route exact path='/podcasts/:id' component={Podcast}/>
                       <Route exact path='/episodes/:id' component={PlayerContainer}/>
                       <Route path='/' component={Homepage}/>
+                   
+                  
                     </Switch>
                     </div>
                   </BrowserRouter>

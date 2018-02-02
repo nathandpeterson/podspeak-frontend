@@ -1,18 +1,27 @@
 import React from 'react'
 import Parser from 'html-react-parser'
-import { Card } from 'react-materialize'
+import { Card, Collection, CollectionItem } from 'react-materialize'
+import '../styles/DashStyle.css'
 
-const DashProfile = ({avatar, first_name, podcasts}) => {
+const unsubscribe = (e) => {
+    console.log('delete this podcast ',e.target.id, 'for this user', localStorage.getItem('data'))
+}
+
+
+const DashProfile = ({avatar, id, first_name, podcasts}) => {
     return  <Card>
-                <h3>{avatar}{first_name}</h3>
-                <h4>My podcasts:</h4>
-                <ul>
+                <h3 >{avatar}{first_name}</h3>
+                <h4 >My podcasts:</h4>
+                <Collection >
                     {podcasts.map(podcast => {
-                        return <li key={podcast.id}>{Parser(podcast.title)}</li>
+                        return <CollectionItem className="dash-podcast" key={podcast.id}>{Parser(podcast.title)}
+                                 <i id={podcast.id} 
+                                    data={id}
+                                    onClick={unsubscribe}
+                                    className="material-icons dash-trash">delete</i>
+                            </CollectionItem>
                     })}
-            </ul>
-            <h4>My comments:</h4>
-                    comments here
+            </Collection>
             </Card>
 }
 
