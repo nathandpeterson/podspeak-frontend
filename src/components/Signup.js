@@ -66,7 +66,7 @@ class Signup extends Component {
                 this.setState({errorMessage: result.data.signup.error})
                 } else {
                     const { id } = result.data.signup
-                    this.props.history.push(`/${id}`)
+                    this.props.history.push(`/login`)
                 }
         }).catch(err => console.log('catch error: ', err))
     }
