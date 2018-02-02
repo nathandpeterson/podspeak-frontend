@@ -29,7 +29,6 @@ class ReactionFeed extends Component {
     }
 
     subscriber = (msg, data) => {
-        console.log(msg,data)
         msg === 'TIMESTAMP' ? this.setState({timeStamp: data}) : null
         msg === 'ADD_COMMENT' ? this.setState({commentForm: !this.state.commentForm}) : null
     }
@@ -40,7 +39,7 @@ class ReactionFeed extends Component {
                         <Input  value={this.state.textComment} 
                                 onChange={this.handleTextChange} 
                                 type="text"/>
-                        <div className="center">
+                        <div style={{marginBottom: '1rem'}} className="center">
                         <Button onClick={this.submitText} 
                                 className="blue">Submit</Button>
                         </div>
