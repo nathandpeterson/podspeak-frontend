@@ -29,8 +29,8 @@ class ReactionFeed extends Component {
     }
 
     subscriber = (msg, data) => {
-        msg === 'TIMESTAMP' ? this.setState({timeStamp: data}) : null
-        msg === 'ADD_COMMENT' ? this.setState({commentForm: !this.state.commentForm}) : null
+        if(msg === 'TIMESTAMP') this.setState({timeStamp: data})
+        if(msg === 'ADD_COMMENT') this.setState({commentForm: !this.state.commentForm})
     }
 
     renderTextCommentForm = () => {

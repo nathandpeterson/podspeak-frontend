@@ -32,6 +32,27 @@ body {
   width: 100%;
 }
 
+.SlideIn-appear {
+  transform: translateX(60px);
+  opacity: 0;
+}
+.SlideIn-appear.SlideIn-appear-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 1s ease-in;
+}
+
+.SlideIn-leave {
+    opacity: 0.1;
+    transform: translateX(0);
+}
+.SlideIn-leave.SlideIn-leave-active {
+    opacity: 1;
+    width: 100%;
+    transform: translateX(-60px);
+    transition: all 1s ease-in;
+}
+/* 
 .slide-enter {
   width: .1%;
 }
@@ -39,7 +60,7 @@ body {
 .slide-enter.slide-enter-active {
   width: 100%;
   transition: width 800ms ease-in;
-}
+} */
 
 .fade-leave {
   opacity: 1;
@@ -47,7 +68,7 @@ body {
 
 .fade-leave.fade-leave-active {
   opacity: 0.1;
-  transition: opacity 500ms ease-in;
+  transition: opacity 500ms ease-out;
 }
 
 .fade-enter {

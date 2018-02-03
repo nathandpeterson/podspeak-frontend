@@ -22,7 +22,7 @@ render (){
                 <Col s={1}></Col>
                 <Col s={10}>
                 <Card style={{maxWidth: '40rem'}} >
-                    <img style={{width:'100%'}} src={image_URL}/>
+                    <img alt='podcast cover' style={{width:'100%'}} src={image_URL}/>
                     <p> Nobody has left any comments...</p>
                 </Card>
                 </Col>

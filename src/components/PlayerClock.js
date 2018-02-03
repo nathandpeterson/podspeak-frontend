@@ -1,4 +1,3 @@
-import React from 'react'
 
 const formatTimer = (seconds) => {
     if(seconds < 60) return `0:${leftPad(seconds)}`

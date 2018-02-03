@@ -3,7 +3,7 @@ import PlayerButtons from './PlayerButtons'
 import PlayerClock from './PlayerClock'
 import ReactPlayer from 'react-player'
 import PubSub from 'pubsub-js'
-import { Card, Col, Row } from 'react-materialize'
+import { Col, Row } from 'react-materialize'
 import '../styles/PlayerStyle.css'
 
 const pad = (unit) => unit < 10 ? `0${unit.toString()}` : unit.toString()

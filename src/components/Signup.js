@@ -60,12 +60,10 @@ class Signup extends Component {
                 avatar: this.state.avatar,
             }
         }).then(result => {
-            console.log(result)
             // also should grant a token here?
             if (result.data.signup.error ) {
                 this.setState({errorMessage: result.data.signup.error})
                 } else {
-                    const { id } = result.data.signup
                     this.props.history.push(`/login`)
                 }
         }).catch(err => console.log('catch error: ', err))

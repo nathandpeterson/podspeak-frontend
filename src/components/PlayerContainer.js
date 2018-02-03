@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import EpisodeQuery from '../queries/EpisodeQuery'
-import { Button, CardPanel, Row, Col } from 'react-materialize'
+import { CardPanel, Row, Col } from 'react-materialize'
 import Player from './Player'
 import ReactionFeed from './ReactionFeed'
 import PlayerReactionUpdater from './PlayerReactionUpdater'
