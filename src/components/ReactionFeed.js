@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Row, Col, Input } from 'react-materialize'
+import { Button, Input } from 'react-materialize'
 import { graphql, withApollo } from 'react-apollo'
 import CreateReaction from '../queries/CreateReaction'
 import '../styles/ReactionStyle.css'
@@ -69,21 +69,14 @@ class ReactionFeed extends Component {
         if(!this.props.reactions) return <div />
         const { reactions, episode } = this.props
         return <div>
-                  <div className="center">
-                    <Row>
-                        <Col s={1}></Col>
-                        <Col s={10}>
-                           {this.state.reactions && <Reactions reactions={ reactions }/>}
-                           {!this.state.reactions && <ReactionPlaceholder episode={ episode }/>}
-                        </Col>
-                        <Col s={1}></Col>
-                    </Row>
+                    <div className="center">
+                        {this.state.reactions && <Reactions reactions={ reactions }/>}
+                        {!this.state.reactions && <ReactionPlaceholder episode={ episode }/>}
                     </div>
                     <div className="center">
                         {this.state.commentForm && this.renderTextCommentForm()}
                     </div>
-                
-                        </div>
+                </div>
     }
 }
 

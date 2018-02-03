@@ -53,14 +53,10 @@ class App extends Component {
   render() {
     return ( <ApolloProvider client={ client } >
                 <div>
-                  <BrowserRouter>
-                  
+                  <BrowserRouter>     
                   <div>
                     <Nav />           
-                    <Switch>
-                      
-        
-                     
+                    <Switch>                
                       <Route exact path='/login' component={Login}/>
                       <Route exact path='/signup' component={Signup}/>
                       <Route exact path='/:id' component={requireAuth(Userpage)}/>
@@ -68,9 +64,7 @@ class App extends Component {
                       <Route exact path='/:id/dash' component={requireAuth(Dash)}/>
                       <Route exact path='/podcasts/:id' component={Podcast}/>
                       <Route exact path='/episodes/:id' component={PlayerContainer}/>
-                      <Route path='/' component={Homepage}/>
-                   
-                  
+                      <Route path='/' component={Homepage}/>      
                     </Switch>
                     </div>
                   </BrowserRouter>

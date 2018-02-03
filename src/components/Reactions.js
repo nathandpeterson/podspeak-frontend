@@ -10,12 +10,15 @@ const formatUserInfo = (data) => {
 const renderText = (data) => {
     const userInfo = formatUserInfo(data)
     return   <div key={data.id} className='grey lighten-3 reaction-item text-card-style'>
-            <Chip>{data.episode_timestamp}</Chip>
-            <div className="text-style">
+             
+           
                 <p>{data.content}</p>
+            <div className="card-chips">
+                <Chip>{data.episode_timestamp}</Chip>
+                <Chip>{userInfo.avatar} {userInfo.first_name}</Chip>
             </div>
-            <Chip>{userInfo.avatar} {userInfo.first_name}</Chip>
             </div>
+         
 }
 
 const Reactions = ({reactions }) => {

@@ -3,7 +3,7 @@ import PlayerButtons from './PlayerButtons'
 import PlayerClock from './PlayerClock'
 import ReactPlayer from 'react-player'
 import PubSub from 'pubsub-js'
-import { Card } from 'react-materialize'
+import { Card, Col, Row } from 'react-materialize'
 import '../styles/PlayerStyle.css'
 
 const pad = (unit) => unit < 10 ? `0${unit.toString()}` : unit.toString()
@@ -74,23 +74,28 @@ class Player extends Component {
         if(!this.props.audioSource) return <div />
         const { audioSource } = this.props
          return  <div>
-                <div style={{fontSize: '3rem'}} className="center">
+                    <div style={{fontSize: '2.5rem'}} className="center">
                     <div style={{backgroundColor: 'white', padding: '0 .5rem', borderRadius: '5%'}}>
-                        <PlayerClock time={this.state.playedSeconds}/>
+                        <PlayerClock time={this.state.playedSeconds} />
                     </div>
                   </div>
-                    <input
-                        type='range' min={0} max={1} step='any'
-                        value={this.state.played}
-                        onMouseDown={this.onSeekMouseDown}
-                        onChange={this.onSeekChange}
-                        onMouseUp={this.onSeekMouseUp}/>
-             
+                  <Row>
+                      <Col s={1}></Col>
+                      <Col s={10}>
+                        <input
+                            type='range' min={0} max={1} step='any'
+                            value={this.state.played}
+                            onMouseDown={this.onSeekMouseDown}
+                            onChange={this.onSeekChange}
+                            onMouseUp={this.onSeekMouseUp}/>
+                        </Col>
+                        <Col s={1}></Col>
+                    </Row>
            
                 <PlayerButtons 
-                togglePlay={ this.togglePlay }
-                playing={ this.state.playing }
-                seek={this.seek}/>
+                    togglePlay={ this.togglePlay }
+                    playing={ this.state.playing }
+                    seek={this.seek}/>
               
                 <ReactPlayer    url={audioSource} 
                                 type="audio/mp3"

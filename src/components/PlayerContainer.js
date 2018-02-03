@@ -40,9 +40,7 @@ class PlayerContainer extends Component {
 
     render(){
         if(this.props.data.loading) return <div />
-
         const { title, audio_URL } = this.props.data.episode
-    
         return <div>
             <PlayerReactionUpdater  id={ this.props.match.params.id } 
                                     timestamp={ this.state.currentMinute }
@@ -52,10 +50,8 @@ class PlayerContainer extends Component {
                 <Col s={1}></Col>
                 <Col s={10}>
                     <CardPanel className="player-dash">
-                        <Button onClick={this.props.history.goBack}
-                                className="blue"><i className="material-icons medium">arrow_back</i>
-                                </Button>
-                        <h5>{title}</h5>
+                        <i className="material-icons medium" onClick={this.props.history.goBack} >arrow_back</i>
+                        <p>{title}</p>
                     </CardPanel>
                 </Col>
                 <Col s={1}></Col>

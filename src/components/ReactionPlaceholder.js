@@ -1,14 +1,37 @@
-import React from 'react'
-import { Card } from 'react-materialize'
+import React, { Component } from 'react'
+import { Col, Row, Card } from 'react-materialize'
+import { graphql } from 'react-apollo'
+import gql from 'graphql-tag'
 
-const ReactionPlaceholder = ({ episode }) => {
-    if(!episode) return <div />
-    return <div>
-        <Card>
-            <p> Nobody has left any comments...</p>
-        </Card>
-           
+
+const query = gql`query GetImage($id: ID!, $page: Int!) {
+    podcast(id:$id, page: $page){
+      image_URL
+    }
+  }`
+
+
+class ReactionPlaceholder extends Component{
+
+render (){
+    if(!this.props.data.podcast) return <div />
+    console.log('data here? ', this.props)
+    const { image_URL } = this.props.data.podcast
+    return<div>
+            <Row>
+                <Col s={1}></Col>
+                <Col s={10}>
+                <Card style={{maxWidth: '40rem'}} >
+                    <img style={{width:'100%'}} src={image_URL}/>
+                    <p> Nobody has left any comments...</p>
+                </Card>
+                </Col>
+                <Col s={1}></Col>
+            </Row>
         </div>
-}
+    }
+} 
 
-export default ReactionPlaceholder
+export default graphql(query, {
+    options: (props) => { return { variables: {id:  props.episode.podcast_id, page: 1 } } }
+})(ReactionPlaceholder)

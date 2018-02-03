@@ -43,11 +43,7 @@ class PlayerButtons extends Component {
                                 <i className="material-icons large">{`${this.renderPlayPause()}`}</i>
                             </a>
                         </Col>
-                        <Col s={2}>
-                        <a onClick={this.comment} className="btn-floating btn-large waves-effect waves-light blue">
-                                <i className="material-icons large">add</i>
-                            </a>
-                        </Col>
+                       
                         <Col s={2}>
                             <a onClick={this.forwardTen} className="btn-floating btn-large waves-effect waves-light green">
                                 <i className="material-icons large">forward_10</i>
@@ -56,6 +52,11 @@ class PlayerButtons extends Component {
                         <Col s={2}>
                             <a onClick={this.forwardThirty} className="btn-floating btn-large waves-effect waves-light green">
                                 <i className="material-icons large">forward_30</i>
+                            </a>
+                        </Col>
+                        <Col s={2}>
+                        <a onClick={this.comment} className="btn-floating btn-large waves-effect waves-light blue">
+                                <i className="material-icons large">add</i>
                             </a>
                         </Col>                   
                      </Row>

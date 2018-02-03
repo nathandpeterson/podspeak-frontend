@@ -7,12 +7,6 @@ export default gql`query EpisodeQuery($id: ID!){
                     description
                     audio_URL
                     description
-                            reactions{
-                                        id
-                                        user_id
-                                        episode_timestamp
-                                        content
-                                        userInfo
-                        }
+                    podcast_id
                     }
                 }`
