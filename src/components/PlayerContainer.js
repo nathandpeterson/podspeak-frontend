@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import EpisodeQuery from '../queries/EpisodeQuery'
-import { CardPanel, Row, Col } from 'react-materialize'
+import { Card, CardPanel, Row, Col } from 'react-materialize'
 import Player from './Player'
 import ReactionFeed from './ReactionFeed'
 import PlayerReactionUpdater from './PlayerReactionUpdater'
@@ -39,20 +39,24 @@ class PlayerContainer extends Component {
     }
 
     render(){
+       
         if(this.props.data.loading) return <div />
-        const { title, audio_URL } = this.props.data.episode
+        const { title, audio_URL, podcast_name, duration } = this.props.data.episode
         return <div>
             <PlayerReactionUpdater  id={ this.props.match.params.id } 
                                     timestamp={ this.state.currentMinute }
                                     updateCurrentReactions={ this.updateCurrentReactions }
                                     updateReactions = {this.state.updateReactions} />
             <Row>
-                <Col s={1}></Col>
+                <Col s={1}>
+                    <i className="material-icons medium player-arrow" onClick={this.props.history.goBack} >arrow_back</i>
+                </Col>
                 <Col s={10}>
-                    <CardPanel className="player-dash">
-                        <i className="material-icons medium" onClick={this.props.history.goBack} >arrow_back</i>
-                        <p>{title}</p>
-                    </CardPanel>
+                    <div class="text-card-style ">
+                            <h4>{podcast_name}</h4>
+                            <h5> {title}</h5>
+                            <p> {duration} </p>                     
+                    </div>
                 </Col>
                 <Col s={1}></Col>
             </Row>

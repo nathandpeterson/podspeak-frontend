@@ -1,5 +1,6 @@
 import React from 'react'
 import { Chip } from 'react-materialize'
+import CSSTransitionGroup from 'react-transition-group'
 
 const formatUserInfo = (data) => {
     const { userInfo } = data
@@ -10,8 +11,6 @@ const formatUserInfo = (data) => {
 const renderText = (data) => {
     const userInfo = formatUserInfo(data)
     return   <div key={data.id} className='grey lighten-3 reaction-item text-card-style'>
-             
-           
                 <p>{data.content}</p>
             <div className="card-chips">
                 <Chip>{data.episode_timestamp}</Chip>

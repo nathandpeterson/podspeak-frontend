@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ApolloClient from 'apollo-client'
-import { ApolloProvider } from 'react-apollo'
+import { ApolloProvider, compose } from 'react-apollo'
 import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -16,6 +16,7 @@ import Dash from './components/Dash'
 import requireAuth from './components/requireAuth'
 import SlideIn from './components/TransitionSlideIn'
 import FadeIn from './components/TransitionFadeIn'
+import Slide from './components/TransitionSlide'
 import DiscoverPodcast from './components/DiscoverPodcast'
 const API = `https://podspeak.herokuapp.com/graphql`
 
@@ -60,13 +61,13 @@ class App extends Component {
                     <Nav />           
                     <Switch>                
                       <Route exact path='/login' component={FadeIn(Login)}/>
-                      <Route exact path='/signup' component={Signup}/>
-                      <Route exact path='/:id' component={requireAuth(Userpage)}/>
+                      <Route exact path='/signup' component={SlideIn(Signup)}/>
+                      <Route exact path='/:id' component={FadeIn(requireAuth(Userpage))}/>
                       <Route exact path='/:id/discover' component ={requireAuth(DiscoverPodcast)}/>
                       <Route exact path='/:id/dash' component={requireAuth(Dash)}/>
                       <Route exact path='/podcasts/:id' component={Podcast}/>
                       <Route exact path='/episodes/:id' component={PlayerContainer}/>
-                      <Route path='/' component={SlideIn(Homepage)}/>      
+                      <Route path='/' component={Homepage}/>      
                     </Switch>
                     </div>
                   </BrowserRouter>

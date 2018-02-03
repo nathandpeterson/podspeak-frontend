@@ -1,13 +1,17 @@
 .player-dash {
     display: flex;
     justify-content: space-between;
+    color: black;
+}
+
+.player-arrow {
+  color: white;
 }
 
 .player-buttons-container {
   display: flex;
   justify-content: space-around;
 }
-
 
 .reaction-btn {
     width: 100%;
