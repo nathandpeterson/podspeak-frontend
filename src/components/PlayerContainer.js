@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import EpisodeQuery from '../queries/EpisodeQuery'
-import { Row, Col } from 'react-materialize'
 import Player from './Player'
 import ReactionFeed from './ReactionFeed'
 import PlayerReactionUpdater from './PlayerReactionUpdater'
@@ -48,19 +47,15 @@ class PlayerContainer extends Component {
                                     timestamp={ this.state.currentMinute }
                                     updateCurrentReactions={ this.updateCurrentReactions }
                                     updateReactions = {this.state.updateReactions} />
-            <Row>
-                <Col s={1}>
-                    <i className="material-icons medium player-arrow" onClick={this.props.history.goBack} >arrow_back</i>
-                </Col>
-                <Col s={10}>
-                    <div className="player-header">
-                            <h4>{podcast_name}</h4>
-                            <h5> {title}</h5>
-                            <h5> {duration} </h5>                     
-                    </div>
-                </Col>
-                <Col s={1}></Col>
-            </Row>
+    
+            <div className="player-header">
+                <i className="material-icons medium player-arrow" onClick={this.props.history.goBack} >arrow_back</i>
+                <div className="player-header-info">
+                    <h4>{podcast_name}</h4>
+                    <h5> {title}</h5>
+                    <h5> {duration} </h5> 
+                </div>                    
+            </div>
             <ReactionFeed   episode={ this.props.data.episode } 
                             reactions={ this.state.currentReactions } />
 
