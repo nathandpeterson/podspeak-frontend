@@ -18,7 +18,7 @@ class Login extends Component {
          password: this.state.password   
             }
         }).catch(err => {
-            console.log('in the catch', err)
+            console.log('Error Message:', err)
         })
         .then(result => {
             const { token, error, id } = result.data.login

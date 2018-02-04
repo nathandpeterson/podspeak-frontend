@@ -30,7 +30,7 @@ class DiscoverPodcast extends Component {
             variables: {    query: this.state.query, 
                             genre: this.state.genre }
         }).catch(err => {
-            console.log('in the catch', err)
+            console.log('Error message:', err)
         })
         .then(results => {
             this.setState({results})

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Preloader } from 'react-materialize'
+import { Preloader } from 'react-materialize'
 
 const PodcastSpinner = () => {
     return <div className="center">

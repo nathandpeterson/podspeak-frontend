@@ -1,6 +1,5 @@
 import React from 'react'
 import { Chip } from 'react-materialize'
-import CSSTransitionGroup from 'react-transition-group'
 
 const formatUserInfo = (data) => {
     const { userInfo } = data

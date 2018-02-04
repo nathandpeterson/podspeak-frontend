@@ -53,7 +53,7 @@ class PlayerContainer extends Component {
                     <i className="material-icons medium player-arrow" onClick={this.props.history.goBack} >arrow_back</i>
                 </Col>
                 <Col s={10}>
-                    <div className="text-card-style">
+                    <div className="player-header">
                             <h4>{podcast_name}</h4>
                             <h5> {title}</h5>
                             <h5> {duration} </h5>                     
@@ -63,10 +63,11 @@ class PlayerContainer extends Component {
             </Row>
             <ReactionFeed   episode={ this.props.data.episode } 
                             reactions={ this.state.currentReactions } />
-            <Player audioSource={audio_URL} 
-                    updateMinutes = { this.updateMinutes }
-                    setTimeStamp = { this.setTimeStamp }
-                    currentMinute = {this.state.currentMinute } />
+
+            <Player         audioSource={audio_URL} 
+                            updateMinutes = { this.updateMinutes }
+                            setTimeStamp = { this.setTimeStamp }
+                            currentMinute = {this.state.currentMinute } />
         </div>
     }
 }

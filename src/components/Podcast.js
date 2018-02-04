@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Badge, Card } from 'react-materialize'
+import { Button, Card } from 'react-materialize'
 import { graphql } from 'react-apollo'
 import PodcastQuery from '../queries/PodcastWithoutEpisodesQuery'
 import PodcastEpisodeBrowser from './PodcastEpisodeBrowser'

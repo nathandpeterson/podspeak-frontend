@@ -74,7 +74,7 @@ class Player extends Component {
         if(!this.props.audioSource) return <div />
         const { audioSource } = this.props
          return  <div>
-                    <div style={{fontSize: '2.5rem'}} className="center">
+                    <div className="center">
                     <div className="clock-text">
                         <PlayerClock time={this.state.playedSeconds} />
                     </div>

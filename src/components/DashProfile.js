@@ -9,15 +9,12 @@ import DeleteUserPodcast from '../queries/DeleteUserPodcast'
 class DashProfile extends Component  {
 
 unsubscribe = (e) => {
-        console.log(this.props)
-        console.log('delete this podcast ',e.target.id, 'for this user', localStorage.getItem('data'))
         this.props.mutate({
             variables: {
                 user_id: localStorage.getItem('data'),
                 podcast_id: e.target.id
             }
         }).then(result => {
-            console.log('need to refetch here...', result)
             this.props.refetch()
         })
     }
@@ -34,9 +31,9 @@ render() {
                                     data={id}
                                     onClick={this.unsubscribe}
                                     className="material-icons dash-trash">delete</i>
-                            </CollectionItem>
+                                </CollectionItem>
                     })}
-            </Collection>
+                 </Collection>
             </Card>
     }
 }
