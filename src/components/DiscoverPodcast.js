@@ -25,7 +25,6 @@ class DiscoverPodcast extends Component {
 
     submitQuery = (e) => {
         e.preventDefault()
-        console.log(this.state)
         this.props.mutate({
             variables: {    query: this.state.query, 
                             genre: this.state.genre }

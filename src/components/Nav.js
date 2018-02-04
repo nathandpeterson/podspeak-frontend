@@ -8,6 +8,16 @@ class Nav extends Component {
 renderLoginButton = () => {
   return localStorage.getItem('token') ? this.logoutButton() : this.loginButton()
 }
+renderSignUp = () => {
+  if(!localStorage.getItem('token')) {
+    return this.signUpBtn()
+  }
+}
+
+signUpBtn = () => {
+  return <li><Link to='/signup'>sign up</Link></li>
+}
+
 loginButton = () => {
   return  <li><Link to='/login'>log in</Link></li>
 }
@@ -47,13 +57,14 @@ logout = (e) => {
                   {localStorage.getItem('data') && this.myPodcastsButton()}
                   {localStorage.getItem('data') && this.searchButton()}
                   {localStorage.getItem('data') && this.dashButton()}
-                    {this.renderLoginButton()}
+                  {this.renderLoginButton()}
+                  {this.renderSignUp()}
                   </ul>              
                <Menu width={ '30%'}>
-                {localStorage.getItem('data') && this.myPodcastsButton()}
-                {localStorage.getItem('data') && this.searchButton()}
-                {localStorage.getItem('data') && this.dashButton()}
-                {this.renderLoginButton()}
+                  {localStorage.getItem('data') && this.myPodcastsButton()}
+                  {localStorage.getItem('data') && this.searchButton()}
+                  {localStorage.getItem('data') && this.dashButton()} 
+                  {this.renderLoginButton()}
                 </Menu>
                 </div>
               </nav>   

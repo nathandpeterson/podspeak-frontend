@@ -53,7 +53,6 @@ class ReactionFeed extends Component {
     submitText = (e) => {
         e.preventDefault()
         let user_id = localStorage.getItem('data')
-        if(!user_id) console.log('handle err, you are not logged in')
         this.props.mutate({variables : {
             content: this.state.textComment,
             user_id,

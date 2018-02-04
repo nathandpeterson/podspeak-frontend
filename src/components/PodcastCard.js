@@ -5,6 +5,7 @@ import '../styles/Podcast.css'
 
 const PodcastCard = ({ podcast, episodeButtonHandler, episodeButton }) => {
     const { id, title, description, image_URL } = podcast
+    console.log(title)
     return <div key={id} className="pod-card-container"> 
                 <Card       className="pod-card"
                             header={<CardTitle 

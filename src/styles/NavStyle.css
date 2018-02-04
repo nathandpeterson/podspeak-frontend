@@ -3,6 +3,7 @@
   top: 0;
   overflow: scroll;
   width: 100%;
+  font-size: 1.25rem;
   z-index: 1000;
 }
 
@@ -21,7 +22,13 @@
 .bm-menu {
     background: #373a47;
     font-size: 1.15rem;
-  }  
+  }
+
+.bm-item-list {
+    color: white;
+    background-color: #b388ff;
+    padding: 0.8em;
+  }
 
   @media(min-width:700px) {
     .bm-burger-bars {

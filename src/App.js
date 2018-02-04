@@ -20,7 +20,7 @@ import DiscoverPodcast from './components/DiscoverPodcast'
 const API = `https://podspeak.herokuapp.com/graphql`
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000/graphql',
+  uri: API
 })
 
 const authLink = setContext((_, { headers }) => {
@@ -41,22 +41,13 @@ const client = new ApolloClient({
 })
 
 class App extends Component {
-  constructor(){
-    super()
-    this.state = {login: false}
-  }
-
-  toggleLoginState = () => {
-    this.setState({login: !this.state.login})
-  }
-
 
   render() {
     return ( <ApolloProvider client={ client } >      
                   <BrowserRouter>     
                   <div>
                     <Nav />
-                    <div class="main-content">         
+                    <div className="main-content">         
                       <Switch>                
                         <Route exact path='/login' component={FadeIn(Login)}/>
                         <Route exact path='/signup' component={SlideIn(Signup)}/>

@@ -55,7 +55,6 @@ class Signup extends Component {
 
     submitForm = (e) => {
         e.preventDefault()
-        // if the return is truthy, do nothing, else send the form
         if(!this.verifyFields()) this.props.mutate({
             variables: {
                 email: this.state.email,
@@ -65,7 +64,6 @@ class Signup extends Component {
                 avatar: this.state.avatar,
             }
         }).then(result => {
-            // also should grant a token here?
             if (result.data.signup.error ) {
                 this.setState({errorMessage: result.data.signup.error})
                 } else {
