@@ -2,6 +2,7 @@ import React, { Component} from 'react'
 import { Row, Input, Button } from 'react-materialize'
 import { graphql } from 'react-apollo'
 import SignupMutation from '../queries/SignupMutation'
+import '../styles/FormStyle.css'
 
 const avatars = ["😀","👻", "💩", "👽", "🤡", "🤖", "😀", "😺", "👾", "💋", "🐶", "🐸", "🦉", "🦄", "🦖", 
 "🐙","🐠", "🦍", "🐉"]

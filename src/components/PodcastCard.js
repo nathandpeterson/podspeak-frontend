@@ -1,6 +1,7 @@
 import React from 'react'
 import Parser from 'html-react-parser'
 import { Card, CardTitle, Button } from 'react-materialize'
+import '../styles/Podcast.css'
 
 const PodcastCard = ({ podcast, episodeButtonHandler, episodeButton }) => {
     const { id, title, description, image_URL } = podcast

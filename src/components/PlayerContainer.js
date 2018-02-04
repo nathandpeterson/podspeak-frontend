@@ -56,7 +56,7 @@ class PlayerContainer extends Component {
                     <div className="text-card-style">
                             <h4>{podcast_name}</h4>
                             <h5> {title}</h5>
-                            <p> {duration} </p>                     
+                            <h5> {duration} </h5>                     
                     </div>
                 </Col>
                 <Col s={1}></Col>

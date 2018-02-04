@@ -1,21 +1,14 @@
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   font-family: 'Open Sans';
-  background-color: rgb(16,16,16);
+  background-image: url('./styles/px_by_Gre3g.png');
+  background-attachment: fixed;
   color: gray;
-}
-
-.main-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
 }
 
 .main-content {
   margin-top: 4.5rem;
-  background-image: url('./styles/px_by_Gre3g.png');
-  background-attachment: fixed;
 }
 
 .center {
@@ -23,125 +16,10 @@ body {
   justify-content: center;
 }
 
-.error {
-  color: #f44336;
-  background-color: #eceff1;
-  display: block;
-  width: 60%;
-  border-radius: 1rem;
-  margin: 2rem 0;
-}
-
-.success {
-  background-color: #eceff1;
-  display: block;
-  width: 60%;
-  border-radius: 1rem;
-  margin: 2rem 0;
-  padding: .5rem;
-  color: black;
-}
-
-.signup-form {
-  background-color: #e1f5fe;
-  padding: 2rem;
-  border-radius: 1rem;
-  border: 1px solid white;
-}
-
-.pod-card-container {
-  width: 250px;
-  display: flex;
-  justify-content: center;
-}
-
-.podcast-description {
-  display: none;
-}
-
-.pod-card {
-  background-color:#DCDCDC;
-  width: 100%;
-}
-
-.SlideIn-appear {
-  transform: translateX(60px);
-  opacity: 0;
-}
-.SlideIn-appear.SlideIn-appear-active {
-  opacity: 1;
-  transform: translateX(0);
-  transition: all 1s ease-in;
-}
-
-.SlideIn-leave {
-    opacity: 0.1;
-    transform: translateX(0);
-}
-.SlideIn-leave.SlideIn-leave-active {
-    opacity: 1;
-    width: 100%;
-    transform: translateX(-60px);
-    transition: all 1s ease-in;
-}
-
-.slide-enter {
-  width: .1%;
-}
-
-.slide-enter.slide-enter-active {
-  width: 100%;
-  transition: width 800ms ease-in;
-}
-
-.fade-leave {
-  opacity: 1;
-}
-
-.fade-leave.fade-leave-active {
-  opacity: 0.1;
-  transition: opacity 500ms ease-out;
-}
-
-.fade-enter {
-  opacity: 0.01;
-}
-
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.fade-appear {
-  opacity: 0.01;
-}
-
-.fade-appear.fade-appear-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-
 @media(min-width:800px) {
-  .episode-list {
-    width: 45%;
-  }
+
   .podcast-description {
     display: block;
-  }
-  .player-btn {
-    width: 6.25rem;
-    height: 6.25rem;
-    border-radius: 90%;
-    background-color: #F4FFFD;
-    color: black;
-    cursor: pointer;
-  }
-  .bm-burger-bars {
-    display: none;
-  }
-  .bm-burger-button {
-    display: none;
   }
   
 }

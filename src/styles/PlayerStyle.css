@@ -29,17 +29,3 @@
   display: flex;
   justify-content: space-around;
 }
-
-.text-card-style p {
-  margin: 0 auto;
-}
-
-.reaction-btn {
-    width: 100%;
-    height: 4rem;
-    border-radius: 50%;
-    padding: 0;
-    background-color: #F4FFFD;
-    color: black;
-    cursor: pointer;
-  }

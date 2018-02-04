@@ -23,7 +23,6 @@
     font-size: 1.15rem;
   }  
 
-
   @media(min-width:700px) {
     .bm-burger-bars {
       display: none;

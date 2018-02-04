@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo'
 import PodcastQuery from '../queries/PodcastWithoutEpisodesQuery'
 import PodcastEpisodeBrowser from './PodcastEpisodeBrowser'
 import Parser from 'html-react-parser'
-
+import '../styles/Podcast.css'
 
 class Podcast extends Component{
     constructor(){
@@ -37,7 +37,9 @@ class Podcast extends Component{
                                 {this.state.page > 1 && <Button className="blue" 
                                                                 onClick={this.loadNewerEpisodes}> NEWER</Button>}
                             </div>
-                            <Badge> {this.state.page} </Badge>
+                            <div className="center">
+                                <div className="page-card"> {this.state.page} </div>
+                            </div>
                         </Card>
                 </div>
     }

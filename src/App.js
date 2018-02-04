@@ -63,9 +63,9 @@ class App extends Component {
                         <Route exact path='/:id' component={FadeIn(requireAuth(Userpage))}/>
                         <Route exact path='/:id/discover' component ={requireAuth(DiscoverPodcast)}/>
                         <Route exact path='/:id/dash' component={requireAuth(Dash)}/>
-                        <Route exact path='/podcasts/:id' component={Podcast}/>
+                        <Route exact path='/podcasts/:id' component={FadeIn(Podcast)}/>
                         <Route exact path='/episodes/:id' component={PlayerContainer}/>
-                        <Route path='/' component={Homepage}/>      
+                        <Route path='/' component={FadeIn(Homepage)}/>      
                       </Switch>
                       </div>
                     </div>

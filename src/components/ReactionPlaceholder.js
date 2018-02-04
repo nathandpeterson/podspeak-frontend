@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Col, Row, Card } from 'react-materialize'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import '../styles/ReactionStyle.css'
 
 
 const query = gql`query GetImage($id: ID!, $page: Int!) {
@@ -20,7 +21,7 @@ render (){
             <Row>
                 <Col s={1}></Col>
                 <Col s={10}>
-                <Card style={{maxWidth: '40rem'}} >
+                <Card className="placeholder-card" >
                     <img alt='podcast cover' style={{width:'100%'}} src={image_URL}/>
                     <p> Nobody has left any comments...</p>
                 </Card>

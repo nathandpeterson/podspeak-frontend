@@ -9,12 +9,7 @@ import '../styles/EpisodeBrowseStyle.css'
 
 class PodcastEpisodeBrowser extends Component {
 
-    // componentWillReceiveProps(nextProps){
-    //     nextProps.data.refetch()
-    // }
-
     render(){
-        console.log('in the browser', this.props)
         if(!this.props.data.podcast) return <PodcastSpinner />
     
         const { episodes } = this.props.data.podcast

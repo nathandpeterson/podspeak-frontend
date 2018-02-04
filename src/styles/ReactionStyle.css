@@ -26,3 +26,9 @@
     display: flex;
     justify-content: space-between;
 }
+
+.placeholder-card {
+    max-width: 25rem;
+    margin: 0 auto;
+}
+
