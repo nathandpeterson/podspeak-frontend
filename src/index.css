@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Open Sans';
   background-color: rgb(16,16,16);
   color: gray;
 }
@@ -15,6 +15,32 @@ body {
 .center {
   display: flex;
   justify-content: center;
+}
+
+.error {
+  color: #f44336;
+  background-color: #eceff1;
+  display: block;
+  width: 60%;
+  border-radius: 1rem;
+  margin: 2rem 0;
+}
+
+.success {
+  background-color: #eceff1;
+  display: block;
+  width: 60%;
+  border-radius: 1rem;
+  margin: 2rem 0;
+  padding: .5rem;
+  color: black;
+}
+
+.signup-form {
+  background-color: #e1f5fe;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid white;
 }
 
 .pod-card-container {
@@ -52,7 +78,7 @@ body {
     transform: translateX(-60px);
     transition: all 1s ease-in;
 }
-/* 
+
 .slide-enter {
   width: .1%;
 }
@@ -60,7 +86,7 @@ body {
 .slide-enter.slide-enter-active {
   width: 100%;
   transition: width 800ms ease-in;
-} */
+}
 
 .fade-leave {
   opacity: 1;

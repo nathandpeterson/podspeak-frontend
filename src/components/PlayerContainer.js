@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import EpisodeQuery from '../queries/EpisodeQuery'
-import { Card, CardPanel, Row, Col } from 'react-materialize'
+import { Row, Col } from 'react-materialize'
 import Player from './Player'
 import ReactionFeed from './ReactionFeed'
 import PlayerReactionUpdater from './PlayerReactionUpdater'
@@ -52,7 +52,7 @@ class PlayerContainer extends Component {
                     <i className="material-icons medium player-arrow" onClick={this.props.history.goBack} >arrow_back</i>
                 </Col>
                 <Col s={10}>
-                    <div class="text-card-style ">
+                    <div class="text-card-style">
                             <h4>{podcast_name}</h4>
                             <h5> {title}</h5>
                             <p> {duration} </p>                     

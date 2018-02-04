@@ -4,17 +4,20 @@ import PodcastQuery from '../queries/PodcastQuery'
 import { Button, Card } from 'react-materialize'
 import Parser from 'html-react-parser'
 import { Link } from 'react-router-dom'
+import PodcastSpinner from './PodcastSpinner'
 import '../styles/EpisodeBrowseStyle.css'
 
 class PodcastEpisodeBrowser extends Component {
 
-    componentWillReceiveProps(nextProps){
-        nextProps.data.refetch()
-    }
+    // componentWillReceiveProps(nextProps){
+    //     nextProps.data.refetch()
+    // }
 
     render(){
-        if(!this.props.episodes) return null
-        const { episodes } = this.props
+        console.log('in the browser', this.props)
+        if(!this.props.data.podcast) return <PodcastSpinner />
+    
+        const { episodes } = this.props.data.podcast
         return <div className="episode-container">
         {episodes.map(episode =>{
             return <Card key={episode.id} className=' blue episode-list' 

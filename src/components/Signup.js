@@ -14,7 +14,8 @@ class Signup extends Component {
                         first_name: '', 
                         last_name: '', 
                         avatar: '😀', 
-                        errorMessage: ''}
+                        errorMessage: '',
+                        success: false}
     }
 
     emailHandler = (e) => {
@@ -34,8 +35,11 @@ class Signup extends Component {
     }
     displayErrorMessage = () => {
         return this.state.errorMessage.map((error, i) => {
-            return <h4 key={i}>{error}</h4>
+            return <div className="center"><h5 className="error" key={i}>{error}</h5></div>
         }) 
+    }
+    displaySuccessMessage = () => {
+        return <h5 className="success">Success! In just a moment, you will be asked to log in.</h5>
     }
     verifyFields = () => {
         let errors = []
@@ -64,58 +68,72 @@ class Signup extends Component {
             if (result.data.signup.error ) {
                 this.setState({errorMessage: result.data.signup.error})
                 } else {
-                    this.props.history.push(`/login`)
+                    this.setState({success: true})
+                    setTimeout(() => {
+                         this.props.history.push(`/login`)
+                    }, 2000)  
                 }
         }).catch(err => console.log('catch error: ', err))
     }
     render(){
         return <div>
-                  {this.state.errorMessage && this.displayErrorMessage(this.state.errorMessage)}
-                    <form>
-                    <Row>
-                        <Input  onChange={this.emailHandler}
-                                value={this.state.email} 
-                                type="email" 
-                                s={6} 
-                                label="email" />
-                        <Input  onChange={this.passwordHandler} 
-                                value={this.state.password}
-                                type="password" 
-                                s={6} 
-                                label="password" />
-                    </Row>
-                    <Row>
-                        <Input onChange={this.firstNameHandler} 
-                                value={this.state.first_name}
-                                type="text" 
-                                s={6} 
-                                label="first name" />
-                        <Input onChange={this.lastNameHandler} 
-                                value={this.state.last_name}
-                                type="text" 
-                                s={6} 
-                                label="last name" />
-                    </Row>
-                    <Row>
-                         <Input onChange={this.avatarHandler}
-                                value={`${this.state.avatar}`}
-                                type="select" 
-                                s={6} 
-                                label="avatar">
-                                {avatars.map((avatar, i) => {
-                                    return  <option key={i} 
-                                                    value={avatar} 
-                                                    className="avatar-option">{avatar}
-                                            </option>
-                                })}      
-                        </Input>
-                            
-                    </Row>
-                    <Row>
-                    <Button     onClick={this.submitForm} 
-                                className="pink"> submit </Button>
-                    </Row>
-                 </form>
+                    <div className="center">
+                        <div className="error">
+                            {this.state.errorMessage 
+                            && this.displayErrorMessage(this.state.errorMessage)}
+                        </div>
+                    </div>
+                    <div className="center">
+                             {this.state.success 
+                            && this.displaySuccessMessage()}       
+                    </div>
+                    <div className="center">
+                        <form className="signup-form">
+                            <Row>
+                                <Input  onChange={this.emailHandler}
+                                        value={this.state.email} 
+                                        type="email" 
+                                        s={6} 
+                                        label="email" />
+                                <Input  onChange={this.passwordHandler} 
+                                        value={this.state.password}
+                                        type="password" 
+                                        s={6} 
+                                        label="password" />
+                            </Row>
+                            <Row>
+                                <Input onChange={this.firstNameHandler} 
+                                        value={this.state.first_name}
+                                        type="text" 
+                                        s={6} 
+                                        label="first name" />
+                                <Input onChange={this.lastNameHandler} 
+                                        value={this.state.last_name}
+                                        type="text" 
+                                        s={6} 
+                                        label="last name" />
+                            </Row>
+                            <Row>
+                                <Input onChange={this.avatarHandler}
+                                        value={`${this.state.avatar}`}
+                                        type="select" 
+                                        s={6} 
+                                        label="avatar">
+                                        {avatars.map((avatar, i) => {
+                                            return  <option key={i} 
+                                                            value={avatar} 
+                                                            className="avatar-option">{avatar}
+                                                    </option>
+                                        })}      
+                                </Input>
+                                    
+                            </Row>
+                            <Row>
+                            <Button     onClick={this.submitForm} 
+                                        className="pink"> submit </Button>
+                            </Row>
+                        </form>
+                    </div>
                  </div>
     }
 }

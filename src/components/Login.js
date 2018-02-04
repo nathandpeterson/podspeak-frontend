@@ -32,7 +32,7 @@ class Login extends Component {
     }
 
     displayErrorMessage(message){
-        return <h3> {message}</h3>
+        return <div className="center"><h5 className="error">{message}</h5></div>
     }
 
     signupForm = (e) => {

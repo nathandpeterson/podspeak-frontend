@@ -8,9 +8,30 @@
   color: white;
 }
 
+.player-arrow:hover {
+  cursor: pointer;
+  background-color: rgba(220,220,220,.7);
+  border-radius: 50%;
+  border: 1px solid white;
+  color: black;
+  transition: 1s;
+}
+
+.clock-text {
+  background-color: rgba(220,220,220,.7);
+  padding: 0.5rem 1rem;
+  border-radius: 5%;
+  color: white;
+  margin: 15px;
+}
+
 .player-buttons-container {
   display: flex;
   justify-content: space-around;
+}
+
+.text-card-style p {
+  margin: 0 auto;
 }
 
 .reaction-btn {

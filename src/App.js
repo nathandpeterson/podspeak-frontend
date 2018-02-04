@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ApolloClient from 'apollo-client'
-import { ApolloProvider, compose } from 'react-apollo'
+import { ApolloProvider } from 'react-apollo'
 import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -16,7 +16,6 @@ import Dash from './components/Dash'
 import requireAuth from './components/requireAuth'
 import SlideIn from './components/TransitionSlideIn'
 import FadeIn from './components/TransitionFadeIn'
-import Slide from './components/TransitionSlide'
 import DiscoverPodcast from './components/DiscoverPodcast'
 const API = `https://podspeak.herokuapp.com/graphql`
 
