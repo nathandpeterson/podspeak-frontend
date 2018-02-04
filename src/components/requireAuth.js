@@ -18,6 +18,7 @@ export default (WrappedComponent) => {
             }
         }
             render(){
+                      // jwt is verified on the back end!
                 return <WrappedComponent {...this.props} />            
             }
         }

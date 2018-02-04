@@ -12,6 +12,12 @@ body {
   justify-content: space-around;
 }
 
+.main-content {
+  margin-top: 4.5rem;
+  background-image: url('./styles/px_by_Gre3g.png');
+  background-attachment: fixed;
+}
+
 .center {
   display: flex;
   justify-content: center;
@@ -131,4 +137,11 @@ body {
     color: black;
     cursor: pointer;
   }
+  .bm-burger-bars {
+    display: none;
+  }
+  .bm-burger-button {
+    display: none;
+  }
+  
 }

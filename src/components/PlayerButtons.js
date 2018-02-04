@@ -5,6 +5,14 @@ import PubSub from 'pubsub-js'
 
 
 class PlayerButtons extends Component {
+
+    renderCommentButton = () => {
+        return <Col s={2}>
+            <a onClick={this.comment} className="btn-floating btn-large waves-effect waves-light blue">
+                    <i className="material-icons large">add</i>
+                </a>
+            </Col>  
+    }
   
     renderPlayPause(){
         return this.props.playing ? 'pause' : 'play_arrow'
@@ -54,11 +62,7 @@ class PlayerButtons extends Component {
                                 <i className="material-icons large">forward_30</i>
                             </a>
                         </Col>
-                        <Col s={2}>
-                        <a onClick={this.comment} className="btn-floating btn-large waves-effect waves-light blue">
-                                <i className="material-icons large">add</i>
-                            </a>
-                        </Col>                   
+                        {localStorage.getItem('token') && this.renderCommentButton()}             
                      </Row>
                 </div>
     }

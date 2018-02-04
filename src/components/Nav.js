@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter, Link } from 'react-router-dom'
+import { slide as Menu } from 'react-burger-menu'
+import '../styles/NavStyle.css'
 
 class Nav extends Component {
 
@@ -37,17 +39,23 @@ logout = (e) => {
 }
 
   render(){
-    return <nav>
+    return <nav className="nav-bar">
               <div className="blue nav-wrapper">
-                  <a href="/" className="brand-logo center"><i className="material-icons">headset</i>podspeak</a>              
-                  <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    {localStorage.getItem('data') && this.myPodcastsButton()}
-                    {localStorage.getItem('data') && this.searchButton()}
-                    {localStorage.getItem('data') && this.dashButton()}
+                  <a href="/" className="brand-logo center"><i className="material-icons">headset</i>podspeak</a> 
+                              
+                  <ul className="right hide-on-small-and-down">
+                  {localStorage.getItem('data') && this.myPodcastsButton()}
+                  {localStorage.getItem('data') && this.searchButton()}
+                  {localStorage.getItem('data') && this.dashButton()}
                     {this.renderLoginButton()}
-                  </ul>
-      
-              </div>
+                  </ul>              
+               <Menu width={ '30%'}>
+                {localStorage.getItem('data') && this.myPodcastsButton()}
+                {localStorage.getItem('data') && this.searchButton()}
+                {localStorage.getItem('data') && this.dashButton()}
+                {this.renderLoginButton()}
+                </Menu>
+                </div>
               </nav>   
   }
 

@@ -23,7 +23,6 @@ const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
 })
 
-
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem('token')
@@ -53,24 +52,24 @@ class App extends Component {
 
 
   render() {
-    return ( <ApolloProvider client={ client } >
-                <div>
+    return ( <ApolloProvider client={ client } >      
                   <BrowserRouter>     
                   <div>
-                    <Nav />           
-                    <Switch>                
-                      <Route exact path='/login' component={FadeIn(Login)}/>
-                      <Route exact path='/signup' component={SlideIn(Signup)}/>
-                      <Route exact path='/:id' component={FadeIn(requireAuth(Userpage))}/>
-                      <Route exact path='/:id/discover' component ={requireAuth(DiscoverPodcast)}/>
-                      <Route exact path='/:id/dash' component={requireAuth(Dash)}/>
-                      <Route exact path='/podcasts/:id' component={Podcast}/>
-                      <Route exact path='/episodes/:id' component={PlayerContainer}/>
-                      <Route path='/' component={Homepage}/>      
-                    </Switch>
+                    <Nav />
+                    <div class="main-content">         
+                      <Switch>                
+                        <Route exact path='/login' component={FadeIn(Login)}/>
+                        <Route exact path='/signup' component={SlideIn(Signup)}/>
+                        <Route exact path='/:id' component={FadeIn(requireAuth(Userpage))}/>
+                        <Route exact path='/:id/discover' component ={requireAuth(DiscoverPodcast)}/>
+                        <Route exact path='/:id/dash' component={requireAuth(Dash)}/>
+                        <Route exact path='/podcasts/:id' component={Podcast}/>
+                        <Route exact path='/episodes/:id' component={PlayerContainer}/>
+                        <Route path='/' component={Homepage}/>      
+                      </Switch>
+                      </div>
                     </div>
                   </BrowserRouter>
-                </div>
               </ApolloProvider>
     )
   }

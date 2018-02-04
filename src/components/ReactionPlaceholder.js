@@ -15,7 +15,6 @@ class ReactionPlaceholder extends Component{
 
 render (){
     if(!this.props.data.podcast) return <div />
-    console.log('data here? ', this.props)
     const { image_URL } = this.props.data.podcast
     return<div>
             <Row>

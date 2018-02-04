@@ -6,6 +6,7 @@ import Player from './Player'
 import ReactionFeed from './ReactionFeed'
 import PlayerReactionUpdater from './PlayerReactionUpdater'
 import PubSub from 'pubsub-js'
+import '../styles/PlayerStyle.css'
 
 class PlayerContainer extends Component {
     constructor(){
@@ -52,7 +53,7 @@ class PlayerContainer extends Component {
                     <i className="material-icons medium player-arrow" onClick={this.props.history.goBack} >arrow_back</i>
                 </Col>
                 <Col s={10}>
-                    <div class="text-card-style">
+                    <div className="text-card-style">
                             <h4>{podcast_name}</h4>
                             <h5> {title}</h5>
                             <p> {duration} </p>                     
