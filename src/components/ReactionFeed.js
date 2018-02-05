@@ -12,7 +12,11 @@ class ReactionFeed extends Component {
     constructor(){
         super()
 
-        this.state = {textComment: '', commentForm: false, timeStamp: '', reactions: false}
+        this.state = {  textComment: '', 
+                        commentForm: false, 
+                        timeStamp: '', 
+                        reactions: false,
+                        success: false}
     }
     componentDidMount(){
         this.token = PubSub.subscribe('TIMESTAMP', this.subscriber)
@@ -36,9 +40,11 @@ class ReactionFeed extends Component {
     renderTextCommentForm = () => {
         return <div > 
                     <form>
-                        <Input  value={this.state.textComment} 
-                                onChange={this.handleTextChange} 
-                                type="text"/>
+                       
+                            <Input  value={this.state.textComment} 
+                                    onChange={this.handleTextChange} 
+                                    type="text"/>
+                       
                         <div className="submit-reaction-btn-container center">
                         <Button onClick={this.submitText} 
                                 className="blue">Submit</Button>
@@ -60,9 +66,15 @@ class ReactionFeed extends Component {
             episode_timestamp: this.state.timeStamp}
         }).then(res => {
             PubSub.publish('UPDATE_REACTIONS', 'now')
-            this.setState({commentForm: false, textComment: ''})
+            this.setState({commentForm: false, textComment: '', success: true})
+            setTimeout(() => {
+                this.setState({success: false})
+            }, 1000)
             return res
         })
+    }
+    successMessage = () => {
+        return <h5 className="reaction-success">Message Posted</h5>
     }
     
     render(){
@@ -72,8 +84,10 @@ class ReactionFeed extends Component {
                     <div className="center">
                         {this.state.reactions && <Reactions reactions={ reactions }/>}
                         {!this.state.reactions && <ReactionPlaceholder episode={ episode }/>}
+                        
                     </div>
                     <div className="center">
+                         {this.state.success && this.successMessage()}
                         {this.state.commentForm && this.renderTextCommentForm()}
                     </div>
                 </div>

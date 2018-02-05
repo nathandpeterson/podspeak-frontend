@@ -10,7 +10,7 @@ import '../styles/EpisodeBrowseStyle.css'
 const EpisodeCard = (props) => {
 
     const {id, title, pub_date, description} = props.episode
-    return <Card key={id} className='blue episode-list' 
+    return <Card key={id} className='blue episode-list animated fadeInUp' 
             textClassName='white-text'>
                 <h5>{title}</h5>
                 <p>{pub_date.slice(0,16)}</p>

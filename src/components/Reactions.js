@@ -9,7 +9,7 @@ const formatUserInfo = (data) => {
 
 const renderText = (data) => {
     const userInfo = formatUserInfo(data)
-    return   <div key={data.id} className='grey lighten-3 reaction-item text-card-style'>
+    return   <div key={data.id} className='grey lighten-3 reaction-item text-card-style animated fadeIn'>
                 <p>{data.content}</p>
             <div className="card-chips">
                 <Chip>{data.episode_timestamp}</Chip>

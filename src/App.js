@@ -14,13 +14,11 @@ import PlayerContainer from './components/PlayerContainer'
 import Signup from './components/Signup'
 import Dash from './components/Dash'
 import requireAuth from './components/requireAuth'
-import SlideIn from './components/TransitionSlideIn'
-import FadeIn from './components/TransitionFadeIn'
 import DiscoverPodcast from './components/DiscoverPodcast'
 const API = `https://podspeak.herokuapp.com/graphql`
 
 const httpLink = createHttpLink({
-  uri: API
+  uri: 'http://localhost:4000/graphql'
 })
 
 const authLink = setContext((_, { headers }) => {
@@ -49,14 +47,14 @@ class App extends Component {
                     <Nav />
                     <div className="main-content">         
                       <Switch>                
-                        <Route exact path='/login' component={FadeIn(Login)}/>
-                        <Route exact path='/signup' component={SlideIn(Signup)}/>
-                        <Route exact path='/:id' component={FadeIn(requireAuth(Userpage))}/>
+                        <Route exact path='/login' component={Login}/>
+                        <Route exact path='/signup' component={Signup}/>
+                        <Route exact path='/:id' component={requireAuth(Userpage)}/>
                         <Route exact path='/:id/discover' component ={requireAuth(DiscoverPodcast)}/>
                         <Route exact path='/:id/dash' component={requireAuth(Dash)}/>
-                        <Route exact path='/podcasts/:id' component={FadeIn(Podcast)}/>
+                        <Route exact path='/podcasts/:id' component={Podcast}/>
                         <Route exact path='/episodes/:id' component={PlayerContainer}/>
-                        <Route path='/' component={FadeIn(Homepage)}/>      
+                        <Route path='/' component={Homepage}/>      
                       </Switch>
                       </div>
                     </div>

@@ -14,7 +14,7 @@ class Dash extends Component {
       
         const { avatar,  first_name, id, podcasts } = this.props.data.user 
 
-        return  <div className="center">
+        return  <div className="center animated fadeInDown">
                     <DashProfile    id ={ id } 
                                     avatar={ avatar } 
                                     first_name = { first_name } 

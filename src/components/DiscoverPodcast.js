@@ -38,7 +38,7 @@ class DiscoverPodcast extends Component {
 
     render(){
     
-        return  <div>
+        return  <div className="animated fadeInDown">
                     <div className="center">
                         <h3>Search for Podcasts</h3>
                     </div>

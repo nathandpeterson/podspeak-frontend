@@ -17,7 +17,7 @@ class Userpage extends Component {
     render(){
         if(!this.props.data.user) return <div />
         const { podcasts } = this.props.data.user
-        return <div>
+        return <div className="animated fadeInDown">
                     <PodcastBrowser podcasts={ podcasts }/>
                     <div className="center">
                         <Button onClick={this.clickNewPod} floating large className='red' waves='light' icon='add' />
