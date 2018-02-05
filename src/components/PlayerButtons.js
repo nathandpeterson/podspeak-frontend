@@ -7,11 +7,9 @@ import PubSub from 'pubsub-js'
 class PlayerButtons extends Component {
 
     renderCommentButton = () => {
-        return <div className="center">
-            <a onClick={this.comment} className="btn-floating btn-large waves-effect waves-light blue">
+        return <a onClick={this.comment} className="btn-floating btn-large waves-effect waves-light blue">
                     <i className="material-icons large">add</i>
-                </a>
-            </div>
+                </a> 
     }
   
     renderPlayPause(){
@@ -35,35 +33,27 @@ class PlayerButtons extends Component {
 
     render(){
         return <div className="player-buttons-container">
-                    <Row>
-                        <Col>
-                            <a onClick={this.backTen} className="btn-floating btn-large waves-effect waves-light green">
-                                <i className="material-icons large">replay_10</i>
-                            </a>
-                        </Col>
-                        <Col>
-                            <a onClick={this.backThirty} className="btn-floating btn-large waves-effect waves-light green">
-                                <i className="material-icons large">replay_30</i>
-                            </a>
-                        </Col>
-                        <Col>
-                            <a onClick={this.props.togglePlay} className="btn-floating btn-large waves-effect waves-light green">
-                                <i className="material-icons large">{`${this.renderPlayPause()}`}</i>
-                            </a>
-                        </Col>
-                       
-                        <Col>
-                            <a onClick={this.forwardTen} className="btn-floating btn-large waves-effect waves-light green">
-                                <i className="material-icons large">forward_10</i>
-                            </a>
-                        </Col>
-                        <Col>
-                            <a onClick={this.forwardThirty} className="btn-floating btn-large waves-effect waves-light green">
-                                <i className="material-icons large">forward_30</i>
-                            </a>
-                        </Col>
-                        {localStorage.getItem('token') && this.renderCommentButton()}             
-                     </Row>
+                    <a onClick={this.backTen} className="btn-floating btn-large waves-effect waves-light green">
+                        <i className="material-icons large">replay_10</i>
+                    </a>
+                
+                    <a onClick={this.backThirty} className="btn-floating btn-large waves-effect waves-light green">
+                        <i className="material-icons large">replay_30</i>
+                    </a>
+                
+                    <a onClick={this.props.togglePlay} className="btn-floating btn-large waves-effect waves-light green">
+                        <i className="material-icons large">{`${this.renderPlayPause()}`}</i>
+                    </a>
+                
+                    <a onClick={this.forwardTen} className="btn-floating btn-large waves-effect waves-light green">
+                        <i className="material-icons large">forward_10</i>
+                    </a>
+                
+                    <a onClick={this.forwardThirty} className="btn-floating btn-large waves-effect waves-light green">
+                        <i className="material-icons large">forward_30</i>
+                    </a>
+
+                    {localStorage.getItem('token') && this.renderCommentButton()}             
                 </div>
     }
 }
