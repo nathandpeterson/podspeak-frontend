@@ -4,8 +4,8 @@ import { graphql } from 'react-apollo'
 import SignupMutation from '../queries/SignupMutation'
 import '../styles/FormStyle.css'
 
-const avatars = ["😀","👻", "💩", "👽", "🤡", "🤖", "😀", "😺", "👾", "💋", "🐶", "🐸", "🦉", "🦄", "🦖", 
-"🐙","🐠", "🦍", "🐉"]
+const avatars = ["😀","👻", "💩", "👽", "🤡", "🤖", "😀", "😺", "👾", 
+"💋", "🐶", "🐸", "🦉", "🦄", "🦖", "🐙","🐠", "🦍", "🐉"]
 
 class Signup extends Component {
     constructor(){

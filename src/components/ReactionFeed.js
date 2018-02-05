@@ -60,6 +60,7 @@ class ReactionFeed extends Component {
             episode_timestamp: this.state.timeStamp}
         }).then(res => {
             PubSub.publish('UPDATE_REACTIONS', 'now')
+            this.setState({commentForm: false, textComment: ''})
             return res
         })
     }

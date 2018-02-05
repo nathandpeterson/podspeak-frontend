@@ -29,7 +29,7 @@ class PodcastEpisodeBrowser extends Component {
         if(!this.props.data.podcast) return <PodcastSpinner />
         const { episodes } = this.props.data.podcast
         return <div className="episode-container">
-        {episodes.map(episode => <EpisodeCard episode={episode} /> )}
+        {episodes.map(episode => <EpisodeCard key={episode.id} episode={episode} /> )}
     </div>
     }
 

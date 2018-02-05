@@ -3,8 +3,8 @@
 }
 
 .reaction-feed {
-    margin: 0 auto;
-    height: 300px;
+    margin: 1.5rem auto;
+    max-height: 300px;
     max-width: 20rem;
     overflow: auto;
 }
@@ -46,6 +46,7 @@
     .reaction-feed {
         max-width: 30rem;
         overflow: auto;
+        margin: 2rem auto;
     }
   }
 
