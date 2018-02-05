@@ -4,6 +4,7 @@
   width: 100%;
   font-size: 1.25rem;
   z-index: 1000;
+  position: fixed;
 }
 
 .bm-burger-button {
@@ -15,6 +16,7 @@
 }
   
 .bm-burger-bars {
+    position: fixed;
     background: white
 }
 
