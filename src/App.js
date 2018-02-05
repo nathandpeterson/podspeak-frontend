@@ -20,7 +20,7 @@ import DiscoverPodcast from './components/DiscoverPodcast'
 const API = `https://podspeak.herokuapp.com/graphql`
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000/graphql'
+  uri: API
 })
 
 const authLink = setContext((_, { headers }) => {

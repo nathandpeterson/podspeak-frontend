@@ -8,7 +8,7 @@ import PodcastSpinner from './PodcastSpinner'
 import '../styles/EpisodeBrowseStyle.css'
 
 const EpisodeCard = (props) => {
-    console.log(props)
+
     const {id, title, pub_date, description} = props.episode
     return <Card key={id} className='blue episode-list' 
             textClassName='white-text'>

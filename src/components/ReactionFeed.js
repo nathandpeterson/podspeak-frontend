@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Input } from 'react-materialize'
-import { graphql, withApollo } from 'react-apollo'
+import { graphql } from 'react-apollo'
 import CreateReaction from '../queries/CreateReaction'
 import '../styles/ReactionStyle.css'
 import PubSub from 'pubsub-js'
@@ -39,7 +39,7 @@ class ReactionFeed extends Component {
                         <Input  value={this.state.textComment} 
                                 onChange={this.handleTextChange} 
                                 type="text"/>
-                        <div style={{marginBottom: '1rem'}} className="center">
+                        <div className="submit-reaction-btn-container center">
                         <Button onClick={this.submitText} 
                                 className="blue">Submit</Button>
                         </div>
@@ -79,4 +79,4 @@ class ReactionFeed extends Component {
     }
 }
 
-export default graphql(CreateReaction)(withApollo(ReactionFeed))
+export default graphql(CreateReaction)(ReactionFeed)

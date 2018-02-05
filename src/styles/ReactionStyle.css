@@ -34,6 +34,14 @@
     margin: 0 auto;
 }
 
+.placeholder-image {
+    width: 100%;
+}
+
+.submit-reaction-btn-container {
+    margin-bottom: 1rem;
+}
+
 @media(min-width:700px) {
     .reaction-feed {
         max-width: 30rem;

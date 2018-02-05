@@ -31,11 +31,11 @@
     position: absolute;  
   }
 
-  .bm-menu-wrap {
+.bm-menu-wrap {
     z-index: 1100;
     overflow: visible;
     height: 30rem;
-  }
+}
 
   @media(min-width:700px) {
     .bm-burger-bars {
@@ -46,5 +46,11 @@
     }
     .nav-bar {
       position: fixed;
+    }
+  }
+
+  @media(min-width:600px) and (max-width:700px)  {
+    .nav-full {
+      display: none;
     }
   }

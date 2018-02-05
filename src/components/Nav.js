@@ -53,7 +53,7 @@ logout = (e) => {
               <div className="blue nav-wrapper">
                   <a href="/" className="brand-logo center"><i className="material-icons">headset</i>podspeak</a> 
                               
-                  <ul className="right hide-on-small-and-down">
+                  <ul className="right hide-on-small-and-down nav-full">
                   {localStorage.getItem('data') && this.myPodcastsButton()}
                   {localStorage.getItem('data') && this.searchButton()}
                   {localStorage.getItem('data') && this.dashButton()}
@@ -65,6 +65,7 @@ logout = (e) => {
                   {localStorage.getItem('data') && this.searchButton()}
                   {localStorage.getItem('data') && this.dashButton()} 
                   {this.renderLoginButton()}
+                  {this.renderSignUp()}
                 </Menu>
                 </div>
               </nav>   

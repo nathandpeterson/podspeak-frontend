@@ -10,6 +10,11 @@
     display: flex;
     justify-content: center;
   }
+  
+.podcast-container {
+    background-size: contain;
+    opacity: .9;
+}
 
 .pod-card {
     background-color:#DCDCDC;

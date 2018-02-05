@@ -22,7 +22,7 @@ render (){
                 <Col s={1}></Col>
                 <Col s={10}>
                 <Card className="placeholder-card" >
-                    <img alt='podcast cover' style={{width:'100%'}} src={image_URL}/>
+                    <img className="placeholder-image" alt='podcast cover' src={image_URL}/>
                     <p> Nobody has left any comments...</p>
                 </Card>
                 </Col>

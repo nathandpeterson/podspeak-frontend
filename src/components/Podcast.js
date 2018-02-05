@@ -23,7 +23,7 @@ class Podcast extends Component{
         if(!this.props.data.podcast) return <div/>
         const { id, title, description, image_URL } = this.props.data.podcast
         return  <div >
-                    <Card style={{backgroundImage: `url(${image_URL})`, backgroundSize: 'contain', opacity: '.9'}} className="podcast-container"> 
+                    <Card style={{backgroundImage: `url(${image_URL})`}} className="podcast-container"> 
                         <Card>
                             <div className="center">
                                 <h4>{Parser(title)}</h4>

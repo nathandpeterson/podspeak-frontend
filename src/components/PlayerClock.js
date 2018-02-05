@@ -14,7 +14,7 @@ const leftPad = (unit) => {
 }
 
 export default function ({time}){
-    if(!time) return '0:00'
+    if(!time) return '00:00'
     const seconds = parseInt(time, 10)
     return formatTimer(seconds)
 }
