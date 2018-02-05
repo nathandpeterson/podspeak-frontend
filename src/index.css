@@ -7,19 +7,18 @@ body {
   color: gray;
 }
 
-.main-content {
-  margin-top: 4.5rem;
-}
-
 .center {
   display: flex;
   justify-content: center;
 }
 
-@media(min-width:800px) {
+@media(min-width:700px) {
 
   .podcast-description {
     display: block;
+  }
+  .main-content {
+    margin-top: 5rem;
   }
   
 }

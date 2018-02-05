@@ -7,9 +7,11 @@ import PubSub from 'pubsub-js'
 class PlayerButtons extends Component {
 
     renderCommentButton = () => {
-        return <a onClick={this.comment} className="btn-floating btn-large waves-effect waves-light blue">
+        return <div className="center">
+            <a onClick={this.comment} className="btn-floating btn-large waves-effect waves-light blue">
                     <i className="material-icons large">add</i>
                 </a>
+            </div>
     }
   
     renderPlayPause(){
