@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
   }
-  
+
 .podcast-container {
     background-size: contain;
     opacity: .9;
@@ -28,7 +28,7 @@
     background-color:rgba(180,180,180, .5);
     margin: 2rem 0;
 }
-  
+
 .page-card {
     background-color: white;
     display: inline-block;
