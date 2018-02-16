@@ -1,0 +1,18 @@
+.error {
+    color: #f44336;
+    background-color: #eceff1;
+    display: block;
+    width: 60%;
+    border-radius: 1rem;
+    margin: 2rem 0;
+  }
+
+  .success {
+    background-color: #eceff1;
+    display: block;
+    width: 60%;
+    border-radius: 1rem;
+    margin: 2rem 0;
+    padding: .5rem;
+    color: black;
+  }

@@ -5,16 +5,16 @@ import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Nav from './components/Nav'
-import Homepage from './components/Homepage'
-import Userpage from './components/Userpage'
-import Login from './components/Login'
-import Podcast from './components/Podcast'
-import PlayerContainer from './components/PlayerContainer'
-import Signup from './components/Signup'
-import Dash from './components/Dash'
-import requireAuth from './components/requireAuth'
-import DiscoverPodcast from './components/DiscoverPodcast'
+import Nav from './components/Nav/Nav'
+import Homepage from './components/Homepage/Homepage'
+import Userpage from './components/Userpage/Userpage'
+import Login from './components/Login/Login'
+import Podcast from './components/Podcast/Podcast'
+import PlayerContainer from './components/PlayerContainer/PlayerContainer'
+import Signup from './components/Signup/Signup'
+import Dash from './components/Dash/Dash'
+import requireAuth from './components/requireAuth/requireAuth'
+import DiscoverPodcast from './components/DiscoverPodcast/DiscoverPodcast'
 const API = `https://podspeak.herokuapp.com/graphql`
 
 const httpLink = createHttpLink({
@@ -41,12 +41,12 @@ const client = new ApolloClient({
 class App extends Component {
 
   render() {
-    return ( <ApolloProvider client={ client } >      
-                  <BrowserRouter>     
+    return ( <ApolloProvider client={ client } >
+                  <BrowserRouter>
                   <div>
                     <Nav />
-                    <div className="main-content">         
-                      <Switch>                
+                    <div className="main-content">
+                      <Switch>
                         <Route exact path='/login' component={Login}/>
                         <Route exact path='/signup' component={Signup}/>
                         <Route exact path='/:id' component={requireAuth(Userpage)}/>
@@ -54,7 +54,7 @@ class App extends Component {
                         <Route exact path='/:id/dash' component={requireAuth(Dash)}/>
                         <Route exact path='/podcasts/:id' component={Podcast}/>
                         <Route exact path='/episodes/:id' component={PlayerContainer}/>
-                        <Route path='/' component={Homepage}/>      
+                        <Route path='/' component={Homepage}/>
                       </Switch>
                       </div>
                     </div>

@@ -2,7 +2,7 @@ body {
   margin: 0 auto;
   padding: 0;
   font-family: 'Open Sans';
-  background-image: url('./styles/px_by_Gre3g.png');
+  background-image: url('./img/px_by_Gre3g.png');
   background-attachment: fixed;
   color: gray;
 }
@@ -20,5 +20,5 @@ body {
   .main-content {
     margin-top: 5rem;
   }
-  
+
 }

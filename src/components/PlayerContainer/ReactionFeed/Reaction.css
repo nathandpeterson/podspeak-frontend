@@ -1,0 +1,63 @@
+.reaction-feed-container {
+    width: 100%;
+}
+
+.reaction-feed {
+    margin: 1.5rem auto;
+    max-height: 300px;
+    max-width: 20rem;
+    overflow: auto;
+}
+
+.reaction-item {
+    display: block;
+}
+
+.reaction-input {
+    background-color: white;
+}
+
+.text-card-style {
+    font-size: 2rem;
+    margin: 5px auto;
+    word-wrap: break-word;
+    color: black;
+    line-height: 2rem;
+    padding: 1px 20px 0  20px;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.card-chips {
+    display: flex;
+    justify-content: space-between;
+}
+
+.placeholder-card {
+    max-width: 25rem;
+    margin: 0 auto;
+}
+
+.placeholder-image {
+    width: 100%;
+}
+
+.submit-reaction-btn-container {
+    margin-bottom: 1rem;
+}
+
+.reaction-success {
+    background-color: white;
+    opacity: .9;
+    border-radius: 3px;
+    padding: 1px;
+    color: pink;
+}
+
+@media(min-width:700px) {
+    .reaction-feed {
+        max-width: 30rem;
+        overflow: auto;
+        margin: 2rem auto;
+    }
+  }

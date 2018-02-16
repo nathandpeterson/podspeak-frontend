@@ -1,0 +1,40 @@
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+.pod-card-container {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+  }
+
+.podcast-container {
+    background-size: contain;
+    opacity: .9;
+}
+
+.pod-card {
+    background-color:#DCDCDC;
+    width: 100%;
+}
+
+.spinner-card {
+    display: 'inline-block';
+    padding: 1rem;
+    border-radius: 5px;
+    background-color:rgba(180,180,180, .5);
+    margin: 2rem 0;
+}
+
+.page-card {
+    background-color: white;
+    display: inline-block;
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    border-radius: 5px;
+    color: #2196f3;
+}
