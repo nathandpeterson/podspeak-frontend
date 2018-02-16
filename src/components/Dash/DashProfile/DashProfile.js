@@ -3,7 +3,7 @@ import Parser from 'html-react-parser'
 import { Card, Collection, CollectionItem } from 'react-materialize'
 import '../Dash.css'
 import { graphql } from 'react-apollo'
-import DeleteUserPodcast from '../../../queries/DeleteUserPodcast'
+import DeleteUserPodcast from '../../../mutations/DeleteUserPodcast'
 
 
 class DashProfile extends Component  {

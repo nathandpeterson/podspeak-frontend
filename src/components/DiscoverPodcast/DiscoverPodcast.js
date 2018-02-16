@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Row, Col, Input } from 'react-materialize'
 import { graphql } from 'react-apollo'
-import DiscoverQuery from '../../queries/DiscoverQuery'
+import DiscoverQuery from '../../mutations/Discover'
 import DiscoverResults from './DiscoverResults/DiscoverResults'
 import './Discover.css'
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Row, Input, Button } from 'react-materialize'
 import { compose, graphql, withApollo } from 'react-apollo'
-import LoginMutation from '../../queries/LoginMutation'
+import LoginMutation from '../../mutations/LoginMutation'
 import { withRouter } from 'react-router-dom'
 import './Login.css'
 

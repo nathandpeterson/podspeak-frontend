@@ -3,7 +3,7 @@ import { Row, Col, Card } from 'react-materialize'
 import Parser from 'html-react-parser'
 import { graphql } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
-import NewPodcastMutation from '../../../queries/NewPodcastMutation'
+import NewPodcastMutation from '../../../mutations/NewPodcastMutation'
 
 class DiscoverResults extends Component {
 

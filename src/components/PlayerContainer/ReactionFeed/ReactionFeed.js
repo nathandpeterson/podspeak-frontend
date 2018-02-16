@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Input } from 'react-materialize'
 import { graphql } from 'react-apollo'
-import CreateReaction from '../../../queries/CreateReaction'
+import CreateReaction from '../../../mutations/CreateReaction'
 import './Reaction.css'
 import PubSub from 'pubsub-js'
 import Reactions from './Reactions.js'
