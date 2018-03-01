@@ -3,6 +3,9 @@
 Podspeak makes listening to podcasts into an interactive experience by allowing users to comment on episodes in a twitter-like feed. The application allows users to browse, discover, and play podcasts, drawing the most recent episodes from rss feeds and syncing comments with a database using graphQL.
 
 Check out a live demo: [podspeak](http://podspeak.surge.sh)
+Log in with the _guest credentials_ if you want to check out all the features.
+**Email**: guest@guest.com 
+**Password**: password
 
 ![](homepage.png)
 
@@ -17,8 +20,7 @@ Check out a live demo: [podspeak](http://podspeak.surge.sh)
 
 ![](Mobile.png)
 
-<a href="https://youtu.be/IICWJmZORew" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+[<img src="https://youtu.be/IICWJmZORew" target="_blank">](https://youtu.be/IICWJmZORew)
 
 # Frontend features:
 * React
