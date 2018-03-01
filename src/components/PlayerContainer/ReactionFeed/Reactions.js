@@ -1,25 +1,18 @@
 import React from 'react'
 import { Chip } from 'react-materialize'
 
-const formatUserInfo = (data) => {
-    const { userInfo } = data
-    const [ id, avatar , first_name, last_name ] = userInfo.split(',')
-    return { id, avatar, first_name, last_name }
-}
-
 const renderText = (data) => {
-    const userInfo = formatUserInfo(data)
     return   <div key={data.id} className='grey lighten-3 reaction-item text-card-style animated fadeIn'>
                 <p>{data.content}</p>
             <div className="card-chips">
                 <Chip>{data.episode_timestamp}</Chip>
-                <Chip>{userInfo.avatar} {userInfo.first_name}</Chip>
+                <Chip>{data.avatar} {data.first_name}</Chip>
             </div>
             </div>
-         
+
 }
 
-const Reactions = ({reactions }) => {
+const Reactions = ({ reactions }) => {
     return <div className="reaction-feed-container">
                 <div className="reaction-feed">
                         {reactions.map(reaction => {

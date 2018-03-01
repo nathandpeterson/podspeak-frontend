@@ -60,7 +60,7 @@ logout = (e) => {
                   {this.renderLoginButton()}
                   {this.renderSignUp()}
                   </ul>
-               <Menu width={ '60%'}>
+               <Menu width={ '50%'}>
                   {localStorage.getItem('data') && this.myPodcastsButton()}
                   {localStorage.getItem('data') && this.searchButton()}
                   {localStorage.getItem('data') && this.dashButton()}

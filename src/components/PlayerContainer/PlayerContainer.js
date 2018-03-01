@@ -39,9 +39,9 @@ class PlayerContainer extends Component {
     }
 
     render(){
-
         if(this.props.data.loading) return <div />
-        const { title, audio_URL, podcast_name, duration } = this.props.data.episode
+        const { title, audio_URL, duration } = this.props.data.episode
+        const podcast_title = this.props.data.episode.podcast.title || null
         return <div>
             <PlayerReactionUpdater  id={ this.props.match.params.id }
                                     timestamp={ this.state.currentMinute }
@@ -51,7 +51,7 @@ class PlayerContainer extends Component {
             <div className="player-header">
                 <i className="material-icons medium player-arrow" onClick={this.props.history.goBack} >arrow_back</i>
                 <div className="player-header-info">
-                    <h4>{podcast_name}</h4>
+                    <h4>{podcast_title}</h4>
                     <h5> {title}</h5>
                     <h5> {duration} </h5>
                 </div>

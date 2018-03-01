@@ -20,7 +20,6 @@ class ReactionUpdater extends Component {
     }
 }
 
-
 export default graphql(EpisodeTime, {
     options: (props) => { return { variables: { id: props.id, timestamp: props.timestamp} } }
 })(ReactionUpdater)

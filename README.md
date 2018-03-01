@@ -1,31 +1,29 @@
-## podspeak
+# **PODSPEAK**
 
-Podspeak makes listening to podcasts into an interactive experience by allowing users to comment on episodes. The application allows users to browse, discover, and play podcasts, drawing the most recent episodes from rss feeds and syncing comments with a database using graphQL.
+Podspeak makes listening to podcasts into an interactive experience by allowing users to comment on episodes in a twitter-like feed. The application allows users to browse, discover, and play podcasts, drawing the most recent episodes from rss feeds and syncing comments with a database using graphQL.
 
-See demo at: 
-http://podspeak.surge.sh
-Frontend repo:
-https://github.com/nathandpeterson/podspeak-frontend
-Backend repo:
-https://github.com/nathandpeterson/podspeak-api
-
-* Browse podcasts.
-* Search for and discover new podcasts.
-* Read and leave comments on episodes.
+Check out a live demo: [podspeak](http://podspeak.surge.sh)
 
 ![](homepage.png)
 
-* Comments are linked to timestamp and they only load within the current minute that a podcast is being played.
-
-* This feature allows users to engage in 'async' conversations.
+* Browse podcasts.
+* Search for and discover new podcasts using ListenNotes API.
+* Read and leave comments on episodes.
 
 ![](episode-browser.png)
+
+* Comments are linked to timestamp and they only load within the current minute that a podcast is being played.
+* This feature allows users to engage in 'async' conversations.
+
+![](Mobile.png)
 
 # Frontend features:
 * React
 * Apollo Client
 * React Router
-* React Transition Group
+* PubSub-JS
+* Materialize CSS
+* React-player
 
 #Backend features:
 * Node.js / Express
@@ -33,8 +31,8 @@ https://github.com/nathandpeterson/podspeak-api
 * graphQL
 * postgreSQL / Knex.js
 * API for podcast search: ListenNotes
-* Rss feedparser
+* RSS feedparser
 
 # Instructions for use
 
-Just clone and install with npm install
+Just clone down the frontend from this repo and install with npm install. If you want to check out the backend, take a look at [https://github.com/nathandpeterson/podspeak-api].

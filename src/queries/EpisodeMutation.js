@@ -12,7 +12,11 @@ export default gql`mutation EpisodeQuery($id: ID!, $timestamp: String){
                                         user_id
                                         episode_timestamp
                                         content
-                                        userInfo
+                                        user {
+                                          id
+                                          first_name
+                                          avatar
+                                        }
                         }
                     }
                 }`

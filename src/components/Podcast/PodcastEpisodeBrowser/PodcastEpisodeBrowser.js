@@ -5,7 +5,7 @@ import { Button, Card } from 'react-materialize'
 import Parser from 'html-react-parser'
 import { Link } from 'react-router-dom'
 import PodcastSpinner from './PodcastSpinner'
-import './EpisodeBrowse.css'
+import './EpisodeBrowser.css'
 
 const EpisodeCard = (props) => {
 
