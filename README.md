@@ -20,7 +20,7 @@ Log in with the _guest credentials_ if you want to check out all the features.
 
 ![](Mobile.png)
 
-[<img src="https://youtu.be/IICWJmZORew" target="_blank">](https://youtu.be/IICWJmZORew)
+You can also check out a video here: [video demo](https://youtu.be/IICWJmZORew)
 
 # Frontend features:
 * React
