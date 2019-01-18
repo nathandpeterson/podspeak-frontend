@@ -1,10 +1,9 @@
 .nav-bar {
   top: 0;
-  overflow: scroll;
   width: 100%;
-  font-size: 1.25rem;
+  font-size: 1rem;
   z-index: 1000;
-
+  height: 4rem;
 }
 
 .bm-burger-button {
@@ -22,7 +21,7 @@
 
 .bm-menu {
     background: #373a47;
-    font-size: 1.15rem;
+    font-size: 1rem;
   }
 
 .bm-item-list {
